@@ -151,7 +151,7 @@
 			<div class="row">
 				<div class="col-lg-7">
 					<div class="featured-text">
-						<h2 class="pb-3">¿Por qué elegir <span class="orange-text">Joyas & Relojes</span>?</h2>
+						<h2 class="pb-3">¿Por qué elegir <span class="orange-text">Joyas Charly's</span>?</h2>
 						<div class="row">
 							<div class="col-lg-6 col-md-6 mb-4 mb-md-5">
 								<div class="list-box d-flex">
@@ -160,7 +160,7 @@
 									</div>
 									<div class="content">
 										<h3>Envío a domicilio</h3>
-										<p>Recibe tus relojes y joyas directamente en tu puerta, con empaque seguro y elegante.</p>
+										<p>Recibe tus joyas directamente en tu puerta, con empaque seguro y elegante.</p>
 									</div>
 								</div>
 							</div>
@@ -170,8 +170,8 @@
 										<i class="fas fa-money-bill-alt"></i>
 									</div>
 									<div class="content">
-										<h3>Mejores precios</h3>
-										<p>Ofrecemos lujo accesible con precios competitivos en marcas reconocidas y diseños exclusivos.</p>
+										<h3>Calidad Garantizada</h3>
+										<p>Joyas certificadas en oro, plata y piedras preciosas de la más alta calidad.</p>
 									</div>
 								</div>
 							</div>
@@ -181,8 +181,8 @@
 										<i class="fas fa-briefcase"></i>
 									</div>
 									<div class="content">
-										<h3>Estuches personalizados</h3>
-										<p>Presenta tus regalos con estilo: estuches personalizados para cada ocasión especial.</p>
+										<h3>Diseños exclusivos</h3>
+										<p>Creaciones únicas y personalizadas para ocasiones especiales.</p>
 									</div>
 								</div>
 							</div>
@@ -210,11 +210,122 @@
     	<div class="container">
         	<<h3>¡Llegó la venta de diciembre! <br> con grandes <span class="orange-text">descuentos...</span></h3>
 				<div class="sale-percent"><span>¡Oferta! <br> Hasta</span>50% <span>de descuento</span></div>
-				<a href="shop.html" class="cart-btn btn-lg">Ver productos</a>
+				<a href="shop.html" class="cart-btn btn-lg">Ver Joyas</a>
 
         </div>
     </section>
 	<!-- end shop banner -->
+
+
+
+
+
+	<!-- Sección Historia, Misión, Visión y Valores -->
+	<div class="mt-150 mb-80">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3>Nuestra <span class="orange-text">Esencia</span></h3>
+						<p>Conoce más sobre lo que nos define y nos impulsa cada día</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- Historia -->
+				<div class="col-lg-6 mb-5">
+					<div class="single-feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-history"></i>
+						</div>
+						<h4>Nuestra Historia</h4>
+						<p>Joyas Charlys nació en el corazón de Tegucigalpa como un pequeño taller familiar dedicado a la creación y 
+							reparación de joyas artesanales. Con el paso del tiempo, gracias a la dedicación y experiencia de su fundador, 
+							Carlos Maximiliano Murillo, el negocio fue ganando la confianza de sus clientes por la calidad y el detalle en cada 
+							pieza elaborada. Hoy en día, Joyas Charlys se consolida como una joyería reconocida por combinar técnicas tradicionales 
+							con diseños modernos, ofreciendo piezas únicas que reflejan elegancia, compromiso y pasión por el arte de la joyería.</p>
+					</div>
+				</div>
+
+				<!-- Misión -->
+				<div class="col-lg-6 mb-5">
+					<div class="single-feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-bullseye"></i>
+						</div>
+						<h4>Misión</h4>
+						<p>Brindar experiencias únicas a nuestros clientes a través de diseños exclusivos y personalizados, 
+							donde se combina pasión, arte y atención al detalle en cada pieza. Nos comprometemos a ofrecer 
+							joyas que reflejan la identidad y emociones de las personas, utilizando materiales de alta calidad 
+							y técnicas artesanales. </p>
+					</div>
+				</div>
+
+				<!-- Visión -->
+				<div class="col-lg-6 mb-5">
+					<div class="single-feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-eye"></i>
+						</div>
+						<h4>Visión</h4>
+						<p>Ser una joyería de referencia en el mercado nacional e internacional, reconocida por la 
+							originalidad, excelencia y personalización de cada una de nuestras creaciones. Aspiramos a 
+							innovar continuamente en diseño y servicio, manteniendo un firme compromiso con la 
+							autenticidad, la sostenibilidad y la satisfacción de nuestros clientes. </p>
+					</div>
+				</div>
+
+				<!-- Valores -->
+				<div class="col-lg-6 mb-5">
+					<div class="single-feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-gem"></i>
+						</div>
+						<h4>Nuestros Valores</h4>
+						<div class="valores-list">
+							<div class="valor-item">
+								<strong>Calidad:</strong> Cada pieza es elaborada con materiales cuidadosamente seleccionados y altos estándares de precisión.
+							</div>
+							<div>
+								<strong>Honestidad:</strong> Actuamos con transparencia y responsabilidad en cada trato con nuestros clientes.
+							</div>
+							<div class="valor-item">
+								<strong>Compromiso:</strong> Nos esforzamos por cumplir con los tiempos de entrega y mantener la satisfacción total del cliente.
+							</div>
+							<div class="valor-item">
+								<strong>Innovación:</strong> Buscamos mejorar constantemente nuestros procesos y diseños para mantenernos a la vanguardia.
+							</div>
+							<div>
+								<strong>Respeto:</strong> Valoramos a nuestros clientes, colaboradores y proveedores, fomentando relaciones basadas en la confianza mutua.
+							</div>
+							<div class="valor-item">
+								<strong>Pasión:</strong> Amamos lo que hacemos y eso se refleja en cada detalle de nuestro trabajo.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<!-- team section -->
 	<div class="mt-150">
@@ -223,8 +334,8 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">
 						<h3>Conoce a nuestro <span class="orange-text">equipo</span></h3>
-						<p>Somos apasionados por el diseño, la elegancia y la precisión. Nuestro equipo trabaja para ofrecerte las mejores piezas de joyería y relojería con atención personalizada.</p>
-
+						<p>Somos apasionados por el diseño y la elegancia. Nuestro equipo de joyeros y diseñadores trabaja para ofrecerte las mejores 
+							piezas con atención personalizada.</p>
 					</div>
 				</div>
 			</div>
@@ -232,7 +343,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-1"></div>
-						<h4>Jimmy Doe <span>Especialista</span></h4>
+						<h4>Jimmy Doe <span>Administrador</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -243,7 +354,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-2"></div>
-						<h4>Marry Doe <span>Especialista</span></h4>
+						<h4>Marry Doe <span>Diseñadora Principal</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -254,7 +365,7 @@
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-3"></div>
-						<h4>Simon Joe <span>Especialista</span></h4>
+						<h4>Simon Joe <span>Orfebre</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -279,7 +390,7 @@
 							</div>
 							<div class="client-meta">
 								<h3>Saira Hakim <span>Clienta frecuente</span></h3>
-								<p class="testimonial-body">"La calidad de los relojes es excepcional y el servicio al cliente fue impecable. ¡Recomendado!"</p>
+								<p class="testimonial-body">"La calidad de las joyas es excepcional y el servicio al cliente fue impecable. ¡Recomendado!"</p>
 								<div class="last-icon">
 									<i class="fas fa-quote-right"></i>
 								</div>
@@ -303,7 +414,7 @@
 							</div>
 							<div class="client-meta">
 								<h3>David Niph <span>Comprador en línea</span></h3>
-								<p class="testimonial-body">"Recibí mi pedido en tiempo récord y el empaque fue muy elegante. Volveré a comprar sin duda."</p>
+								<p class="testimonial-body">"El anillo de compromiso que compré fue perfecto. Mi prometida quedó encantada con el diseño."</p>
 								<div class="last-icon">
 									<i class="fas fa-quote-right"></i>
 								</div>
@@ -350,16 +461,19 @@
 			<div class="row">
 				<div class="col-lg-3  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
-						<h6>Mas Informacion:</h6>
-						<p>
-						“Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería de las mejores marcas. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión.”
+						<h6 style="color: #fff;">Más Información:</h6>
+						<p style="color: #fff;">
+						"Descubre la elegancia y el lujo con la exclusiva colección de Joyería Charly's. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión especial."
 						</p>
 					</div>
-					<div>
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
 				</div>
-		
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="footer-text m-0" style="color: #fff;">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
+					</p>
+				</div>
 			</div>
 		</div>
 	</footer>
