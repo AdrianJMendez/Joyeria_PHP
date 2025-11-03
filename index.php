@@ -102,7 +102,7 @@
 							</div>
 							<div class="col-lg-7">
 								<div class="banner-img">
-									<img class="img-fluid" src="img/banner/casio.webp" alt="">
+									<img class="img-fluid" src="img/banner/Anillo.png" alt="">
 								</div>
 							</div>
 						</div>
@@ -116,7 +116,7 @@
 							</div>
 							<div class="col-lg-7">
 								<div class="banner-img">
-									<img class="img-fluid" src="img/banner/banner-img.png" alt="">
+									<img class="img-fluid" src="img/banner/banner-img2.png" alt="">
 								</div>
 							</div>
 						</div>
@@ -294,7 +294,7 @@
 					<div class="active-exclusive-product-slider">
 						<!-- single exclusive carousel -->
 						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="img/11.jpg" alt="">
+							<img class="img-fluid" src="img/Pulsera.png" alt="">
 							<div class="product-details">
 								<div class="price">
 									<h6>$150.00</h6>
