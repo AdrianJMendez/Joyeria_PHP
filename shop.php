@@ -87,7 +87,7 @@
 							-->
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="about.php">AbouSobre Nosotros</a></li>
+							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							</li>
 
 							<li class="nav-item submenu dropdown">

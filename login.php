@@ -147,7 +147,7 @@
         <div class="card login-card" style="border-radius: 1rem;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="ruta/imagen"
+              <img src="assets/webfonts/imgLogin.jpg"
                 alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 100%; object-fit: cover;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -206,8 +206,6 @@
 </section>
 <!-- end login -->
 
-
-	<!-- start footer Area -->
 	<!-- start footer Area -->
 	<footer class="footer-area section_gap">
 		<div class="container">
