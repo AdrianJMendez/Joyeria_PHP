@@ -4,8 +4,9 @@
        private $hostBd = 'localhost';
        private $nombreBd = 'relojeria';
        private $usuarioBd = 'root';
-       private $passwordBd = '';
+       private $passwordBd = 'cesar2002CD';
        private $puertoBd = '3306';
+       
        public function __construct(){
           try{
               parent::__construct('mysql:host='.$this->hostBd . ';port='.$this->puertoBd . ';dbname=' . $this->nombreBd 

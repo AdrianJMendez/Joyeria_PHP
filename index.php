@@ -55,10 +55,11 @@
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="cart.php">Cart</a></li>
 							</li>
-
+							<!--
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="404.php">404 Page</a></li>
 							</li>
+							-->
 
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
@@ -77,7 +78,9 @@
 							<a class="nav-link" href="Shop.php">Productos</a></li>
 							</li>
 
-							
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="login.php">Iniciar sesion</a></li>
+							</li>
 						</ul>
 					</div>
 				</div>
