@@ -188,7 +188,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">CADENAS</h2>
             <p>Descubre diseños elegantes en oro que realzan tu estilo con delicadeza y distinción.</p>
-            <a href="categoria.php?id=4" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
@@ -199,7 +199,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">ARETES</h2>
             <p>Aretes únicos que resaltan tu belleza y complementan tu look con sofisticación.</p>
-            <a href="categoria.php?id=2" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
@@ -210,7 +210,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">ANILLOS</h2>
             <p>Descubre nuestras joyas atemporales de amor, poder y estilo personal.</p>
-            <a href="categoria.php?id=1" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
@@ -221,7 +221,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">BRAZALETES</h2>
             <p>Brazaletes creados para acompañarte y destacar en cada movimiento.</p>
-            <a href="categoria.php?id=3" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
