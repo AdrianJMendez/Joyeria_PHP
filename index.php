@@ -178,11 +178,11 @@
 	<!-- end features Area -->
 
 	<!-- Start category Area -->
-<section class="category-area">
+
+	<section class="category-area">
   <div class="container">
     <div class="row justify-content-center">
-      <!-- Primer bloque de 4 categorías -->
-      <div class="col-lg-6 col-md-6 mb-4">
+     <div class="col-lg-6 col-md-6 mb-4">
         <div class="single-deal position-relative">
           <img class="img-fluid w-100 rounded" src="img/category/CC4.png" alt="Cadenas">
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
