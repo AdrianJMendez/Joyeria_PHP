@@ -46,6 +46,8 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/faq-politicas.css">
+	<link rel="stylesheet" href="css/equipo.css">
 
 </head>
 <body>
@@ -212,16 +214,12 @@
 	<!-- shop banner -->
 	<section class="shop-banner">
     	<div class="container">
-        	<<h3>¡Llegó la venta de diciembre! <br> con grandes <span class="orange-text">descuentos...</span></h3>
+        	<h3>¡Llegó la venta de diciembre! <br> con grandes <span class="orange-text">descuentos...</span></h3>
 				<div class="sale-percent"><span>¡Oferta! <br> Hasta</span>50% <span>de descuento</span></div>
 				<a href="shop.html" class="cart-btn btn-lg">Ver Joyas</a>
-
         </div>
     </section>
 	<!-- end shop banner -->
-
-
-
 
 
 	<!-- Sección Historia, Misión, Visión y Valores -->
@@ -313,24 +311,6 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<!-- team section -->
 	<div class="mt-150">
 		<div class="container">
@@ -344,10 +324,13 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
+				<!-- Jonathan Aguilar -->
+				<div class="col-lg-3 col-md-6">
 					<div class="single-team-item">
-						<div class="team-bg team-bg-1"></div>
-						<h4>Jimmy Doe <span>Administrador</span></h4>
+						<div class="team-img">
+							<img src="assets/webfonts/John.jpg" alt="Jonathan Aguilar" class="img-fluid">
+						</div>
+						<h4>Jonathan Aguilar <span>Administrador</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -355,10 +338,13 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
+				<!-- Sofía Urrutia -->
+				<div class="col-lg-3 col-md-6">
 					<div class="single-team-item">
-						<div class="team-bg team-bg-2"></div>
-						<h4>Marry Doe <span>Diseñadora Principal</span></h4>
+						<div class="team-img">
+							<img src="assets/webfonts/Sofia.jpg" alt="Sofía Urrutia" class="img-fluid">
+						</div>
+						<h4>Sofía Urrutia <span>Diseñadora Principal</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -366,10 +352,27 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+				<!-- Cesar Cruz -->
+				<div class="col-lg-3 col-md-6">
 					<div class="single-team-item">
-						<div class="team-bg team-bg-3"></div>
-						<h4>Simon Joe <span>Orfebre</span></h4>
+						<div class="team-img">
+							<img src="assets/webfonts/Cesar.jpg" alt="Cesar Cruz" class="img-fluid">
+						</div>
+						<h4>Cesar Cruz <span>Fabricante</span></h4>
+						<ul class="social-link-team">
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Adrian Mendez -->
+				<div class="col-lg-3 col-md-6">
+					<div class="single-team-item">
+						<div class="team-img">
+							<img src="assets/webfonts/Adrian.jpg" alt="Adrian Mendez" class="img-fluid">
+						</div>
+						<h4>Adrian Mendez <span>Vendedor</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -459,6 +462,379 @@
 	</div>
 	<!-- end logo carousel -->
 
+
+	<!-- Preguntas Frecuentes -->
+	<div class="faq-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3>Preguntas <span class="orange-text">Frecuentes</span></h3>
+						<p>Resolvemos tus dudas más comunes sobre nuestras joyas y servicios</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="faq-accordion" id="faqAccordion">
+						<!-- Pregunta 1 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingOne">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									¿Qué servicios ofrecen?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Realizamos diseño, fabricación y reparación de joyas en oro y plata.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 2 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingTwo">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									¿Ofrecen garantía en sus joyas?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Sí, todas nuestras joyas incluyen garantía de 6 meses contra defectos de fabricación. La garantía cubre problemas estructurales pero no incluye daños por mal uso o desgaste normal.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 3 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingThree">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									¿Puedo personalizar una joya?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>¡Absolutamente! Especializamos en joyería personalizada. Puedes agendar una cita con nuestro diseñador para crear una pieza única que se adapte a tus preferencias y presupuesto.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 4 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingFour">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+									¿Cuánto tiempo tarda un trabajo?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Depende de la complejidad. Reparaciones simples pueden tardar 1–3 días; fabricaciones especiales entre 1 y 3 semanas.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 5 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingFive">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+									¿Cómo calculan el precio de una joya?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Se toma en cuenta el material, peso, dificultad del trabajo y tiempo de elaboración. El sistema calcula un precio estimado automáticamente.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 6 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingSix">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+									¿Necesito dejar anticipo?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Sí, tanto para trabajos de fabricación como de reparación se necesita dar un anticipo del 50% del costo total de la fabricación o reparación.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 7 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingSeven">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+									¿Puedo llevar mi propio material?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Sí, pero el material será revisado para asegurar su autenticidad y viabilidad.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 8 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingEight">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+									¿Qué pasa si no recojo mi pieza a tiempo?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Después de 30 días, no nos hacemos responsables por daños o deterioro causados por almacenamiento prolongado.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pregunta 9 -->
+						<div class="faq-card">
+							<div class="faq-header" id="headingNine">
+								<button class="faq-question collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+									¿Puedo solicitar una cotización sin compromiso?
+									<i class="fas fa-chevron-down"></i>
+								</button>
+							</div>
+							<div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#faqAccordion">
+								<div class="faq-answer">
+									<p>Claro, todas las cotizaciones son gratuitas.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Políticas de la Empresa -->
+	<div class="policies-section mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3>Nuestras <span class="orange-text">Políticas</span></h3>
+						<p>Comprometidos con la excelencia y transparencia en nuestro servicio</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Pestañas de Políticas -->
+					<div class="policies-tabs">
+						<div class="policies-tabs-container">
+							<ul class="nav nav-tabs justify-content-center" id="policiesTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="shipping-tab" data-toggle="tab" href="#shipping" role="tab" aria-controls="shipping" aria-selected="true">
+										<i class="fas fa-shipping-fast"></i> Envíos
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="returns-tab" data-toggle="tab" href="#returns" role="tab" aria-controls="returns" aria-selected="false">
+										<i class="fas fa-sync-alt"></i> Devoluciones
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="warranty-tab" data-toggle="tab" href="#warranty" role="tab" aria-controls="warranty" aria-selected="false">
+										<i class="fas fa-award"></i> Garantías
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false">
+										<i class="fas fa-shield-alt"></i> Privacidad
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="false">
+										<i class="fas fa-file-alt"></i> Generales
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<div class="tab-content mt-5" id="policiesTabContent">
+							<!-- Política de Envíos -->
+							<div class="tab-pane fade show active" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
+								<div class="policy-content">
+									<h4>Política de Envíos</h4>
+									<div class="row">
+										<div class="col-lg-6">
+											<h5><i class="fas fa-truck"></i> Envíos Nacionales</h5>
+											<ul>
+												<li><strong>Cobertura:</strong> Todo el territorio nacional</li>
+												<li><strong>Tiempo de entrega:</strong> 2-5 días hábiles</li>
+												<li><strong>Costo:</strong> Gratis en compras mayores a $100</li>
+												<li><strong>Empresas:</strong> Servicios de mensajería local y nacional</li>
+											</ul>
+										</div>
+										<div class="col-lg-6">
+											<h5><i class="fas fa-globe-americas"></i> Envíos Internacionales</h5>
+											<ul>
+												<li><strong>Cobertura:</strong> Centroamérica y Norteamérica</li>
+												<li><strong>Tiempo de entrega:</strong> 5-15 días hábiles</li>
+												<li><strong>Documentación:</strong> Factura y certificados incluidos</li>
+												<li><strong>Seguimiento:</strong> Número de rastreo incluido</li>
+											</ul>
+										</div>
+									</div>
+									<div class="policy-note">
+										<p><strong>Nota:</strong> Los tiempos de entrega pueden variar según condiciones climáticas y festivos nacionales.</p>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Política de Devoluciones y Cambios -->
+							<div class="tab-pane fade" id="returns" role="tabpanel" aria-labelledby="returns-tab">
+								<div class="policy-content">
+									<h4>Política de Devoluciones y Cambios</h4>
+									<div class="row">
+										<div class="col-lg-6">
+											<h5><i class="fas fa-check-circle"></i> Condiciones Aceptables</h5>
+											<ul>
+												<li><strong>Plazo:</strong> 15 días naturales desde la compra</li>
+												<li><strong>Estado:</strong> Producto en estado original sin usar</li>
+												<li><strong>Embalaje:</strong> Caja y documentación completas</li>
+												<li><strong>Etiquetas:</strong> Todas las etiquetas deben estar intactas</li>
+											</ul>
+										</div>
+										<div class="col-lg-6">
+											<h5><i class="fas fa-times-circle"></i> Exclusiones</h5>
+											<ul>
+												<li>Joyas personalizadas o hechas a medida</li>
+												<li>Productos en oferta o promoción especial</li>
+												<li>Piezas con daños por mal uso del cliente</li>
+												<li>Productos sin ticket o factura de compra</li>
+											</ul>
+										</div>
+									</div>
+									<div class="policy-process">
+										<h5><i class="fas fa-list-ol"></i> Proceso de Devolución</h5>
+										<ol>
+											<li>Contactar a servicio al cliente dentro del plazo</li>
+											<li>Recibir autorización y código de devolución</li>
+											<li>Empaquetar el producto en su estado original</li>
+											<li>Enviar a la dirección indicada</li>
+											<li>Inspección y aprobación (3-5 días hábiles)</li>
+											<li>Reembolso o cambio según preferencia</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Política de Garantías (la que ya teníamos) -->
+							<div class="tab-pane fade" id="warranty" role="tabpanel" aria-labelledby="warranty-tab">
+								<div class="policy-content">
+									<h4>Política de Garantías</h4>
+									<div class="row">
+										<div class="col-lg-6">
+											<h5><i class="fas fa-check-double"></i> Cobertura de Garantía</h5>
+											<ul>
+												<li><strong>Reparaciones:</strong> 15 días después de la entrega</li>
+												<li><strong>Fabricación:</strong> 6 meses por defectos de fabricación</li>
+												<li>Defectos en materiales y ensamblaje</li>
+												<li>Problemas en soldaduras y cierres</li>
+											</ul>
+										</div>
+										<div class="col-lg-6">
+											<h5><i class="fas fa-exclamation-triangle"></i> Exclusiones de Garantía</h5>
+											<ul>
+												<li>Piezas alteradas por terceros</li>
+												<li>Daños por mal uso o accidentes</li>
+												<li>Desgaste normal por el uso diario</li>
+												<li>Daños preexistentes no reportados</li>
+												<li>Pérdida de piedras por golpes fuertes</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Política de Privacidad (la que ya teníamos) -->
+							<div class="tab-pane fade" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
+								<div class="policy-content">
+									<h4>Política de Privacidad y Manejo de Datos</h4>
+									<div class="policy-detail">
+										<p>Respetamos y protegemos la información personal de nuestros clientes.</p>
+										<div class="policy-points">
+											<div class="policy-point">
+												<i class="fas fa-lock"></i>
+												<span>Los datos personales se utilizan únicamente para la prestación del servicio</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-shield-alt"></i>
+												<span>No compartimos información con terceros sin consentimiento</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-user-check"></i>
+												<span>Protección de nombres, contactos y especificaciones de pedidos</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-database"></i>
+												<span>Almacenamiento seguro de la información del cliente</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-envelope"></i>
+												<span>Comunicaciones solo relacionadas con el servicio contratado</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Política Generales -->
+							<div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
+								<div class="policy-content">
+									<h4>Políticas Generales</h4>
+									<div class="policy-detail">
+										<div class="policy-points">
+											<div class="policy-point">
+												<i class="fas fa-gem"></i>
+												<span><strong>Política de Calidad:</strong> Todas las piezas pasan por control de calidad antes de ser entregadas</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-users"></i>
+												<span><strong>Atención al Cliente:</strong> Servicio personalizado por orden de llegada, con trato respetuoso y transparente</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-tag"></i>
+												<span><strong>Precios y Pagos:</strong> Cálculo basado en material, peso, complejidad y mano de obra. 50% de anticipo para trabajos especiales</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-calendar-alt"></i>
+												<span><strong>Entregas:</strong> Tiempos definidos por complejidad. Piezas deben recogerse en 30 días después de notificadas</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-boxes"></i>
+												<span><strong>Inventarios:</strong> Control riguroso de materiales. No iniciamos órdenes sin insumos disponibles</span>
+											</div>
+											<div class="policy-point">
+												<i class="fas fa-handshake"></i>
+												<span><strong>Responsabilidad:</strong> Registro del estado de piezas al recibirlas. No nos hacemos responsables por daños preexistentes</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 	<!-- start footer Area -->
 	<footer class="footer-area section_gap">
 		<div class="container">
@@ -466,7 +842,7 @@
 				<div class="col-lg-3  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
 						<h6 style="color: #fff;">Más Información:</h6>
-						<p style="color: #fff;">
+						<p style="color: gray;">
 						"Descubre la elegancia y el lujo con la exclusiva colección de Joyería Charly's. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión especial."
 						</p>
 					</div>
@@ -474,7 +850,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="footer-text m-0" style="color: #fff;">
+					<p class="footer-text m-0" style="color: gray;">
 						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
 					</p>
 				</div>
