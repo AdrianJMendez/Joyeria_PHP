@@ -43,15 +43,17 @@ function mostrarJoyas(joyas) {
                     <button class="btn btn-outline-secondary button-plus" type="button">+</button>
                 </div>
 
-                <button class="btn btn-outline-warning add-to-cart" 
-                    type="button" 
-                    data-id="${joya.id_joya}" 
-                    data-nombre="${joya.nombre}" 
-                    data-material="${joya.material}" 
-                    data-precio="${joya.precio}" 
+                <button 
+                    class="btn btn-outline-warning add-to-cart" 
+                    type="button"
+                    data-id="${joya.id_joya}"
+                    data-nombre="${joya.nombre}"
+                    data-material="${joya.material}"
+                    data-precio="${joya.precio}"
                     data-imagen="${joya.imagen_url}">
                     <i class="bi bi-cart"></i> AGREGAR
                 </button>
+
             </div>
         `;
         contenedor.appendChild(joyaElemento);
@@ -75,25 +77,23 @@ document.addEventListener('click', function(e) {
 
 // Agregar al carrito
 document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('add-to-cart')) {
-        const button = e.target;
+    const button = e.target.closest('.add-to-cart'); // busca el botón aunque el clic sea en el <i>
+    if (button) {
         const producto = {
             id_joya: button.getAttribute('data-id'),
             nombre: button.getAttribute('data-nombre'),
             material: button.getAttribute('data-material'),
-            precio: button.getAttribute('data-precio'),
+            precio: parseFloat(button.getAttribute('data-precio')),
             imagen_url: button.getAttribute('data-imagen'),
-            cantidad: button.parentElement.querySelector('.quantity-input').value
+            cantidad: parseInt(button.parentElement.querySelector('.quantity-input').value)
         };
 
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carrito.push(producto);
         localStorage.setItem('carrito', JSON.stringify(carrito));
-
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        successModal.show();
     }
 });
+
 
 function cerrarModal() {
     const modalElement = document.getElementById('successModal');

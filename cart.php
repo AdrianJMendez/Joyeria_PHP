@@ -158,7 +158,7 @@
                     <div class="checkout_btn_inner d-flex align-items-center">
                                         <a class="gray_btn" onclick="eliminarOrden()">Limpiar Orden</a>
                                         <a class="gray_btn" onclick="window.location.href='index.php';">Pagina Principal</a>
-                                        <a class="primary-btn" href="#" onclick="window.location.href='form.php';">Guardar Orden</a>
+                                        <a class="primary-btn" href="#" onclick="guardarOrden()">Guardar Orden</a>
                      </div>
                     </div>
 

@@ -30,6 +30,16 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/nouislider.min.css">
+	<link rel="stylesheet" href="css/ion.rangeSlider.css" />
+	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+	<link rel="stylesheet" href="css/magnific-popup.css">
 
 </head>
 <body>
@@ -42,92 +52,53 @@
     </div>
     <!--PreLoader Ends-->
 	
-	<!-- header -->
-	<div class="top-header-area" id="sticker">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-sm-12 text-center">
-					<div class="main-menu-wrap">
-						<!-- logo -->
-						<div class="site-logo">
-							<a href="index.html">
-								<img src="assets/img/logo.png" alt="">
-							</a>
-						</div>
-						<!-- logo -->
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="index.php"><img src="img/fav.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
 
-						<!-- menu start -->
-						<nav class="main-menu">
-							<ul>
-								<li class="current-list-item"><a href="#">Home</a>
-									<ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
-										<li><a href="index_2.html">Slider Home</a></li>
-									</ul>
-								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
-								</li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
-								</li>
-								<li>
-									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-									</div>
-								</li>
-							</ul>
-						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-						<div class="mobile-menu"></div>
-						<!-- menu end -->
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="cart.php">Cart</a></li>
+							</li>
+
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
+							</li>
+
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="contact.php">Contacto</a></li>
+							</li>
+
+
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="News.php">Noticias</a></li>
+							</li>
+
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="Shop.php">Productos</a></li>
+							</li>
+
+							
+						</ul>
 					</div>
 				</div>
-			</div>
+			</nav>
 		</div>
-	</div>
-	<!-- end header -->
-
-	<!-- search area -->
-	<div class="search-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end search arewa -->
+	</header>
+	<!-- End Header Area -->
 	
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
@@ -135,8 +106,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Check Out Product</h1>
+						<p>Pago seguro y</p>
+						<h1>Confiable</h1>
 					</div>
 				</div>
 			</div>
@@ -221,39 +192,14 @@
 								</tr>
 							</thead>
 							<tbody class="order-details-body">
-								<tr>
-									<td>Product</td>
-									<td>Total</td>
-								</tr>
-								<tr>
-									<td>Strawberry</td>
-									<td>$85.00</td>
-								</tr>
-								<tr>
-									<td>Berry</td>
-									<td>$70.00</td>
-								</tr>
-								<tr>
-									<td>Lemon</td>
-									<td>$35.00</td>
-								</tr>
+								
 							</tbody>
 							<tbody class="checkout-details">
-								<tr>
-									<td>Subtotal</td>
-									<td>$190</td>
-								</tr>
-								<tr>
-									<td>Shipping</td>
-									<td>$50</td>
-								</tr>
-								<tr>
-									<td>Total</td>
-									<td>$240</td>
+								
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Place Order</a>
+						<a href="#" class="boxed-btn">Order</a>
 					</div>
 				</div>
 			</div>
@@ -310,6 +256,65 @@
 	</footer>
 	<!-- End footer Area -->
 	
+
+	<script>
+			function cargarCarritoEnCheckout() {
+				const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+				const cuerpoTabla = document.querySelector(".order-details-body");
+				const resumenTabla = document.querySelector(".checkout-details");
+
+				// Limpia las filas previas excepto la primera fila de encabezado
+				cuerpoTabla.innerHTML = `
+					<tr>
+					<td>Product</td>
+					<td>Total</td>
+					</tr>
+				`;
+
+				if (carrito.length === 0) {
+					cuerpoTabla.innerHTML += `
+					<tr>
+						<td colspan="2">Tu carrito está vacío</td>
+					</tr>
+					`;
+					resumenTabla.innerHTML = `
+					<tr><td>Subtotal</td><td>$0.00</td></tr>
+					<tr><td>Shipping</td><td>$0.00</td></tr>
+					<tr><td>Total</td><td>$0.00</td></tr>
+					`;
+					return;
+				}
+
+				// Mostrar productos
+				let subtotal = 0;
+				carrito.forEach(producto => {
+					const totalProducto = producto.precio * producto.cantidad;
+					subtotal += totalProducto;
+
+					cuerpoTabla.innerHTML += `
+					<tr>
+						<td>${producto.nombre} × ${producto.cantidad}</td>
+						<td>$${totalProducto.toFixed(2)}</td>
+					</tr>
+					`;
+				});
+
+				// Calcular envío y total
+				const envio = 50; // Podés cambiarlo si es dinámico
+				const total = subtotal + envio;
+
+				resumenTabla.innerHTML = `
+					<tr><td>Subtotal</td><td>$${subtotal.toFixed(2)}</td></tr>
+					<tr><td>Shipping</td><td>$${envio.toFixed(2)}</td></tr>
+					<tr><td>Total</td><td>$${total.toFixed(2)}</td></tr>
+				`;
+				}
+
+				// Ejecutar cuando la página cargue
+				document.addEventListener("DOMContentLoaded", cargarCarritoEnCheckout);
+
+	</script>
+	<script src="js/script_shop.js"></script><script src="js/main.js"></script>
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->

@@ -57,10 +57,6 @@
 							</li>
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="404.php">404 Page</a></li>
-							</li>
-
-							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							</li>
 
@@ -230,32 +226,6 @@
 </section>
 
 	<!-- End category Area -->
-
-	<!-- start product Area tambien esta area -->
-	<section class="">
-		<!-- single product slide -->
-		<div class="single-product-slider">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6 text-center">
-						<div class="section-title">
-							<h1>Productos</h1>
-							
-						</div>
-					</div>
-				</div>
-				<div class="row" id="relojes_galeria">
-					<!-- single product -->
-					<h1>No hay Articulos para mostrar</h1>
-
-					
-
-				</div>
-			</div>
-		</div>
-		
-	</section>
-	<!-- end product Area -->
 
 	<!-- Start exclusive deal Area -->
 	<section class="exclusive-deal-area">
