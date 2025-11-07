@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Contacta a nuestra joyería - Encuentra la joya perfecta con nuestro equipo especializado">
 
 	<!-- title -->
-	<title>Contact</title>
+	<title>Contacto - Joyas Charly's</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -45,6 +45,7 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/contactenos.css">
 
 </head>
 <body>
@@ -73,26 +74,19 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
 
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="cart.php">Cart</a></li>
 							</li>
 
-							<!--
-							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="404.php">404 Page</a></li>
-							</li>
-							-->
-
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							</li>
 
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item active submenu dropdown">
 							<a class="nav-link" href="contact.php">Contacto</a></li>
 							</li>
-
 
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="News.php">Noticias</a></li>
@@ -138,9 +132,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<<p>Atención personalizada 24/7</p>
+						<p>Atención personalizada 24/7</p>
 						<h1>Contáctanos</h1>
-
 					</div>
 				</div>
 			</div>
@@ -156,33 +149,59 @@
 					<div class="form-title">
 						<h2>¿Tienes alguna pregunta?</h2>
 						<p>Estamos aquí para ayudarte a encontrar la joya o el reloj perfecto. Nuestro equipo está disponible para responder tus dudas sobre productos, pedidos o servicios personalizados.</p>
-
-				 	<div id="form_status"></div>
+					</div>
+					<div id="form_status"></div>
 					<div class="contact-form">
 						<form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
-							<input type="text" placeholder="Nombre" name="name" id="name">
-							<input type="email" placeholder="Correo electrónico" name="email" id="email">
-							<input type="tel" placeholder="Teléfono" name="phone" id="phone">
-							<input type="text" placeholder="Asunto" name="subject" id="subject">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" placeholder="Nombre" name="name" id="name">
+								</div>
+								<div class="col-md-6">
+									<input type="email" placeholder="Correo electrónico" name="email" id="email">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<input type="tel" placeholder="Teléfono" name="phone" id="phone">
+								</div>
+								<div class="col-md-6">
+									<input type="text" placeholder="Asunto" name="subject" id="subject">
+								</div>
+							</div>
 							<textarea name="message" id="message" cols="30" rows="10" placeholder="Mensaje"></textarea>
-							<input type="submit" value="Enviar">
-
+							<input type="submit" class="btn-enviar" value="Enviar Mensaje">
 						</form>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="contact-form-wrap">
-						<div class="contact-form-box">
+						<div class="contact-info-box">
 							<h4><i class="fas fa-map"></i> Dirección de la tienda</h4>
-							<p>Avenida Central #123 <br> Zona Comercial, Ciudad Elegante <br> Honduras</p>
+							<p>Bo. El Centro, Ave Máximo Jerez<br>Casa 820<br>Tegucigalpa, Honduras</p>
 						</div>
-						<div class="contact-form-box">
+						<div class="contact-info-box">
 							<h4><i class="far fa-clock"></i> Horario de atención</h4>
-							<p>LUN - VIE: 9:00 AM a 7:00 PM <br> SÁB - DOM: 10:00 AM a 6:00 PM</p>
+							<p>LUN - VIE: 9:00 AM a 7:00 PM <br>SÁB: 10:00 AM a 6:00 PM <br>DOM: 11:00 AM a 4:00 PM</p>
 						</div>
-						<div class="contact-form-box">
-							<h4><i class="fas fa-address-book"></i> Contacto</h4>
-							<p>Telefono: <br> Email: </p>
+						<div class="contact-info-box">
+							<h4><i class="fas fa-phone"></i> Teléfonos</h4>
+							<p>+504 1234-5678<br>+504 9876-5432</p>
+						</div>
+						<div class="contact-info-box">
+							<h4><i class="fas fa-envelope"></i> Email</h4>
+							<p>info@joyeriaelegante.com<br>ventas@joyeriaelegante.com</p>
+						</div>
+						<div class="contact-info-box">
+							<h4><i class="fab fa-instagram"></i> Síguenos</h4>
+							<p>
+								<a href="https://www.instagram.com/joyas.charlys/" target="_blank" style="color: #c19b76; text-decoration: none; font-weight: bold; font-size: 16px;">
+									@joyas.charlys
+								</a>
+							</p>
+							<p style="color: #666; font-size: 14px; margin-top: 5px;">
+								Mira nuestras últimas colecciones y promociones
+							</p>
 						</div>
 					</div>
 				</div>
@@ -191,25 +210,34 @@
 	</div>
 	<!-- end contact form -->
 
-	<!-- find our location -->
-	<div class="find-location blue-bg">
+	<!-- google map section -->
+	<div class="map-section mb-150">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12 text-center">
-					<<p> <i class="fas fa-map-marker-alt"></i> Encuentra nuestra ubicación</p>
-
+				<div class="col-lg-12 text-center mb-5">
+					<h2><i class="fas fa-map-marker-alt"></i> Encuentra Nuestra Ubicación</h2>
+					<p class="lead">Visítanos en nuestra tienda física y descubre nuestra exclusiva colección</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="map-container">
+						<iframe 
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d380.7415886455622!2d-87.20331743692677!3d14.106949395727245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa32e9f41754b%3A0x2175c641354571bc!2sJoyas%20Charlys!5e0!3m2!1ses-419!2shn!4v1762495602339!5m2!1ses-419!2shn" 
+							width="100%" 
+							height="100%" 
+							style="border:0;" 
+							allowfullscreen="" 
+							loading="lazy" 
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Ubicación de Joyas Charlys en Tegucigalpa">
+						</iframe>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- end find our location -->
-
-	<!-- google map section -->
-	<div class="embed-responsive embed-responsive-21by9">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26432.42324808999!2d-118.34398767954286!3d34.09378509738966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07045279bf%3A0xf67a9a6797bdfae4!2sHollywood%2C%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1576846473265!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" class="embed-responsive-item"></iframe>
-	</div>
 	<!-- end google map section -->
-
 
 	<!-- start footer Area -->
 	<footer class="footer-area section_gap">
@@ -217,16 +245,19 @@
 			<div class="row">
 				<div class="col-lg-3  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
-						<h6>Mas Informacion:</h6>
-						<p>
-						“Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería de las mejores marcas. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión.”
+						<h6 style="color: #fff;">Más Información:</h6>
+						<p style="color: gray;">
+						"Descubre la elegancia y el lujo con la exclusiva colección de Joyería Charly's. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión especial."
 						</p>
 					</div>
-					<div>
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
 				</div>
-		
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="footer-text m-0" style="color: gray;">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
+					</p>
+				</div>
 			</div>
 		</div>
 	</footer>

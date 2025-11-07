@@ -15,7 +15,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Joyeria</title>
+	<title>Joyas Charly's</title>
 	<!--
 		CSS
 		============================================= -->
