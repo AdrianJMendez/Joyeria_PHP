@@ -186,11 +186,11 @@
 						</div>
 						<div class="contact-info-box">
 							<h4><i class="fas fa-phone"></i> Teléfonos</h4>
-							<p>+504 1234-5678<br>+504 9876-5432</p>
+							<p>+504 9971-7820<br>+504 9833-2595</p>
 						</div>
 						<div class="contact-info-box">
 							<h4><i class="fas fa-envelope"></i> Email</h4>
-							<p>info@joyeriaelegante.com<br>ventas@joyeriaelegante.com</p>
+							<p>joyascharlys@gmail.com</p>
 						</div>
 						<div class="contact-info-box">
 							<h4><i class="fab fa-instagram"></i> Síguenos</h4>
