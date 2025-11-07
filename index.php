@@ -55,10 +55,11 @@
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="cart.php">Cart</a></li>
 							</li>
-
+							<!--
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="404.php">404 Page</a></li>
 							</li>
+							-->
 
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
@@ -77,7 +78,9 @@
 							<a class="nav-link" href="Shop.php">Productos</a></li>
 							</li>
 
-							
+							<li class="nav-item submenu dropdown">
+							<a class="nav-link" href="login.php">Iniciar sesion</a></li>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -188,7 +191,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">CADENAS</h2>
             <p>Descubre diseños elegantes en oro que realzan tu estilo con delicadeza y distinción.</p>
-            <a href="categoria.php?id=4" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
@@ -199,7 +202,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">ARETES</h2>
             <p>Aretes únicos que resaltan tu belleza y complementan tu look con sofisticación.</p>
-            <a href="categoria.php?id=2" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
@@ -210,7 +213,7 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">ANILLOS</h2>
             <p>Descubre nuestras joyas atemporales de amor, poder y estilo personal.</p>
-            <a href="categoria.php?id=1" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
@@ -221,17 +224,17 @@
           <div class="deal-details position-absolute top-50 start-50 translate-middle text-center text-white">
             <h2 class="text-white">BRAZALETES</h2>
             <p>Brazaletes creados para acompañarte y destacar en cada movimiento.</p>
-            <a href="categoria.php?id=3" class="btn btn-outline-light mt-2">Ver más</a>
+            <a href="#" class="btn btn-outline-light mt-2">Ver más</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
+	
 	<!-- End category Area -->
 
-	<!-- start product Area tambien esta area -->
+	<!-- start product Area -->
 	<section class="">
 		<!-- single product slide -->
 		<div class="single-product-slider">
@@ -324,7 +327,56 @@
 	<!-- Modal -->
 	<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
-				
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="successModalLabel">Éxito</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					¡Agregado correctamente!
+				</div>
+				<div class="modal-footer">
+
+				</div>
+				</div>
+			</div>
+        </div>
+	
+
+	<!-- start footer Area -->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>Mas Informacion:</h6>
+						<p>
+						“Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería de las mejores marcas. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión.”
+						</p>
+					</div>
+					<div>
+				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+				</div>
+		
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+	<script src="js/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+	 crossorigin="anonymous"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/countdown.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
 	<!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
