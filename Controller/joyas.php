@@ -12,27 +12,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 include '../Database/conexion.php';
 $pdo = new Conexion();
 
-// Obtener todas las joyas o una en específico
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id'])) {
         // Obtener una joya específica
         $sql = $pdo->prepare("SELECT * FROM Joyas WHERE id_joya = :id");
         $sql->bindValue(':id', $_GET['id']);
-        $sql->execute();
-        $sql->setFetchMode(PDO::FETCH_ASSOC);
-        header("HTTP/1.1 200 OK");
-        echo json_encode($sql->fetchAll());
-        exit;
+    } elseif (isset($_GET['id_categoria'])) {
+        // Obtener joyas por categoría
+        $sql = $pdo->prepare("SELECT * FROM Joyas WHERE id_categoria = :id_categoria");
+        $sql->bindValue(':id_categoria', $_GET['id_categoria']);
     } else {
         // Obtener todas las joyas
         $sql = $pdo->prepare("SELECT * FROM Joyas");
-        $sql->execute();
-        $sql->setFetchMode(PDO::FETCH_ASSOC);
-        header("HTTP/1.1 200 OK");
-        echo json_encode($sql->fetchAll());
-        exit;
     }
+
+    $sql->execute();
+    $sql->setFetchMode(PDO::FETCH_ASSOC);
+    header("HTTP/1.1 200 OK");
+    echo json_encode($sql->fetchAll());
+    exit;
 }
+
 
 // Insertar una nueva joya
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
