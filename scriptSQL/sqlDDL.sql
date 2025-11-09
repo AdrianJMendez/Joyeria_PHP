@@ -100,3 +100,6 @@ CREATE TABLE Pagos (
     FOREIGN KEY (id_factura) REFERENCES Factura(id_factura),
     FOREIGN KEY (id_tarjeta) REFERENCES Tarjetas_de_Credito(id_tarjeta)
 );
+
+ALTER TABLE Joyas
+ADD COLUMN stock INT DEFAULT 0;
