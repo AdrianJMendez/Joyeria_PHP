@@ -4,7 +4,7 @@
        private $hostBd = 'localhost';
        private $nombreBd = 'joyeria';
        private $usuarioBd = 'root';
-       private $passwordBd = '';
+       private $passwordBd = 'cesar2002CD';
        private $puertoBd = '3306';
        
        public function __construct(){
@@ -17,6 +17,4 @@
           }
        }
    }
-
-
 ?>

@@ -138,7 +138,8 @@
 	</header>
 	<!-- End Header Area -->
 
-	
+
+
 <!-- div login -->
 <section class="login-section" style="background-color: #f8f9fa;">
   <div class="container py-5 h-100">
@@ -163,13 +164,13 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; color: #8B4513;">Inicia sesión en tu cuenta</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Correo electrónico</label>
+                    <input type="email" id="emailSesion" class="form-control form-control-lg" />
+                    <label class="form-label" for="emailSesion">Correo electrónico</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Contraseña</label>
+                    <input type="password" id="pasSesion" class="form-control form-control-lg" />
+                    <label class="form-label" for="pasSesion">Contraseña</label>
                   </div>
 
                   <div class="form-check mb-4">
@@ -180,7 +181,7 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-login btn-lg btn-block text-white w-100" type="button">Iniciar sesión</button>
+                    <button id = "btnSesion" class="btn btn-login btn-lg btn-block text-white w-100" type="button">Iniciar sesión</button>
                   </div>
 
                   <div class="login-links">
@@ -203,6 +204,18 @@
       </div>
     </div>
   </div>
+  <div class="toast" style="position: absolute;  right: 30px; top:80vh" role="alert" aria-live="assertive" aria-atomic="true" id="modalError" >
+      <div class="toast-header bg-info">
+        <img src="assets/webfonts/error.png" hspace="20px" height="20px" class="rounded me-2" alt="...">
+        <strong class="me-auto">Error</strong>
+	    <small>1 second</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <h5 id="textError"></h5>
+      </div>
+    </div>
+
 </section>
 <!-- end login -->
 
@@ -227,6 +240,9 @@
 	</footer>
 	<!-- End footer Area -->
 
+	<!-- script para peticion del login-->
+
+	
 	<!-- Scripts -->
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
@@ -239,42 +255,11 @@
 	<script src="js/countdown.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
-	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	<script src="js/gmaps.min.js"></script>
+
+	<script src="js/validator.js"></script>
+	<script src="js/login.js"></script>
 	<script src="js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<script>
-		// Script para mejorar la experiencia del formulario
-		document.addEventListener('DOMContentLoaded', function() {
-			// Añadir funcionalidad al formulario
-			const form = document.querySelector('form');
-			const loginBtn = document.querySelector('.btn-login');
-			
-			if (loginBtn) {
-				loginBtn.addEventListener('click', function() {
-					const email = document.getElementById('form2Example17').value;
-					const password = document.getElementById('form2Example27').value;
-					
-					if (!email || !password) {
-						alert('Por favor, completa todos los campos');
-						return;
-					}
-					
-					// Simulación de inicio de sesión
-					loginBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Iniciando sesión...';
-					loginBtn.disabled = true;
-					
-					setTimeout(function() {
-						alert('Inicio de sesión exitoso!');
-						loginBtn.innerHTML = 'Iniciar sesión';
-						loginBtn.disabled = false;
-					}, 2000);
-				});
-			}
-		});
-	</script>
 </body>
 
 </html>
