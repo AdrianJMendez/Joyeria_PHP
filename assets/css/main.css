@@ -2792,3 +2792,36 @@ table.order-details tbody td {
   vertical-align: middle;
   width: 100%;
 }
+
+/* -----------------------------------------------------------------------------
+
+# Modal Styles
+
+
+----------------------------------------------------------------------------- */
+
+.modal-header.bg-orange {
+      background-color: #ff7b00; 
+      color: white;
+  }
+
+ 
+  .modal-header .close {
+      color: white;
+      opacity: 0.9;
+  }
+
+  .modal-header .close:hover {
+      opacity: 1;
+  }
+
+  
+  .modal-header {
+      border-bottom: 2px solid #e56b00;
+  }
+
+  
+   .modal-body {
+      background-color: #fff8f0; 
+  }
+ 

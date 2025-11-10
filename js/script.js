@@ -75,9 +75,8 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Agregar al carrito
-document.addEventListener('click', function(e) {
-    const button = e.target.closest('.add-to-cart'); // busca el botón aunque el clic sea en el <i>
+document.addEventListener('click', function (e) {
+    const button = e.target.closest('.add-to-cart');
     if (button) {
         const producto = {
             id_joya: button.getAttribute('data-id'),
@@ -88,11 +87,38 @@ document.addEventListener('click', function(e) {
             cantidad: parseInt(button.parentElement.querySelector('.quantity-input').value)
         };
 
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito.push(producto);
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+        // Enviar datos al PHP para verificar el stock
+        fetch('verificar_stock.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                id_joya: producto.id_joya,
+                cantidad: producto.cantidad
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Agregar al carrito en localStorage
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                carrito.push(producto);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+
+                // Mostrar modal de éxito
+                mostrarModal('Éxito', data.message);
+            } else {
+                // Mostrar modal de error con stock actual
+                mostrarModal('Sin stock suficiente', data.message);
+            }
+        })
+        .catch(error => {
+            mostrarModal('Error', 'Hubo un problema al procesar tu solicitud.');
+            console.error('Error:', error);
+        });
     }
 });
+mostrarModal('Éxito', 'Su compra ha sido agregada al carrito con éxito');
+
 
 
 function cerrarModal() {
