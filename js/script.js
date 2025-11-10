@@ -1,7 +1,7 @@
 // Función para obtener todas las joyas
 function obtenerTodasLasJoyas() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost/Joyeria/Controller/joyas.php', false); // Cambia la ruta según tu estructura
+    xhr.open('GET', 'http://localhost/Joyeria_PHP/Controller/joyas.php', false); // Cambia la ruta según tu estructura
     xhr.onload = function() {
         if (xhr.status === 200) {
             const joyas = JSON.parse(xhr.responseText);

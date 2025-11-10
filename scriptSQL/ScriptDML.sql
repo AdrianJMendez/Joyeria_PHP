@@ -1,9 +1,9 @@
 -- Insertar Usuarios
 INSERT INTO Usuarios (nombre, email, contraseña, activo) VALUES 
-('Cesar Cruz', 'cesar.cruz@email.com', 'hashed_password_cesar', 1),
-('Adrian Mendez', 'adrian.mendez@email.com', 'hashed_password_adrian', 1),
-('Sofia Urrutia', 'sofia.urrutia@email.com', 'hashed_password_sofia', 1),
-('John Fiallos', 'john.fiallos@email.com', 'hashed_password_john', 1);
+('Cesar Cruz', 'cesar.cruz@email.com', 'cesar123', 1),
+('Adrian Mendez', 'adrian.mendez@email.com', 'adrian123', 1),
+('Sofia Urrutia', 'sofia.urrutia@email.com', 'sofia123', 1),
+('John Fiallos', 'john.fiallos@email.com', 'john123', 1);
 
 -- Insertar Roles
 INSERT INTO Rol(nombre_rol) VALUES 
