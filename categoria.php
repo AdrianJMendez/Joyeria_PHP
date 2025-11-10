@@ -14,6 +14,18 @@
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<!-- owl carousel -->
 	<link rel="stylesheet" href="assets/css/owl.carousel.css">
 	<!-- magnific popup -->
@@ -127,7 +139,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
 						<p>Elegancia y precisión</p>
-						<h1 id="titulo_categoria">Catálogo</h1>
+						<h1>Catálogo</h1>
 					</div>
 				</div>
 			</div>
@@ -178,11 +190,8 @@
         // Obtener id_categoria desde la URL
         const params = new URLSearchParams(window.location.search);
         const id_categoria = params.get('id_categoria');
-        const nombre_categoria = params.get('nombre_categoria');
+       
 
-        document.getElementById('titulo_categoria').innerText = `Categoría ${nombre_categoria}`;
-
-         
         // Cargar joyas filtradas desde joyas.php
         async function cargarJoyasCategoria() {
             try {
@@ -201,25 +210,7 @@
                     '<h4 class="text-center text-danger w-100">Error al cargar los productos.</h4>';
             }
         }
-     async function cargarNombreCategoria() {
-      try {
-          const res = await fetch(`http://localhost/Joyeria/Controller/joyas.php?nombre_categoria=${nombre_categoria}`);
-          const categoria = await res.json();
-
-          if (categoria && categoria.nombre_categoria) {
-              document.getElementById('titulo_categoria').innerText = categoria.nombre_categoria;
-              document.getElementById('breadcrumb_categoria').innerText = categoria.nombre_categoria;
-          } else {
-              document.getElementById('titulo_categoria').innerText = 'Categoría no encontrada';
-              document.getElementById('breadcrumb_categoria').innerText = 'Categoría desconocida';
-          }
-      } catch (error) {
-          console.error('Error al cargar la categoría:', error);
-          document.getElementById('titulo_categoria').innerText = 'Error al cargar categoría';
-          document.getElementById('breadcrumb_categoria').innerText = 'Error';
-      }
-  }
-
+     
 
         cargarJoyasCategoria();
         

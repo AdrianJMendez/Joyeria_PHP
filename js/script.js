@@ -1,7 +1,7 @@
 // Función para obtener todas las joyas
 function obtenerTodasLasJoyas() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost/Joyeria_PHP/Controller/joyas.php', false); // Cambia la ruta según tu estructura
+    xhr.open('GET', 'http://localhost/Joyeria/Controller/joyas.php', false); // Cambia la ruta según tu estructura
     xhr.onload = function() {
         if (xhr.status === 200) {
             const joyas = JSON.parse(xhr.responseText);
@@ -75,6 +75,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
+//Agregar al carrito con verificación de stock
 document.addEventListener('click', function (e) {
     const button = e.target.closest('.add-to-cart');
     if (button) {
@@ -104,10 +105,10 @@ document.addEventListener('click', function (e) {
                 carrito.push(producto);
                 localStorage.setItem('carrito', JSON.stringify(carrito));
 
-                // Mostrar modal de éxito
+             
                 mostrarModal('Éxito', data.message);
             } else {
-                // Mostrar modal de error con stock actual
+                
                 mostrarModal('Sin stock suficiente', data.message);
             }
         })
