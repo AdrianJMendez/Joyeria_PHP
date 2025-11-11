@@ -1,7 +1,7 @@
 // Función para obtener todas las joyas
 function obtenerTodasLasJoyas() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost/Joyeria_PHP/Controller/joyas.php', false); // Cambia la ruta según tu estructura
+    xhr.open('GET', 'http://localhost/Joyeria/Controller/joyas.php', false); // Cambia la ruta según tu estructura
     xhr.onload = function() {
         if (xhr.status === 200) {
             const joyas = JSON.parse(xhr.responseText);
@@ -75,9 +75,9 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Agregar al carrito
-document.addEventListener('click', function(e) {
-    const button = e.target.closest('.add-to-cart'); // busca el botón aunque el clic sea en el <i>
+//Agregar al carrito con verificación de stock
+document.addEventListener('click', function (e) {
+    const button = e.target.closest('.add-to-cart');
     if (button) {
         const producto = {
             id_joya: button.getAttribute('data-id'),
@@ -88,11 +88,38 @@ document.addEventListener('click', function(e) {
             cantidad: parseInt(button.parentElement.querySelector('.quantity-input').value)
         };
 
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito.push(producto);
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+        // Enviar datos al PHP para verificar el stock
+        fetch('verificar_stock.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                id_joya: producto.id_joya,
+                cantidad: producto.cantidad
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Agregar al carrito en localStorage
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                carrito.push(producto);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+
+             
+                mostrarModal('Éxito', data.message);
+            } else {
+                
+                mostrarModal('Sin stock suficiente', data.message);
+            }
+        })
+        .catch(error => {
+            mostrarModal('Error', 'Hubo un problema al procesar tu solicitud.');
+            console.error('Error:', error);
+        });
     }
 });
+mostrarModal('Éxito', 'Su compra ha sido agregada al carrito con éxito');
+
 
 
 function cerrarModal() {

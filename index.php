@@ -227,6 +227,61 @@
 
 	<!-- End category Area -->
 
+<!-- Start Instagram Area -->
+<section class="instagram-area section_gap_top">
+  <div class="container text-center">
+   <div class="insta-header d-flex align-items-center justify-content-center mb-4">
+      <img src="img/instagram/profile.png" alt="Joyas Charlys" class="insta-profile-pic me-3">
+      <div class="insta-user-info text-start">
+        <h3 class="mb-0 insta-username">@joyas.charlys</h3>
+        <span class="text-muted">Joyería fina y accesorios de lujo</span>
+      </div>
+    </div>
+
+    <div class="row insta-grid">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.instagram.com/p/DQiwBDwjc1C/?igsh=a3ZvcjF3bWdjNjd0" target="_blank">
+          <img src="img/instagram/1.jpg" alt="joya 1" class="img-fluid rounded shadow-sm">
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.instagram.com/p/DQiv_j6jUvV/?igsh=YW8yaGQxYzc5d29o" target="_blank">
+          <img src="img/instagram/2.jpg" alt="joya 2" class="img-fluid rounded shadow-sm">
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.instagram.com/p/DQiv-V5jXn8/?igsh=MTBiMHdvbmd3MnBmaA==" target="_blank">
+          <img src="img/instagram/3.jpg" alt="joya 3" class="img-fluid rounded shadow-sm">
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.instagram.com/p/DQiv7VljX8h/?igsh=MXFldm1wbzk3aWtxcw==" target="_blank">
+          <img src="img/instagram/4.jpg" alt="joya 4" class="img-fluid rounded shadow-sm">
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.instagram.com/p/DQiv1k0DU1_/?igsh=bGl5am9qaGtremFl" target="_blank">
+          <img src="img/instagram/5.jpg" alt="joya 5" class="img-fluid rounded shadow-sm">
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.instagram.com/p/DQivYDTjXlg/?igsh=MWJuYnY3ajkyb2tqaw==" target="_blank">
+          <img src="img/instagram/6.jpg" alt="joya 6" class="img-fluid rounded shadow-sm">
+        </a>
+      </div>
+    </div>
+
+    <a href="https://www.instagram.com/joyas.charlys/"
+       class="btn btn-dark mt-4"
+       target="_blank"
+       rel="noopener noreferrer">
+       <i class="fa fa-instagram"></i> Ver más en Instagram
+    </a>
+  </div>
+</section>
+<!-- End Instagram Area -->
+
+
 	<!-- Start exclusive deal Area -->
 	<section class="exclusive-deal-area">
 		<div class="container-fluid">
@@ -299,6 +354,8 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/main.js"></script>
+	<script async src="//www.instagram.com/embed.js"></script>
+
 </body>
 
 </html>

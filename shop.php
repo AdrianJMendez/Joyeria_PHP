@@ -224,6 +224,27 @@
 		</div>
 	</footer>
 	<!-- End footer Area -->
+	 <!-- Modal -->
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-orange">
+        <h5 class="modal-title" id="modalTitle">Mensaje</h5>
+        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function mostrarModal(titulo, mensaje) {
+    document.getElementById('modalTitle').innerHTML = titulo;
+    document.getElementById('modalBody').innerHTML = mensaje;
+    $('#alertModal').modal('show');
+}
+</script>
+
 
 	<script src="js/script.js"></script>
 	<!-- jquery -->
