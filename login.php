@@ -30,83 +30,13 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/login.css">
 	<!-- Bootstrap 5 CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<style>
-		/* Espacio adicional entre header y login */
-		.login-section {
-			padding-top: 80px; /* Espacio para separar del header sticky */
-			padding-bottom: 50px;
-			min-height: calc(100vh - 160px); /* Altura mínima menos header y footer */
-			display: flex;
-			align-items: center;
-		}
-		
-		/* Mejoras visuales para la tarjeta de login */
-		.login-card {
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-			border: none;
-			transition: transform 0.3s ease;
-		}
-		
-		.login-card:hover {
-			transform: translateY(-5px);
-		}
-		
-		/* Estilo para el botón de login */
-		.btn-login {
-			background: linear-gradient(45deg, #8B4513, #D2691E);
-			border: none;
-			padding: 12px;
-			font-weight: 600;
-			letter-spacing: 0.5px;
-		}
-		
-		.btn-login:hover {
-			background: linear-gradient(45deg, #654321, #8B4513);
-			transform: translateY(-2px);
-			box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
-		}
-		
-		/* Mejora visual para los inputs */
-		.form-control-lg {
-			border-radius: 8px;
-			padding: 12px 15px;
-		}
-		
-		.form-control:focus {
-			border-color: #D2691E;
-			box-shadow: 0 0 0 0.25rem rgba(210, 105, 30, 0.25);
-		}
-		
-		/* Estilo para los enlaces */
-		.login-links a {
-			color: #8B4513;
-			text-decoration: none;
-			transition: color 0.3s;
-		}
-		
-		.login-links a:hover {
-			color: #654321;
-			text-decoration: underline;
-		}
-		
-		/* Header más compacto */
-		.sticky-header {
-			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-		}
-		
-		/* Ajuste del logo en el header */
-		.logo_h img {
-			max-height: 40px;
-		}
-	</style>
 </head>
-
 <body>
-
 	<!-- Start Header Area -->
 	<header class="header_area sticky-header">
 		<div class="main_menu">
@@ -123,8 +53,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="cart.php">Cart</a></li>
+							<li class="nav-item active"><a class="nav-link" href="index.php">Inicio</a></li>
+							<li class="nav-item"><a class="nav-link" href="cart.php">Carrito</a></li>
 							<li class="nav-item"><a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							<li class="nav-item"><a class="nav-link" href="contact.php">Contacto</a></li>
 							<li class="nav-item"><a class="nav-link" href="News.php">Noticias</a></li>
@@ -145,7 +75,7 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
-        <div class="card login-card" style="border-radius: 1rem;">
+        <div class="card login-card login-compact" style="border-radius: 1rem;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
               <img src="assets/webfonts/imgLogin.jpg"
@@ -155,7 +85,6 @@
               <div class="card-body p-4 p-lg-5 text-black">
 
                 <form>
-
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-gem fa-2x me-3" style="color: #8B4513;"></i>
                     <span class="h1 fw-bold mb-0" style="color: #8B4513;">Joyas Charly's</span>
@@ -171,8 +100,9 @@
                   <div class="form-outline mb-4">
                     <input type="password" id="pasSesion" class="form-control form-control-lg" />
                     <label class="form-label" for="pasSesion">Contraseña</label>
+					<p id="ErrorCredenciales" class="" style="color:red"></p>
                   </div>
-
+				
                   <div class="form-check mb-4">
                     <input class="form-check-input" type="checkbox" value="" id="rememberMe" />
                     <label class="form-check-label" for="rememberMe">
@@ -194,9 +124,7 @@
                       <a href="#!">Políticas de privacidad</a>
                     </div>
                   </div>
-
                 </form>
-
               </div>
             </div>
           </div>
@@ -204,18 +132,16 @@
       </div>
     </div>
   </div>
-  <div class="toast" style="position: absolute;  right: 30px; top:80vh" role="alert" aria-live="assertive" aria-atomic="true" id="modalError" >
+  <div class="toast" style="position: fixed; top: 100px; right: 20px; z-index: 9999;" role="alert" aria-live="assertive" aria-atomic="true" id="modalError" >
       <div class="toast-header bg-info">
         <img src="assets/webfonts/error.png" hspace="20px" height="20px" class="rounded me-2" alt="...">
         <strong class="me-auto">Error</strong>
-	    <small>1 second</small>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
         <h5 id="textError"></h5>
       </div>
     </div>
-
 </section>
 <!-- end login -->
 
@@ -240,9 +166,6 @@
 	</footer>
 	<!-- End footer Area -->
 
-	<!-- script para peticion del login-->
-
-	
 	<!-- Scripts -->
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
