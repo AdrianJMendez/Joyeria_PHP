@@ -89,7 +89,7 @@
 				<div class="col-lg-12">
 					<div class="active-banner-slider owl-carousel">
 						<!-- single-slide -->
-						<div class="row single-slide align-items-center d-flex">
+						<!-- <div class="row single-slide align-items-center d-flex">
 							<div class="col-lg-5 col-md-6">
 								<div class="banner-content">
 									<h1>Nueva <br>Colección!</h1>
@@ -101,7 +101,7 @@
 									<img class="img-fluid" src="img/banner/Anillo.png" alt="">
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- single-slide -->
 						<div class="row single-slide align-items-center d-flex">
 							<div class="col-lg-5 col-md-6">

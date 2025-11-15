@@ -70,7 +70,7 @@ function eliminarOrden() {
 
 function guardarOrden() {
     // Redirigir a la página de inicio
-    window.location.href = 'checkout.php';
+    window.location.href = 'login.php';
 }
 
 function submitOrder() {
