@@ -149,22 +149,11 @@
 <!-- end login -->
 
 	<!-- start footer Area -->
-	<footer class="footer-area section_gap">
+	<footer style="background: #1a1a1a; padding: 20px 0; text-align: center;">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6>Mas Informacion:</h6>
-						<p style="color: #666;">
-						“Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería de las mejores marcas. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión.”
-						</p>
-					</div>
-					<div>
-				<p class="footer-text m-0" style="color: #666;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
-				</div>
-		
-			</div>
+			<p style="color: #cccccc; margin: 0; font-size: 14px;">
+				&copy; <?php echo date('Y'); ?> Joyería Charly's - Sistema de acceso
+			</p>
 		</div>
 	</footer>
 	<!-- End footer Area -->

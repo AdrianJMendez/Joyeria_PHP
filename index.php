@@ -354,6 +354,86 @@
 	<!-- End exclusive deal Area -->
 
 
+	<!-- start footer Area -->
+	<footer class="footer-area section_gap" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+		<div class="container">
+			<div class="row">
+				<!-- Información de la empresa -->
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="single-footer-widget">
+						<div class="footer-logo">
+							<img src="img/fav.png" alt="Joyas Charly's" style="height: 50px; margin-bottom: 15px;">
+						</div>
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Joyería Charly's</h6>
+						<p style="color: #cccccc; line-height: 1.8;">
+							"Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle."
+						</p>
+						<div class="footer-social" style="margin-top: 20px;">
+							<a href="#" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.instagram.com/joyas.charlys/" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+							<a href="#" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+							<a href="#" style="color: #cccccc; font-size: 20px;"><i class="fab fa-tiktok"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Enlaces rápidos -->
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Enlaces Rápidos</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="index.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Inicio</a></li>
+							<li><a href="Shop.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Productos</a></li>
+							<li><a href="about.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Sobre Nosotros</a></li>
+							<li><a href="News.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Noticias</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Servicios -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Nuestros Servicios</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Joyería Personalizada</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Engaste de Piedras</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Limpieza Profesional</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Valuación de Joyas</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contacto -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Contacto</h6>
+						<div class="contact-info" style="color: #cccccc;">
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-map-marker-alt" style="color: #ffd700; margin-right: 10px;"></i> Bo. El Centro, Ave Máximo Jerez <br> Casa 820 Tegucigalpa, Honduras</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-phone" style="color: #ffd700; margin-right: 10px;"></i> +504 9971-7820 <br>+504 9833-2595</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-envelope" style="color: #ffd700; margin-right: 10px;"></i> joyascharlys@gmail.com</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-clock" style="color: #ffd700; margin-right: 10px;"></i> Lun - Vie: 9:00 - 18:00 <br>SÁB: 10:00 AM a 6:00 PM <br>DOM: 11:00 AM a 4:00 PM</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #444;">
+				<div class="col-lg-6 col-md-6">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-6 text-right">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Diseñado con <i class="fas fa-heart" style="color: #ff6b6b;"></i> para nuestros clientes
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+
 	
 	<!--Script necesarios para login-->
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
