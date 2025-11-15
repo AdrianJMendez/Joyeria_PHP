@@ -69,9 +69,17 @@ function eliminarOrden() {
 
 
 function guardarOrden() {
-    // Redirigir a la página de inicio
-    window.location.href = 'login.php';
+   
+        if (!SessionManager.verificarSesion()) {
+            window.location.href = 'login.php';
+            return;
+        }
+
+    
+        window.location.href = 'checkout.php';
 }
+
+
 
 function submitOrder() {
     // Obtener los valores de los inputs

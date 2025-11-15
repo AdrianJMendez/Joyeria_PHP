@@ -62,7 +62,7 @@
 							<li class="nav-item"><a class="nav-link" href="News.php">Noticias</a></li>
 							<li class="nav-item"><a class="nav-link" href="Shop.php">Productos</a></li>
 							<li id="auth-nav-item" class="nav-item active"><a class="nav-link" href="login.php">Iniciar sesion</a></li>
-							<!--li class="nav-item" id="auth-nav-item"><!-- Se carga dinámicamente con JavaScript --></li-->
+							<!--li class="nav-item" id="auth-nav-item">Se carga dinámicamente con JavaScript --></li-->
 						</ul>
 					</div>
 				</div>

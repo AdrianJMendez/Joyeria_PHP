@@ -100,7 +100,7 @@ class ActionLogin {
 
     static send(data, modalError) {
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost/Joyeria_PHP/Controller/loginController.php", true);
+        xhr.open("POST", 'http://localhost/Joyeria/Controller/loginController.php' , true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.addEventListener("readystatechange", ActionLogin.processResponce.bind(xhr, modalError));
         xhr.send(data);
