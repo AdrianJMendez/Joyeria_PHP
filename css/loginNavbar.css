@@ -1,0 +1,60 @@
+/* parte del navbar*/
+		.btn-logout {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-continue {
+    background-color: #8B4513;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-continue:hover {
+    background-color: #A0522D;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    /* Asegurar que los dropdowns funcionen */
+    .dropdown-toggle { cursor: pointer; }
+    
+    /* Asegurar que los íconos se vean */
+    .fas, .far, .fal, .fab {
+        font-family: "Font Awesome 6 Free" !important;
+    }
+    
+    /* Estilos específicos para el dropdown de usuario */
+    .dropdown-menu {
+        border: none;
+        border-radius: 8px;
+    }
+    
+    .dropdown-item {
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .dropdown-item:hover {
+        background-color: #f8f9fa;
+    }

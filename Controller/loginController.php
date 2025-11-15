@@ -31,40 +31,63 @@ try {
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    $query = $conexion->prepare("SELECT nombre, contraseña FROM usuarios WHERE email = ? AND contraseña = ?");
-    $query->execute([$email, $password]);
+    // PRIMERO: Verificar si el usuario existe y está activo
+    $query = $conexion->prepare("SELECT id_usuario, nombre, contraseña, activo FROM usuarios WHERE email = ?");
+    $query->execute([$email]);
     $usuario = $query->fetch(PDO::FETCH_ASSOC);
     
-    if ($usuario) {
-        sendResponse(200, [
-            'status' => true,
-            'message' => "Login exitoso",
-            'user' => $usuario['nombre']
+    if (!$usuario) {
+        sendResponse(401, [
+            'status' => false,
+            'message' => "Credenciales incorrectas"
         ]);
-    } else {
+    }
+
+    if ($usuario['contraseña'] !== $password) {
         sendResponse(401, [
             'status' => false,
             'message' => "Credenciales incorrectas"
         ]);
     }
     
+    // VERIFICAR SI EL USUARIO ESTÁ ACTIVO
+    if (!$usuario['activo']) {
+        sendResponse(403, [
+            'status' => false,
+            'message' => "Usuario inactivo"
+        ]);
+    }
+    
+    // LLAMAR AL PROCEDIMIENTO ALMACENADO
+    $query = $conexion->prepare('CALL sp_verificar_usuario_privilegios(?, ?)');
+    $query->execute([$email, $usuario['contraseña']]); // Usar la contraseña de la BD
+    
+    $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
+    
+    if (count($resultados) > 0) {
+        $session = $resultados[0];
+        
+        sendResponse(200, [
+            'status' => true,
+            'message' => "Login exitoso",
+            'user' => $session['email'],       
+            'rol' => $session['nombre_rol'],     
+            'name' => $session['nombre'],     
+            'privilegios' => $session['privilegios'],
+            'token' => 'token123'
+            
+        ]);
+    } else {
+        sendResponse(401, [
+            'status' => false,
+            'message' => "No se encontraron privilegios para el usuario"
+        ]);
+    }
+    
 } catch(Exception $e) {
     sendResponse(500, [
         'status' => false,
-        'message' => "Error en el servidor"
+        'message' => "Error en el servidor: " . $e->getMessage()
     ]);
 }
 ?>
-
-/**
-SELECT privilegios.nombre_privilegio, rol.nombre_rol, usuarios.nombre, usuarios.email, usuarios.activo
-FROM privilegios
-INNER JOIN privilegios_rol
-ON privilegios.id_privilegio = privilegios_rol.id_privilegio
-INNER JOIN rol
-ON privilegios_rol.id_rol = rol.id_rol
-INNER JOIN usuarios_rol
-ON rol.id_rol = usuarios_rol.id_rol
-INNER JOIN usuarios
-ON usuarios.id_usuario = usuarios_rol.id_usuario;
-*/

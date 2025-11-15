@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 
 	<style>
-	/* Estilos para tarjeta realista (E) */
+	
 	.card-visual { width: 340px; height:200px; border-radius:14px; padding:18px; color:#fff; position:relative; box-shadow:0 12px 30px rgba(0,0,0,.25); background: linear-gradient(135deg,#1f2a44 0%, #253b6a 100%); font-family: 'Poppins', sans-serif; }
 	.card-chip { width:40px; height:28px; background:linear-gradient(180deg,#d6c48a,#b8953e); border-radius:4px; box-shadow:inset 0 -2px 0 rgba(0,0,0,.15); }
 	.card-logo { position:absolute; right:16px; top:16px; }

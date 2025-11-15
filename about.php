@@ -76,10 +76,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="cart.php">Cart</a></li>
+							<a class="nav-link" href="cart.php">Carrito</a></li>
 							</li>
 
 							<!--
@@ -88,7 +88,7 @@
 							</li>
 							-->
 
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item active submenu dropdown">
 							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							</li>
 

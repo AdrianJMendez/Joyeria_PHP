@@ -74,10 +74,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="cart.php">Cart</a></li>
+							<a class="nav-link" href="cart.php">Carrito</a></li>
 							</li>
 
 							<!--
@@ -95,7 +95,7 @@
 							</li>
 
 
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item active submenu dropdown">
 							<a class="nav-link" href="News.php">Noticias</a></li>
 							</li>
 
@@ -256,12 +256,12 @@
 				<div class="col-lg-3  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
 						<h6>Mas Informacion:</h6>
-						<p>
+						<p style="color: #666;">
 						“Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería de las mejores marcas. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión.”
 						</p>
 					</div>
 					<div>
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				<p class="footer-text m-0" style="color: #666;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
 				</div>
 		
