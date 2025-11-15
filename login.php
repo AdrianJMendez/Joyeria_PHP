@@ -30,7 +30,9 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/loginNavbar.css">
 	<link rel="stylesheet" href="css/login.css">
+	
 	<!-- Bootstrap 5 CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
@@ -53,13 +55,14 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Inicio</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
 							<li class="nav-item"><a class="nav-link" href="cart.php">Carrito</a></li>
 							<li class="nav-item"><a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							<li class="nav-item"><a class="nav-link" href="contact.php">Contacto</a></li>
 							<li class="nav-item"><a class="nav-link" href="News.php">Noticias</a></li>
 							<li class="nav-item"><a class="nav-link" href="Shop.php">Productos</a></li>
-							<li class="nav-item"><a class="nav-link" href="login.php">Iniciar sesion</a></li>
+							<li id="auth-nav-item" class="nav-item active"><a class="nav-link" href="login.php">Iniciar sesion</a></li>
+							<!--li class="nav-item" id="auth-nav-item"><!-- Se carga dinámicamente con JavaScript --></li-->
 						</ul>
 					</div>
 				</div>
@@ -180,6 +183,7 @@
 	<script src="js/owl.carousel.min.js"></script>
 
 	<script src="js/validator.js"></script>
+	<script src="js/sessionManager.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

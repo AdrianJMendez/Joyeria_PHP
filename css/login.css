@@ -75,3 +75,42 @@
 			font-size: 0.9rem !important;
 			margin-bottom: 1rem !important;
 		}
+
+/* parte del navbar*/
+		.btn-logout {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-continue {
+    background-color: #8B4513;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-continue:hover {
+    background-color: #A0522D;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+

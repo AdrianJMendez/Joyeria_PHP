@@ -30,6 +30,11 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
+	
+	<!--css necesarios para login-->
+	<link rel="stylesheet" href="css/loginNavbar.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,10 +55,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+							<li class="nav-item active"><a class="nav-link" href="index.php">Inicio</a></li>
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="cart.php">Cart</a></li>
+							<a class="nav-link" href="cart.php">Carrito</a></li>
 							</li>
 
 							<li class="nav-item submenu dropdown">
@@ -72,8 +77,10 @@
 							<li class="nav-item submenu dropdown">
 							<a class="nav-link" href="Shop.php">Productos</a></li>
 							</li>
-
 							
+							<li class="nav-item" id="auth-nav-item">
+								<!-- SessionManager.js se encargará de poner "Iniciar sesión" o el nombre del usuario -->
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -346,6 +353,16 @@
 	</section>
 	<!-- End exclusive deal Area -->
 
+
+	
+	<!--Script necesarios para login-->
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+
+	<script src="js/sessionManager.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 	<!-- Modal -->
 	<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -356,6 +373,8 @@
 	<script src="js/main.js"></script>
 	<script async src="//www.instagram.com/embed.js"></script>
 
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
