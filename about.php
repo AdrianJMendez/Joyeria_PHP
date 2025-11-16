@@ -48,14 +48,13 @@
 	<link rel="stylesheet" href="css/faq-politicas.css">
 	<link rel="stylesheet" href="css/equipo.css">
 
+	<!-- Font Awesome actualizado para TikTok -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 	<!--css necesarios para cambiar btn-login-->
 	<link rel="stylesheet" href="css/loginNavbar.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Font Awesome actualizado para TikTok -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body>
 	
@@ -363,7 +362,7 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="single-team-item">
 						<div class="team-img">
-							<img src="assets/webfonts/Cesar.jpg" alt="Cesar Cruz" class="img-fluid">
+							<img src="img/team/cesarCruz.jpg" alt="Cesar Cruz" class="img-fluid">
 						</div>
 						<h4>Cesar Cruz <span>Gerente</span></h4>
 						<ul class="social-link-team">
