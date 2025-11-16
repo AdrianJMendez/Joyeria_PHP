@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         // Obtener joyas por categoría
         $sql = $pdo->prepare("SELECT * FROM Joyas WHERE id_categoria = :id_categoria");
         $sql->bindValue(':id_categoria', $_GET['id_categoria']);
+     } elseif (isset($_GET['stock'])) {
+        // Obtener stock de las joyas
+        $sql = $pdo->prepare("SELECT * FROM Joyas WHERE stock = :stock");
+        $sql->bindValue(':stock', $_GET['stock']);
  
     } else {
         // Obtener todas las joyas
