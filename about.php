@@ -360,7 +360,7 @@
 						<div class="team-img">
 							<img src="assets/webfonts/Cesar.jpg" alt="Cesar Cruz" class="img-fluid">
 						</div>
-						<h4>Cesar Cruz <span>Fabricante</span></h4>
+						<h4>Cesar Cruz <span>Gerente</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></li>

@@ -30,13 +30,14 @@ class ActionLogin {
     iniciarSesion(email, pass, modalError) {
         ActionLogin.alertLogin(email, pass, modalError);
     }
+
     static init() {
-        // Verificar si hay sesión activa
+        // Verificar si hay sesión activa - REDIRIGIR A PERFIL en lugar de mostrar mensaje
         if (SessionManager.verificarSesion()) {
-            const usuario = SessionManager.obtenerUsuario();
-            this.mostrarSesionActiva(usuario.name);
+            window.location.href = 'perfil.php';
         }
     }
+
     static processResponce(modalError) {
         let toast = new ErrorToast(modalError);
         let xhr = this;
@@ -53,15 +54,17 @@ class ActionLogin {
                     token: JsonResponse.token
                 });
                 
-               ActionLogin.mostrarSesionActiva(JsonResponse.name);
+                // REDIRIGIR A PERFIL en lugar de mostrar sesión activa
+                window.location.href = 'perfil.php';
             } else {
                 toast.show(JsonResponse.message);
             }
         }
     }
 
-    // Función específica para mostrar sesión activa en login
-   static mostrarSesionActiva(nombreUsuario) {
+    // COMENTAMOS esta función para que no se use más
+    /*
+    static mostrarSesionActiva(nombreUsuario) {
         const loginContent = document.querySelector('.card-body');
         
         if (loginContent) {
@@ -97,6 +100,7 @@ class ActionLogin {
         // Actualizar navbar usando SessionManager
         SessionManager.actualizarNavbar();
     }
+    */
 
     static send(data, modalError) {
         let xhr = new XMLHttpRequest();

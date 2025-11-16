@@ -1,0 +1,378 @@
+/* assets/css/perfil.css - VERSIÓN MEJORADA CON MÁS ESPACIADO */
+
+.profile-section {
+    padding: 100px 0 50px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.profile-card {
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: none;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Asegurar que el profile-header tenga buen z-index */
+.profile-header {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+    color: white;
+    padding: 50px 0 35px; /* Aumentar padding inferior */
+    text-align: center;
+    position: relative;
+    z-index: 2; /* z-index menor que el badge */
+}
+
+.profile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23ffffff" fill-opacity="0.1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="shape-fill"></path></svg>');
+    background-size: cover;
+}
+
+/* Opcional: Ajustar el avatar para más espacio */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px; /* Reducir margen inferior */
+    font-size: 3rem;
+    color: #8B4513;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 4;
+}
+
+.profile-stats {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin: -30px 20px 0; /* Reducir el margen negativo para que no tape tanto */
+    position: relative;
+    z-index: 3; /* Mantener este z-index */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    border-right: 1px solid #eee;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8B4513;
+    display: block;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* MEJORAS EN ESPACIADO DE NAV PILLS */
+.nav-pills .nav-link {
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.nav-pills .nav-link i {
+    width: 20px; /* Ancho fijo para iconos */
+    margin-right: 12px; /* Más espacio entre icono y texto */
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+    color: white;
+    border-color: #8B4513;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+    background: #f8f9fa;
+    border-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+/* MEJORAS EN ESPACIADO DE INFO ITEMS */
+.info-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #f1f3f4;
+    transition: background-color 0.3s ease;
+    margin: 0;
+}
+
+.info-item:hover {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.info-label i {
+    width: 20px; /* Ancho fijo para iconos */
+    margin-right: 12px; /* Más espacio entre icono y texto */
+    text-align: center;
+    color: #8B4513;
+}
+
+.info-value {
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding-left: 32px; /* Alineación con el texto del label */
+}
+
+.btn-joyas {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-joyas i {
+    margin-right: 8px; /* Espacio entre icono y texto en botones */
+}
+
+.btn-joyas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+    color: white;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* MEJORAS EN ESPACIADO DE HEADERS */
+.card-header h4 {
+    font-weight: 700;
+    color: #2d3748 !important;
+    display: flex;
+    align-items: center;
+}
+
+.card-header h4 i {
+    margin-right: 10px; /* Espacio entre icono y texto en headers */
+    color: #8B4513;
+}
+
+.tab-pane {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MEJORAS PARA EL BADGE DE ROL - AUMENTAR Z-INDEX */
+.membership-badge {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%) !important;
+    color: #8B4513 !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4) !important;
+    border: 2px solid white !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    position: relative !important;
+    z-index: 5 !important; /* Aumentar z-index para que esté por encima */
+    display: inline-block !important;
+    margin-top: 8px !important;
+}
+
+/* Mejoras para el navbar */
+.header_area {
+    background: #fff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 9999;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.main_menu {
+    background: #fff !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #8B4513 !important;
+}
+
+/* Mejoras de espaciado general */
+.text-muted {
+    line-height: 1.6;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+
+/* MEJORAS ESPECÍFICAS PARA BOTONES CON ICONOS */
+.btn-outline-danger, .btn-outline-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-danger i, .btn-outline-primary i {
+    margin-right: 8px; /* Espacio en botones outline */
+}
+
+/* MEJORAS EN EL PROFILE HEADER */
+.profile-header h3 {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.profile-header p {
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-section {
+        padding: 80px 0 30px;
+    }
+    
+    .profile-stats {
+        margin: -30px 15px 0;
+        padding: 20px;
+    }
+    
+    .stat-item {
+        padding: 10px;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+    
+    .info-item .row {
+        margin-bottom: 10px;
+    }
+    
+    .info-label, .info-value {
+        text-align: left !important;
+    }
+    
+    .info-value {
+        padding-left: 0;
+        margin-top: 5px;
+    }
+    
+    /* Ajustes responsive para iconos */
+    .nav-pills .nav-link i {
+        margin-right: 10px;
+        width: 18px;
+    }
+    
+    .info-label i {
+        margin-right: 10px;
+        width: 18px;
+    }
+    
+    .card-header h4 i {
+        margin-right: 8px;
+    }
+}
+
+/* Estados de carga */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Transiciones suaves */
+* {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* MEJORAS ADICIONALES PARA MEJOR LEGIBILIDAD */
+.profile-header {
+    line-height: 1.6;
+}
+
+.nav-pills .nav-link {
+    line-height: 1.4;
+}
+
+.info-item {
+    line-height: 1.5;
+}
