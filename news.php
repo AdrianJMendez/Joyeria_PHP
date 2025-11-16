@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Noticias y tendencias sobre joyería - JoyasCharlys">
 
 	<!-- title -->
-	<title>Noticias</title>
-
+	<title>Noticias de Joyería - JoyasCharlys</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -46,7 +45,148 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
+	<!-- Font Awesome actualizado para TikTok -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+	<style>
+		.news-categories {
+			margin-bottom: 30px;
+		}
+		.news-categories .btn {
+			margin: 5px;
+			border-radius: 20px;
+			border: 2px solid #ff6b6b;
+			color: #ff6b6b;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+		.news-categories .btn:hover,
+		.news-categories .btn.active {
+			background: #ff6b6b;
+			color: white;
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+		}
+		.single-latest-news {
+			transition: transform 0.3s ease;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+			margin-bottom: 30px;
+			background: white;
+		}
+		.single-latest-news:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+		}
+		.latest-news-bg {
+			height: 250px;
+			background-size: cover;
+			background-position: center;
+			position: relative;
+		}
+		.news-tag {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+			color: white;
+			padding: 6px 15px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+		}
+		.news-text-box {
+			padding: 25px;
+		}
+		.news-text-box h3 a {
+			color: #333;
+			text-decoration: none;
+			font-weight: 700;
+			line-height: 1.4;
+		}
+		.news-text-box h3 a:hover {
+			color: #ff6b6b;
+		}
+		.blog-meta {
+			color: #666;
+			font-size: 14px;
+			margin-bottom: 15px;
+		}
+		.blog-meta span {
+			margin-right: 15px;
+		}
+		.excerpt {
+			color: #555;
+			line-height: 1.6;
+			margin-bottom: 20px;
+		}
+		.read-more-btn {
+			color: #ff6b6b;
+			font-weight: 600;
+			text-decoration: none;
+			display: inline-flex;
+			align-items: center;
+			transition: all 0.3s ease;
+		}
+		.read-more-btn:hover {
+			color: #ff5252;
+			transform: translateX(5px);
+		}
+		
+		/* Paginación mejorada */
+		.pagination-wrap {
+			margin-top: 50px;
+		}
+		.pagination-wrap ul {
+			display: flex;
+			justify-content: center;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.pagination-wrap ul li {
+			margin: 0 5px;
+		}
+		.pagination-wrap ul li a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 45px;
+			height: 45px;
+			border: 2px solid #e0e0e0;
+			border-radius: 50%;
+			color: #666;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+		.pagination-wrap ul li a:hover,
+		.pagination-wrap ul li a.active {
+			background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+			color: white;
+			border-color: #ff6b6b;
+			transform: translateY(-3px);
+			box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+		}
+		.pagination-wrap ul li a.disabled {
+			opacity: 0.5;
+			pointer-events: none;
+			cursor: not-allowed;
+		}
+		
+		/* Ocultar paginación cuando se filtra */
+		.pagination-wrap.hidden {
+			display: none;
+		}
+		
+		/* Para noticias ocultas inicialmente */
+		.news-item.hidden-by-page {
+			display: none !important;
+		}
+	</style>
 </head>
 <body>
 	
@@ -74,10 +214,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="cart.php">Cart</a></li>
+							<a class="nav-link" href="cart.php">Carrito</a></li>
 							</li>
 
 							<!--
@@ -95,7 +235,7 @@
 							</li>
 
 
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item active submenu dropdown">
 							<a class="nav-link" href="News.php">Noticias</a></li>
 							</li>
 
@@ -139,9 +279,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Actualidad en relojería y joyería</p>
-						<h1>Artículo de Noticias</h1>
-
+						<p>Las últimas tendencias y novedades en joyería</p>
+						<h1>Noticias de Joyería</h1>
 					</div>
 				</div>
 			</div>
@@ -152,68 +291,145 @@
 	<!-- latest news -->
 	<div class="latest-news mt-150 mb-150">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">Descubre las tendencias en relojería para esta temporada</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 Diciembre, 2019</span>
-							</p>
-							<p class="excerpt">Explora los estilos más buscados en relojes de lujo y deportivos. Elegancia y funcionalidad en cada pieza.</p>
-							<a href="single-news.html" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
-
-						</div>
-					</div>
+			
+			<!-- Categorías -->
+			<div class="row news-categories">
+				<div class="col-lg-12 text-center">
+					<button class="btn btn-outline-primary active" data-filter="all">Todas</button>
+					<button class="btn btn-outline-primary" data-filter="tendencias">Tendencias</button>
+					<button class="btn btn-outline-primary" data-filter="consejos">Consejos</button>
+					<button class="btn btn-outline-primary" data-filter="novedades">Novedades</button>
+					<button class="btn btn-outline-primary" data-filter="empresa">JoyasCharlys</button>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">Joyería personalizada: el regalo perfecto</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 Diciembre, 2019</span>
-							</p>
-							<p class="excerpt">Conoce cómo crear piezas únicas que reflejan tu estilo y emociones. Ideal para ocasiones especiales.</p>
-							<a href="single-news.html" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
+			</div>
 
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">Cómo cuidar tus relojes y joyas</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 Diciembre, 2019</span>
-							</p>
-							<p class="excerpt">Consejos prácticos para mantener el brillo, funcionamiento y valor de tus piezas favoritas.</p>
-							<a href="single-news.html" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
-
-						</div>
-					</div>
-				</div>
+			<div class="row" id="news-container">
+				<?php
+				// Simulamos las noticias por página
+				$current_page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+				$noticias_por_pagina = 3;
 				
-
-			<div class="row">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-center">
-							<div class="pagination-wrap">
-								<ul>
-									<li><a href="#">Prev</a></li>
-									<li><a href="#">1</a></li>
-									<li><a class="active" href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">Next</a></li>
-								</ul>
+				// Todas las noticias (9 noticias totales)
+				$todas_noticias = [
+					// Página 1
+					[
+						'id' => 1, 'titulo' => 'Tendencias de Joyería 2024: Lo que viene', 
+						'categoria' => 'tendencias', 'imagen' => 'img/noticias/Tendencias-2024.png',
+						'fecha' => '15 Enero, 2024', 'autor' => 'Admin'
+					],
+					[
+						'id' => 2, 'titulo' => 'Joyería Personalizada: Crea tu estilo único', 
+						'categoria' => 'novedades', 'imagen' => 'img/noticias/Joyeria-personalizada.png',
+						'fecha' => '10 Enero, 2024', 'autor' => 'Admin'
+					],
+					[
+						'id' => 3, 'titulo' => 'Guía para el cuidado de tus joyas', 
+						'categoria' => 'consejos', 'imagen' => 'img/noticias/Cuidado-de-joyas.png',
+						'fecha' => '5 Enero, 2024', 'autor' => 'Admin'
+					],
+					// Página 2
+					[
+						'id' => 4, 'titulo' => 'El oro rosa regresa con fuerza', 
+						'categoria' => 'tendencias', 'imagen' => 'img/noticias/Oro-rosa.png',
+						'fecha' => '28 Diciembre, 2023', 'autor' => 'Admin'
+					],
+					[
+						'id' => 5, 'titulo' => 'Cómo elegir diamantes perfectos', 
+						'categoria' => 'consejos', 'imagen' => 'img/noticias/Diamantes-perfectos.png',
+						'fecha' => '20 Diciembre, 2023', 'autor' => 'Especialista'
+					],
+					[
+						'id' => 6, 'titulo' => 'Nuestra apuesta por la joyería sostenible', 
+						'categoria' => 'empresa', 'imagen' => 'img/noticias/Joyeria-sostenible.png',
+						'fecha' => '15 Diciembre, 2023', 'autor' => 'Director'
+					],
+					// Página 3
+					[
+						'id' => 7, 'titulo' => 'Plata 925: La elección perfecta para joyería diaria', 
+						'categoria' => 'consejos', 'imagen' => 'img/noticias/Plata-925.png',
+						'fecha' => '10 Diciembre, 2023', 'autor' => 'Especialista'
+					],
+					[
+						'id' => 8, 'titulo' => 'Nueva colección Primavera-Verano 2024', 
+						'categoria' => 'empresa', 'imagen' => 'img/noticias/Nueva-coleccion.png',
+						'fecha' => '5 Diciembre, 2023', 'autor' => 'Admin'
+					],
+					[
+						'id' => 9, 'titulo' => 'Joyas para bodas: Lo que debes saber', 
+						'categoria' => 'consejos', 'imagen' => 'img/noticias/Joyas-bodas.png',
+						'fecha' => '30 Noviembre, 2023', 'autor' => 'Admin'
+					]
+				];
+				
+				// Calculamos qué noticias mostrar
+				$total_noticias = count($todas_noticias);
+				$total_paginas = ceil($total_noticias / $noticias_por_pagina);
+				$inicio = ($current_page - 1) * $noticias_por_pagina;
+				$noticias_pagina = array_slice($todas_noticias, $inicio, $noticias_por_pagina);
+				
+				// Generamos TODAS las noticias pero controlamos visibilidad
+				foreach($todas_noticias as $index => $noticia) {
+					$categoria_texto = [
+						'tendencias' => 'Tendencias',
+						'consejos' => 'Consejos', 
+						'novedades' => 'Novedades',
+						'empresa' => 'JoyasCharlys'
+					][$noticia['categoria']];
+					
+					// Determinamos si la noticia está en la página actual
+					$is_current_page = in_array($noticia, $noticias_pagina);
+					$hidden_class = $is_current_page ? '' : 'hidden-by-page';
+					
+					echo '
+					<div class="col-lg-4 col-md-6 news-item ' . $hidden_class . '" data-category="'.$noticia['categoria'].'" data-page="'.ceil(($index + 1) / $noticias_por_pagina).'">
+						<div class="single-latest-news">
+							<div class="latest-news-bg" style="background-image: url(\''.$noticia['imagen'].'\')"></div>
+							<span class="news-tag">'.$categoria_texto.'</span>
+							<div class="news-text-box">
+								<h3><a href="single-news.php?id='.$noticia['id'].'">'.$noticia['titulo'].'</a></h3>
+								<p class="blog-meta">
+									<span class="author"><i class="fas fa-user"></i> '.$noticia['autor'].'</span>
+									<span class="date"><i class="fas fa-calendar"></i> '.$noticia['fecha'].'</span>
+								</p>
+								<p class="excerpt">'.substr($noticia['titulo'], 0, 80).'... Descubre más sobre este interesante tema en nuestra nota completa.</p>
+								<a href="single-news.php?id='.$noticia['id'].'" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
 							</div>
 						</div>
+					</div>';
+				}
+				?>
+			</div>
+
+			<!-- Paginación funcional -->
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="pagination-wrap" id="pagination">
+						<ul>
+							<?php
+							// Botón Anterior
+							if($current_page > 1) {
+								echo '<li><a href="News.php?page='.($current_page - 1).'"><i class="fas fa-chevron-left"></i></a></li>';
+							} else {
+								echo '<li><a href="#" class="disabled"><i class="fas fa-chevron-left"></i></a></li>';
+							}
+							
+							// Números de página
+							for($i = 1; $i <= $total_paginas; $i++) {
+								if($i == $current_page) {
+									echo '<li><a href="News.php?page='.$i.'" class="active">'.$i.'</a></li>';
+								} else {
+									echo '<li><a href="News.php?page='.$i.'">'.$i.'</a></li>';
+								}
+							}
+							
+							// Botón Siguiente
+							if($current_page < $total_paginas) {
+								echo '<li><a href="News.php?page='.($current_page + 1).'"><i class="fas fa-chevron-right"></i></a></li>';
+							} else {
+								echo '<li><a href="#" class="disabled"><i class="fas fa-chevron-right"></i></a></li>';
+							}
+							?>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -250,21 +466,79 @@
 	<!-- end logo carousel -->
 
 	<!-- start footer Area -->
-	<footer class="footer-area section_gap">
+	<footer class="footer-area section_gap" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
+				<!-- Información de la empresa -->
+				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="single-footer-widget">
-						<h6>Mas Informacion:</h6>
-						<p>
-						“Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería de las mejores marcas. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión.”
+						<div class="footer-logo">
+							<img src="img/fav.png" alt="Joyas Charly's" style="height: 50px; margin-bottom: 15px;">
+						</div>
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Joyería Charly's</h6>
+						<p style="color: #cccccc; line-height: 1.8;">
+							"Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle."
 						</p>
+						<div class="footer-social" style="margin-top: 20px;">
+							<a href="#" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.instagram.com/joyas.charlys/" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+							<a href="#" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+							<a href="#" style="color: #cccccc; font-size: 20px;"><i class="fab fa-tiktok"></i></a>
+						</div>
 					</div>
-					<div>
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
 				</div>
-		
+
+				<!-- Enlaces rápidos -->
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Enlaces Rápidos</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="index.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Inicio</a></li>
+							<li><a href="Shop.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Productos</a></li>
+							<li><a href="about.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Sobre Nosotros</a></li>
+							<li><a href="News.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Noticias</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Servicios -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Nuestros Servicios</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Joyería Personalizada</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Engaste de Piedras</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Limpieza Profesional</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Valuación de Joyas</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contacto -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Contacto</h6>
+						<div class="contact-info" style="color: #cccccc;">
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-map-marker-alt" style="color: #ffd700; margin-right: 10px;"></i> Bo. El Centro, Ave Máximo Jerez <br> Casa 820 Tegucigalpa, Honduras</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-phone" style="color: #ffd700; margin-right: 10px;"></i> +504 9971-7820 <br>+504 9833-2595</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-envelope" style="color: #ffd700; margin-right: 10px;"></i> joyascharlys@gmail.com</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-clock" style="color: #ffd700; margin-right: 10px;"></i> Lun - Vie: 9:00 - 18:00 <br>SÁB: 10:00 AM a 6:00 PM <br>DOM: 11:00 AM a 4:00 PM</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #444;">
+				<div class="col-lg-6 col-md-6">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-6 text-right">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Diseñado con <i class="fas fa-heart" style="color: #ff6b6b;"></i> para nuestros clientes
+					</p>
+				</div>
 			</div>
 		</div>
 	</footer>
@@ -290,6 +564,86 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+
+	<!-- JavaScript para funcionalidad MEJORADO -->
+	<script>
+		// Filtrado por categorías - VERSIÓN MEJORADA
+		document.addEventListener('DOMContentLoaded', function() {
+			const filterButtons = document.querySelectorAll('.news-categories .btn');
+			const pagination = document.getElementById('pagination');
+			let currentFilter = 'all';
+			
+			filterButtons.forEach(button => {
+				button.addEventListener('click', function() {
+					// Remover active de todos los botones
+					filterButtons.forEach(btn => btn.classList.remove('active'));
+					// Agregar active al botón clickeado
+					this.classList.add('active');
+					
+					const filter = this.getAttribute('data-filter');
+					currentFilter = filter;
+					const newsItems = document.querySelectorAll('.news-item');
+					
+					// Contador para saber si hay resultados
+					let visibleCount = 0;
+					
+					newsItems.forEach(item => {
+						if (filter === 'all') {
+							// Para "Todas", mostramos solo las de la página actual
+							const itemPage = parseInt(item.getAttribute('data-page'));
+							const currentPage = <?php echo $current_page; ?>;
+							
+							if (itemPage === currentPage) {
+								item.classList.remove('hidden-by-page');
+								visibleCount++;
+							} else {
+								item.classList.add('hidden-by-page');
+							}
+						} else {
+							// Para categorías específicas, mostramos todas de esa categoría
+							const itemCategory = item.getAttribute('data-category');
+							if (itemCategory === filter) {
+								item.classList.remove('hidden-by-page');
+								visibleCount++;
+							} else {
+								item.classList.add('hidden-by-page');
+							}
+						}
+					});
+					
+					// Mostrar u ocultar paginación
+					if (filter === 'all') {
+						pagination.classList.remove('hidden');
+					} else {
+						pagination.classList.add('hidden');
+					}
+					
+					// Si no hay resultados, mostrar mensaje
+					if (visibleCount === 0) {
+						const noResults = document.getElementById('no-results');
+						if (!noResults) {
+							const noResultsMsg = document.createElement('div');
+							noResultsMsg.id = 'no-results';
+							noResultsMsg.className = 'col-12 text-center';
+							noResultsMsg.innerHTML = '<p style="font-size: 1.2rem; color: #666; margin-top: 50px;">No se encontraron noticias en esta categoría.</p>';
+							document.getElementById('news-container').appendChild(noResultsMsg);
+						}
+					} else {
+						const noResults = document.getElementById('no-results');
+						if (noResults) {
+							noResults.remove();
+						}
+					}
+				});
+			});
+			
+			// Al cargar la página, aplicar el filtro actual si existe
+			const activeFilter = document.querySelector('.news-categories .btn.active');
+			if (activeFilter) {
+				activeFilter.click();
+			}
+		});
+	</script>
 
 </body>
 </html>

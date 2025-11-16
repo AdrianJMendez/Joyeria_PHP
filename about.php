@@ -9,7 +9,6 @@
 	<!-- title -->
 	<title>Sobre Nosotros</title>
 
-
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 	<!-- google font -->
@@ -49,6 +48,9 @@
 	<link rel="stylesheet" href="css/faq-politicas.css">
 	<link rel="stylesheet" href="css/equipo.css">
 
+	<!-- Font Awesome actualizado para TikTok -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 	
@@ -76,10 +78,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
 
 							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="cart.php">Cart</a></li>
+							<a class="nav-link" href="cart.php">Carrito</a></li>
 							</li>
 
 							<!--
@@ -88,7 +90,7 @@
 							</li>
 							-->
 
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item active submenu dropdown">
 							<a class="nav-link" href="about.php">Sobre Nosotros</a></li>
 							</li>
 
@@ -328,13 +330,13 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="single-team-item">
 						<div class="team-img">
-							<img src="assets/webfonts/John.jpg" alt="Jonathan Aguilar" class="img-fluid">
+							<img src="img/team/John.jpg" alt="Jonathan Aguilar" class="img-fluid">
 						</div>
 						<h4>Jonathan Aguilar <span>Administrador</span></h4>
 						<ul class="social-link-team">
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="https://www.facebook.com/jon.aguilar.58152" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.tiktok.com/@johnaguilar2004" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+							<li><a href="https://www.instagram.com/john.aguilar21/" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -347,7 +349,7 @@
 						<h4>Sofía Urrutia <span>Diseñadora Principal</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
 					</div>
@@ -358,10 +360,10 @@
 						<div class="team-img">
 							<img src="assets/webfonts/Cesar.jpg" alt="Cesar Cruz" class="img-fluid">
 						</div>
-						<h4>Cesar Cruz <span>Fabricante</span></h4>
+						<h4>Cesar Cruz <span>Gerente</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
 					</div>
@@ -375,7 +377,7 @@
 						<h4>Adrian Mendez <span>Vendedor</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
 					</div>
@@ -836,22 +838,77 @@
 
 
 	<!-- start footer Area -->
-	<footer class="footer-area section_gap">
+	<footer class="footer-area section_gap" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
+				<!-- Información de la empresa -->
+				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="single-footer-widget">
-						<h6 style="color: #fff;">Más Información:</h6>
-						<p style="color: gray;">
-						"Descubre la elegancia y el lujo con la exclusiva colección de Joyería Charly's. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle. Tu destino definitivo para joyas que marcan la diferencia en cada ocasión especial."
+						<div class="footer-logo">
+							<img src="img/fav.png" alt="Joyas Charly's" style="height: 50px; margin-bottom: 15px;">
+						</div>
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Joyería Charly's</h6>
+						<p style="color: #cccccc; line-height: 1.8;">
+							"Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle."
 						</p>
+						<div class="footer-social" style="margin-top: 20px;">
+							<a href="#" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.instagram.com/joyas.charlys/" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+							<a href="#" style="color: #cccccc; margin-right: 15px; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+							<a href="#" style="color: #cccccc; font-size: 20px;"><i class="fab fa-tiktok"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Enlaces rápidos -->
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Enlaces Rápidos</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="index.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Inicio</a></li>
+							<li><a href="Shop.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Productos</a></li>
+							<li><a href="about.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Sobre Nosotros</a></li>
+							<li><a href="News.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Noticias</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Servicios -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Nuestros Servicios</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Joyería Personalizada</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Engaste de Piedras</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Limpieza Profesional</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Valuación de Joyas</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contacto -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Contacto</h6>
+						<div class="contact-info" style="color: #cccccc;">
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-map-marker-alt" style="color: #ffd700; margin-right: 10px;"></i> Bo. El Centro, Ave Máximo Jerez <br> Casa 820 Tegucigalpa, Honduras</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-phone" style="color: #ffd700; margin-right: 10px;"></i> +504 9971-7820 <br>+504 9833-2595</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-envelope" style="color: #ffd700; margin-right: 10px;"></i> joyascharlys@gmail.com</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-clock" style="color: #ffd700; margin-right: 10px;"></i> Lun - Vie: 9:00 - 18:00 <br>SÁB: 10:00 AM a 6:00 PM <br>DOM: 11:00 AM a 4:00 PM</p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<p class="footer-text m-0" style="color: gray;">
+
+			<div class="row" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #444;">
+				<div class="col-lg-6 col-md-6">
+					<p class="footer-text m-0" style="color: #cccccc;">
 						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-6 text-right">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Diseñado con <i class="fas fa-heart" style="color: #ff6b6b;"></i> para nuestros clientes
 					</p>
 				</div>
 			</div>
