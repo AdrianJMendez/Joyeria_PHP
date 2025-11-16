@@ -22,7 +22,7 @@ END //
 DELIMITER ;
 
 -- Llamar el procedimiento
-CALL sp_verificar_usuario_privilegios('cesar.cruz@email.com', 'hashed_password_cesar');
+-- CALL sp_verificar_usuario_privilegios('cesar.cruz@email.com', 'hashed_password_cesar');
 
 -- eliminar el procedure
-DROP PROCEDURE IF EXISTS sp_verificar_usuario_privilegios;
+-- DROP PROCEDURE IF EXISTS sp_verificar_usuario_privilegios;

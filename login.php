@@ -37,6 +37,28 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<style>
+			.navbar-nav.menu_nav.ml-auto {
+				margin-left: auto !important;
+				margin-right: auto !important;
+				justify-content: center !important;
+			}
+
+			.navbar-nav.menu_nav {
+				width: auto !important;
+				display: flex !important;
+				justify-content: center !important;
+			}
+
+			.main_menu .navbar-collapse {
+				justify-content: center !important;
+			}
+
+			.navbar-nav {
+				flex-direction: row !important;
+				justify-content: center !important;
+			}
+	</style>
 </head>
 <body>
 	<!-- Start Header Area -->

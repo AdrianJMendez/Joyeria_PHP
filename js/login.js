@@ -62,49 +62,9 @@ class ActionLogin {
         }
     }
 
-    // COMENTAMOS esta función para que no se use más
-    /*
-    static mostrarSesionActiva(nombreUsuario) {
-        const loginContent = document.querySelector('.card-body');
-        
-        if (loginContent) {
-            loginContent.innerHTML = `
-                <div class="text-center">
-                    <div class="d-flex align-items-center mb-3 pb-1 justify-content-center">
-                        <i class="fas fa-gem fa-2x me-3" style="color: #8B4513;"></i>
-                        <span class="h1 fw-bold mb-0" style="color: #8B4513;">Joyas Charly's</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <i class="fas fa-check-circle fa-4x text-success mb-3"></i>
-                        <h3 style="color: #8B4513;">¡Sesión Iniciada!</h3>
-                        <p class="text-muted">Hola <strong>${nombreUsuario}</strong>, tu sesión está activa.</p>
-                    </div>
-
-                    <div class="user-actions mb-4">
-                        <a href="index.php" class="btn btn-continue me-3">
-                            <i class="fas fa-home me-2"></i>Ir al Inicio
-                        </a>
-                        <button onclick="SessionManager.cerrarSesion()" class="btn btn-logout">
-                            <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
-                        </button>
-                    </div>
-
-                    <div class="login-links">
-                        <p class="small text-muted">¿No eres ${nombreUsuario}? <a href="#" onclick="SessionManager.cerrarSesion()" style="color: #8B4513;">Cerrar sesión</a></p>
-                    </div>
-                </div>
-            `;
-        }
-        
-        // Actualizar navbar usando SessionManager
-        SessionManager.actualizarNavbar();
-    }
-    */
-
     static send(data, modalError) {
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", 'http://localhost/Joyeria/Controller/loginController.php' , true);
+        xhr.open("POST", 'http://localhost/Joyeria_PHP/Controller/loginController.php' , true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.addEventListener("readystatechange", ActionLogin.processResponce.bind(xhr, modalError));
         xhr.send(data);

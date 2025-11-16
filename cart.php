@@ -29,7 +29,33 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 	<!-- Font Awesome actualizado para TikTok -->
+
+	<!--css necesarios para cambiar btn-login-->
+	<link rel="stylesheet" href="css/loginNavbar.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.navbar-nav.menu_nav.ml-auto {
+				margin-left: auto !important;
+				margin-right: auto !important;
+				justify-content: center !important;
+			}
+
+			.navbar-nav.menu_nav {
+				width: auto !important;
+				display: flex !important;
+				justify-content: center !important;
+			}
+
+			.main_menu .navbar-collapse {
+				justify-content: center !important;
+			}
+
+			.navbar-nav {
+				flex-direction: row !important;
+				justify-content: center !important;
+			}
+		</style>
 </head>
 
 <body>
@@ -79,8 +105,8 @@
 							<a class="nav-link" href="Shop.php">Productos</a></li>
 							</li>
 
-							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="login.php">Iniciar sesion</a></li>
+							<li class="nav-item" id="auth-nav-item">
+								<!-- SessionManager.js se encargará de poner "Iniciar sesión" o el nombre del usuario -->
 							</li>
 						</ul>
 					</div>
@@ -248,6 +274,10 @@
 		</div>
 	</footer>
 	<!-- End footer Area -->
+	<!--Script necesarios para login-->
+	<script src="js/sessionManager.js"></script>
+
+
 
     <script src="js/SessionManager.js"></script>
     <script src="js/script_shop.js"></script><script src="js/main.js"></script>

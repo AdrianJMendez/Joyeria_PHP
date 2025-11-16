@@ -49,6 +49,11 @@
 	<!-- Font Awesome actualizado para TikTok -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+	<!--css necesarios para cambiar btn-login-->
+	<link rel="stylesheet" href="css/loginNavbar.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 	
@@ -98,8 +103,8 @@
 							<a class="nav-link" href="Shop.php">Productos</a></li>
 							</li>
 
-							<li class="nav-item submenu dropdown">
-							<a class="nav-link" href="login.php">Iniciar sesion</a></li>
+							<li class="nav-item" id="auth-nav-item">
+								<!-- SessionManager.js se encargará de poner "Iniciar sesión" o el nombre del usuario -->
 							</li>
 						</ul>
 					</div>
@@ -319,7 +324,15 @@
 		</div>
 	</footer>
 	<!-- End footer Area -->
-	
+		
+	<!--Script necesarios para login-->
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+
+	<script src="js/sessionManager.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
