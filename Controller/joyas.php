@@ -15,20 +15,20 @@ $pdo = new Conexion();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id'])) {
         // Obtener una joya específica
-        $sql = $pdo->prepare("SELECT * FROM Joyas WHERE id_joya = :id");
+        $sql = $pdo->prepare("SELECT * FROM joyas WHERE id_joya = :id");
         $sql->bindValue(':id', $_GET['id']);
     } elseif (isset($_GET['id_categoria'])) {
         // Obtener joyas por categoría
-        $sql = $pdo->prepare("SELECT * FROM Joyas WHERE id_categoria = :id_categoria");
+        $sql = $pdo->prepare("SELECT * FROM joyas WHERE id_categoria = :id_categoria");
         $sql->bindValue(':id_categoria', $_GET['id_categoria']);
      } elseif (isset($_GET['stock'])) {
         // Obtener stock de las joyas
-        $sql = $pdo->prepare("SELECT * FROM Joyas WHERE stock = :stock");
+        $sql = $pdo->prepare("SELECT * FROM joyas WHERE stock = :stock");
         $sql->bindValue(':stock', $_GET['stock']);
  
     } else {
         // Obtener todas las joyas
-        $sql = $pdo->prepare("SELECT * FROM Joyas");
+        $sql = $pdo->prepare("SELECT * FROM joyas");
        
     }
 
