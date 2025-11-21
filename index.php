@@ -350,33 +350,44 @@
 					<a href="" class="primary-btn">Compra ya.</a>
 				</div>
 				<div class="col-lg-6 no-padding exclusive-right">
-					<div class="active-exclusive-product-slider">
-						<!-- single exclusive carousel -->
-						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="img/Pulsera.png" alt="">
-							<div class="product-details">
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
-								</div>
-								<h4>Bulova</h4>
-							</div>
-						</div>
-						<!-- single exclusive carousel -->
-						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="img/12.jpg" alt="">
-							<div class="product-details">
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
-								</div>
-								<h4>Fossil</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    <div class="active-exclusive-product-slider owl-carousel">
+        <div class="single-exclusive-slider">
+            <img class="img-fluid" src="img/Pulsera.png" alt="">
+            <div class="product-details">
+                <div class="price">
+                    <h6>$150.00</h6>
+                    <h6 class="l-through">$210.00</h6>
+                </div>
+                <h4>Bulova</h4>
+            </div>
+        </div>
+
+        <div class="single-exclusive-slider">
+            <img class="img-fluid" src="img/12.jpg" alt="">
+            <div class="product-details">
+                <div class="price">
+                    <h6>$150.00</h6>
+                    <h6 class="l-through">$210.00</h6>
+                </div>
+                <h4>Fossil</h4>
+            </div>
+        </div>
+
+        <!-- Puedes agregar más aquí -->
+        <div class="single-exclusive-slider">
+            <img class="img-fluid" src="img/NUEVO1.jpg" alt="">
+            <div class="product-details">
+                <div class="price">
+                    <h6>$199.00</h6>
+                    <h6 class="l-through">$260.00</h6>
+                </div>
+                <h4>Michael Kors</h4>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 	</section>
 	<!-- End exclusive deal Area -->
 
@@ -482,6 +493,22 @@
 
 	<script src="js/jquery.sticky.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+    $('.active-exclusive-product-slider').owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        nav: true,
+        dots: true
+    });
+});
+</script>
+
+
 </body>
 
 </html>
