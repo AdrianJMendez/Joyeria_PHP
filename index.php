@@ -329,7 +329,7 @@
 						<div class="col-lg-12">
 							<div class="row clock-wrap">
 								<div class="col clockinner1 clockinner">
-									<h1 class="days">150</h1>
+									<h1 class="days">08</h1>
 									<span class="smalltext">Days</span>
 								</div>
 								<div class="col clockinner clockinner1">
@@ -347,7 +347,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="" class="primary-btn">Compra ya.</a>
+					<a href="Shop.php" class="primary-btn">Compra ya.</a>
 				</div>
 				<div class="col-lg-6 no-padding exclusive-right">
 					<div class="active-exclusive-product-slider">
@@ -471,16 +471,7 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script>
-$(document).ready(function(){
-    $('.active-exclusive-product-slider').owlCarousel({
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        nav: true,
-        dots: true
-    });
-});
+
 </script>
 
 

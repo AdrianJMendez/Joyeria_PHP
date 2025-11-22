@@ -376,3 +376,257 @@
 .info-item {
     line-height: 1.5;
 }
+/* Nuevos estados de pedido */
+.estado-confirmado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.estado-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Timeline mejorado */
+.paso-timeline small {
+    font-size: 0.7rem;
+    margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-pedido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-pedido::before {
+        display: none;
+    }
+    
+    .paso-timeline {
+        flex-direction: row;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    .paso-icono {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+}
+
+/* ========== ESTILOS PARA PEDIDOS ========== */
+
+/* Estados de pedido */
+.estado-pedido {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.estado-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.estado-confirmado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.estado-procesando {
+    background-color: #cce7ff;
+    color: #004085;
+}
+
+.estado-enviado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.estado-entregado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.estado-cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Tarjeta de pedido */
+.pedido-card {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background: white;
+}
+
+.pedido-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.pedido-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.pedido-body {
+    padding: 20px;
+}
+
+.producto-pedido {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.producto-pedido:last-child {
+    border-bottom: none;
+}
+
+.producto-imagen {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid #e9ecef;
+}
+
+.producto-info {
+    flex: 1;
+}
+
+.producto-nombre {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.producto-precio {
+    color: #8B4513;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pedido-acciones {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Línea de tiempo de estado */
+.timeline-pedido {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 20px 0;
+    padding: 10px 0;
+}
+
+.timeline-pedido::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #e9ecef;
+    z-index: 1;
+}
+
+.paso-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.paso-icono {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ecef;
+    color: #6c757d;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+}
+
+.paso-activo .paso-icono {
+    background-color: #8B4513;
+    color: white;
+}
+
+.paso-completado .paso-icono {
+    background-color: #28a745;
+    color: white;
+}
+
+.paso-label {
+    font-size: 0.75rem;
+    text-align: center;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.paso-activo .paso-label {
+    color: #8B4513;
+    font-weight: 600;
+}
+
+.paso-completado .paso-label {
+    color: #28a745;
+}
+
+.paso-timeline small {
+    font-size: 0.7rem;
+    margin-top: 2px;
+    color: #6c757d;
+}
+
+/* Responsive para pedidos */
+@media (max-width: 768px) {
+    .timeline-pedido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-pedido::before {
+        display: none;
+    }
+    
+    .paso-timeline {
+        flex-direction: row;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    .paso-icono {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .pedido-acciones {
+        flex-direction: column;
+    }
+    
+    .pedido-acciones .btn {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}

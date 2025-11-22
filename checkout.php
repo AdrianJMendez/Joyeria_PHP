@@ -283,7 +283,7 @@
 	<script>
 	// UTIL: formatea número de tarjeta con espacios
 	function formatCardNumber(value){
-		return value.replace(/\\D/g,'').replace(/(.{4})/g,'$1 ').trim();
+		return value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();
 	}
 
 	// UTIL: Luhn check
@@ -300,16 +300,16 @@
 
 	// Detectar tipo por BIN
 	function detectCardType(number){
-		const clean = number.replace(/\\D/g,'');
+		const clean = number.replace(/\D/g,'');
 		if(/^4/.test(clean)) return 'Visa';
-		if(/^(5[1-5])/.test(clean) || /^(222[1-9]|22[3-9]\\d|2[3-6]\\d{2}|27[01]\\d|2720)/.test(clean)) return 'Mastercard';
+		if(/^(5[1-5])/.test(clean) || /^(222[1-9]|22[3-9]\d|2[3-6]\d{2}|27[01]\d|2720)/.test(clean)) return 'Mastercard';
 		return 'Desconocida';
 	}
 
 	// Actualizar visual
 	document.getElementById('cardNumber').addEventListener('input', function(e){
 		this.value = formatCardNumber(this.value);
-		const clean = this.value.replace(/\\s/g,'');
+		const clean = this.value.replace(/\s/g,'');
 		const tipo = detectCardType(clean);
 		const logoVisa = document.getElementById('logoVisa');
 		const logoMaster = document.getElementById('logoMaster');
@@ -365,59 +365,180 @@
 	document.addEventListener('DOMContentLoaded', cargarCarritoEnCheckout);
 
 	// Manejo del botón crear orden
-	document.getElementById('btnOrder').addEventListener('click', function(){
-		const nombre = document.querySelector('input[placeholder=\"Nombre:\"]').value.trim();
-		const correo = document.querySelector('input[placeholder=\"Correo:\"]').value.trim();
-		const direccion = document.querySelector('input[placeholder=\"Dirección\"]').value.trim();
-		const telefono = document.querySelector('input[placeholder=\"Telefono\"]').value.trim();
+document.getElementById('btnOrder').addEventListener('click', function(){
+    const nombre = document.querySelector('input[placeholder="Nombre:"]').value.trim();
+    const correo = document.querySelector('input[placeholder="Correo:"]').value.trim();
+    const direccion = document.querySelector('input[placeholder="Dirección"]').value.trim();
+    const telefono = document.querySelector('input[placeholder="Telefono"]').value.trim();
 
-		const cardName = document.getElementById('cardName').value.trim();
-		const cardNumberRaw = document.getElementById('cardNumber').value.replace(/\\s/g,'');
-		const cardExp = document.getElementById('cardExp').value.trim();
-		const cardCVC = document.getElementById('cardCVC').value.trim();
+    const cardName = document.getElementById('cardName').value.trim();
+    const cardNumberRaw = document.getElementById('cardNumber').value.replace(/\s/g,'');
+    const cardExp = document.getElementById('cardExp').value.trim();
+    const cardCVC = document.getElementById('cardCVC').value.trim();
 
-		if(!nombre || !correo || !direccion || !telefono){ alert('Por favor completa todos los datos de envío.'); return; }
-		if(!cardName || cardNumberRaw.length < 13 || !cardExp || !(cardCVC.length===3 || cardCVC.length===4)){ alert('Por favor completa los datos de la tarjeta correctamente.'); return; }
-	
+    if(!nombre || !correo || !direccion || !telefono){ 
+        alert('Por favor completa todos los datos de envío.'); 
+        return; 
+    }
+    if(!cardName || cardNumberRaw.length < 10 || !cardExp || !(cardCVC.length===3 || cardCVC.length===4)){ 
+        alert('Por favor completa los datos de la tarjeta correctamente.'); 
+        return; 
+    }
 
-		const tipo = detectCardType(cardNumberRaw);
+    const tipo = detectCardType(cardNumberRaw);
 
-		localStorage.setItem('pagoData', JSON.stringify({
-			nombre, correo, direccion, telefono,
-			cardLast4: cardNumberRaw.slice(-4),
-			cardType: tipo
-		}));
+    // Obtener usuario desde localStorage
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (!usuario || !usuario.id) {
+        alert('Debes iniciar sesión para realizar una orden.');
+        window.location.href = 'login.php';
+        return;
+    }
 
-		// Mostrar modal (usa bootstrap)
-		$('#modalPagoExitoso').modal('show');
-	});
-
-	document.getElementById('btnImprimirPDF').addEventListener('click', function(){
-
+    // Obtener carrito y validar estructura
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const pago = JSON.parse(localStorage.getItem('pagoData')) || {};
-    const { jsPDF } = window.jspdf;
+    if (carrito.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+    }
 
-    const doc = new jsPDF();
+    console.log('Estructura del carrito:', carrito);
 
-    // ======== ESTILOS ========
-    const tituloColor = "#333333";
-    const textoColor = "#555555";
-    const lineaColor = "#DDDDDD";
+    // Validar y preparar productos
+    const productosParaEnviar = [];
+    let subtotal = 0;
 
-    doc.setFont("helvetica", "normal");
+    for (const producto of carrito) {
+        
+        const id_joya = producto.id_joya;
+        const cantidad = producto.cantidad;
+        const precio = producto.precio;
+        const nombreProducto = producto.nombre;
 
-	
+        // Validaciones más específicas
+        if (id_joya === undefined || id_joya === null || id_joya === '') {
+            console.error('Producto sin ID válido:', producto);
+            alert(`Error: El producto "${nombreProducto}" no tiene ID válido.`);
+            return;
+        }
+
+        if (cantidad === undefined || cantidad === null || cantidad < 1) {
+            console.error('Producto sin cantidad válida:', producto);
+            alert(`Error: El producto "${nombreProducto}" no tiene cantidad válida.`);
+            return;
+        }
+
+        // Asegurarnos de que los tipos sean correctos
+        productosParaEnviar.push({
+            id_joya: parseInt(id_joya), // Convertir a número entero
+            cantidad: parseInt(cantidad), // Convertir a número entero
+            precio: parseFloat(precio), // Convertir a número decimal
+            nombre: nombreProducto
+        });
+
+        subtotal += parseFloat(precio) * parseInt(cantidad);
+    }
+
+    const envio = 50;
+    const total = subtotal + envio;
+
+    // Preparar datos para la orden
+    const ordenData = {
+        id_usuario: parseInt(usuario.id), // Asegurar que sea número
+        productos: productosParaEnviar,
+        total: total,
+        estado: 'confirmado'
+    };
+
+    
+
+    // Mostrar loading en el botón
+    const boton = this;
+    const textoOriginal = boton.innerHTML;
+    boton.innerHTML = 'Creando Orden...';
+    boton.disabled = true;
+
+    // Enviar la orden al servidor
+    fetch('Controller/guardarOrdenController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(ordenData)
+    })
+    .then(response => {
+        return response.text().then(text => {
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                throw new Error('El servidor no devolvió JSON válido. Respuesta: ' + text);
+            }
+        });
+    })
+    .then(data => {
+        console.log('Respuesta:', data);
+        
+        if (data.success) {
+            // Guardar datos COMPLETOS de pago en localStorage para el PDF
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const pagoData = {
+                nombre, correo, direccion, telefono,
+                cardLast4: cardNumberRaw.slice(-4),
+                cardType: tipo,
+                id_orden: data.id_orden,
+                id_factura: data.id_factura,
+                productos: carrito,
+                subtotal: subtotal, 
+                envio: envio,
+                total: total 
+            };
+            localStorage.setItem('pagoData', JSON.stringify(pagoData));
+
+            // Limpiar carrito
+            localStorage.removeItem('carrito');
+
+            // Mostrar modal de éxito
+            $('#modalPagoExitoso').modal('show');
+        } else {
+            throw new Error(data.message || 'Error desconocido');
+        }
+    })
+    .catch(error => {
+        console.error('Error completo:', error);
+        alert('Error al crear la orden: ' + error.message);
+    })
+    .finally(() => {
+        // Restaurar botón
+        boton.innerHTML = textoOriginal;
+        boton.disabled = false;
+    });
+});
+
+	// ========== FUNCIÓN PARA IMPRIMIR FACTURA ==========
+	document.getElementById('btnImprimirPDF').addEventListener('click', function(){
+		const pagoData = JSON.parse(localStorage.getItem('pagoData')) || {};
+		const { jsPDF } = window.jspdf;
+
+		const doc = new jsPDF();
+
+		// ======== ESTILOS ========
+		const tituloColor = "#333333";
+		const textoColor = "#555555";
+		const lineaColor = "#DDDDDD";
+
+		doc.setFont("helvetica", "normal");
+
+		// Logo
 		doc.addImage('img/instagram/profile.png', 'PNG', 150, 10, 40, 40);
 
 		// ====== TÍTULO ======
 		doc.setFontSize(22);
 		doc.setTextColor(tituloColor);
-		doc.text("Factura de Compra", 14, 25);
+		doc.text("Factura de Compra - Joyas Charly's", 14, 25);
 
 		doc.setFontSize(12);
 		doc.setTextColor(textoColor);
-		doc.text("Joya's Charly", 14, 32);
+		doc.text(`Pedido #${pagoData.id_orden || 'N/A'}`, 14, 32);
 
 		// Línea suave
 		doc.setDrawColor(lineaColor);
@@ -431,16 +552,16 @@
 		doc.setFontSize(11);
 		doc.setTextColor(textoColor);
 
-		doc.text(`Nombre: ${pago.nombre || ''}`, 14, 58);
-		doc.text(`Correo: ${pago.correo || ''}`, 14, 66);
-		doc.text(`Teléfono: ${pago.telefono || ''}`, 14, 74);
-		doc.text(`Dirección: ${pago.direccion || ''}`, 14, 82);
+		doc.text(`Nombre: ${pagoData.nombre || ''}`, 14, 58);
+		doc.text(`Correo: ${pagoData.correo || ''}`, 14, 66);
+		doc.text(`Teléfono: ${pagoData.telefono || ''}`, 14, 74);
+		doc.text(`Dirección: ${pagoData.direccion || ''}`, 14, 82);
 
-		doc.text(`Tarjeta: **** **** **** ${pago.cardLast4 || '----'}`, 14, 90);
-		doc.text(`Tipo de tarjeta: ${pago.cardType || 'Desconocida'}`, 14, 98);
+		doc.text(`Tarjeta: **** **** **** ${pagoData.cardLast4 || '----'}`, 14, 90);
+		doc.text(`Tipo de tarjeta: ${pagoData.cardType || 'Desconocida'}`, 14, 98);
 
 		const fecha = new Date();
-		doc.text(`Fecha: ${fecha.toLocaleDateString()}  ${fecha.toLocaleTimeString()}`, 14, 106);
+		doc.text(`Fecha: ${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString()}`, 14, 106);
 
 		// Línea divisoria
 		doc.line(14, 112, 196, 112);
@@ -462,11 +583,15 @@
 
 		y += 8;
 
-		let subtotal = 0;
+		// Totales
+		const subtotal = pagoData.subtotal || 0;
+		const envio = pagoData.envio || 0;
+		const total = pagoData.total || 0;
 
-		carrito.forEach(p => {
+		
+		const productos = pagoData.productos || [];
+		productos.forEach(p => {
 			const totalProd = p.precio * p.cantidad;
-			subtotal += totalProd;
 
 			doc.text(`${p.nombre} (x${p.cantidad})`, 14, y);
 			doc.text(`$${totalProd.toFixed(2)}`, 180, y, { align: "right" });
@@ -492,21 +617,23 @@
 
 		y += 8;
 		doc.text("Envío:", 140, y);
-		doc.text("$50.00", 196, y, { align: "right" });
+		doc.text(`$${envio.toFixed(2)}`, 196, y, { align: "right" });
 
 		y += 8;
 		doc.setFontSize(14);
 		doc.text("TOTAL:", 140, y);
-		doc.text(`$${(subtotal + 50).toFixed(2)}`, 196, y, { align: "right" });
+		doc.text(`$${total.toFixed(2)}`, 196, y, { align: "right" });
 
 		// Mensaje final
 		y += 20;
 		doc.setFontSize(12);
 		doc.setTextColor(textoColor);
-		doc.text("Gracias por tu compra. ¡Vuelve pronto!", 14, y);
+		doc.text("¡Gracias por tu compra en Joyas Charly's!", 14, y);
+		y += 8;
+		doc.text("Para cualquier consulta, contáctanos al +504 9971-7820", 14, y);
 
 		// Guardar
-		doc.save(`Factura_JoyasCharly.pdf`);
+		doc.save(`Factura_JoyasCharly_${pagoData.id_orden || 'JoyasCharly'}.pdf`);
 	});
 
 	</script>

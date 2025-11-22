@@ -59,7 +59,7 @@ if ($agotadoEn !== null) {
     $minutosPasados = (time() - $fechaAgotado) / 60;
 
     // Como no han pasado 5 minutos sigue estando agotado
-    if ($minutosPasados < 5) {
+    if ($minutosPasados < 1) {
 
         
         $stockActual = 0;

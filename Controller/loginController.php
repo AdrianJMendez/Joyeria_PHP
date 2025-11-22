@@ -70,6 +70,7 @@ try {
         sendResponse(200, [
             'status' => true,
             'message' => "Login exitoso",
+            'id' => $usuario['id_usuario'],
             'user' => $session['email'],       
             'rol' => $session['nombre_rol'],     
             'name' => $session['nombre'],     
