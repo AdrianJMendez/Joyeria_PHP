@@ -137,3 +137,8 @@ UPDATE Joyas SET imagen_url = 'img/products/collares/Tilted Butterfly Necklace i
 
 UPDATE Joyas
 SET stock = FLOOR(1 + (RAND() * 10));
+
+---Actualizacion de tallas para aretes
+UPDATE Joyas SET talla = '10 mm' WHERE nombre = 'Aretes Esmeralda';
+UPDATE Joyas SET talla = '8 mm – 20 mm' WHERE nombre = 'Aretes Oro Blanco';
+UPDATE Joyas SET talla = '12 mm' WHERE nombre = 'Aretes Perla';

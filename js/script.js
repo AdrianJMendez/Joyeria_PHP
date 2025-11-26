@@ -35,6 +35,7 @@ function mostrarJoyas(joyas) {
                     <div class="portfolio-caption-heading">${joya.nombre}</div>
                     <div class="portfolio-caption-subheading">${joya.material || ''}</div>
                     <div class="portfolio-caption-subheading text-muted">$${parseFloat(joya.precio).toFixed(2)}</div>
+                     <div class="portfolio-caption-subheading">${joya.talla || ''}</div>
                 </div>
 
                 <div class="input-group mb-3 quantity-selector">
@@ -50,7 +51,8 @@ function mostrarJoyas(joyas) {
                     data-nombre="${joya.nombre}"
                     data-material="${joya.material}"
                     data-precio="${joya.precio}"
-                    data-imagen="${joya.imagen_url}">
+                    data-imagen="${joya.imagen_url}"
+                    data-talla="${joya.talla || ''}">
                     <i class="bi bi-cart"></i> AGREGAR
                 </button>
 
@@ -85,6 +87,7 @@ document.addEventListener('click', function (e) {
             material: button.getAttribute('data-material'),
             precio: parseFloat(button.getAttribute('data-precio')),
             imagen_url: button.getAttribute('data-imagen'),
+            talla: button.getAttribute('data-talla'),
             cantidad: parseInt(button.parentElement.querySelector('.quantity-input').value)
         };
 
