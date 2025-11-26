@@ -142,3 +142,7 @@ SET stock = FLOOR(1 + (RAND() * 10));
 UPDATE Joyas SET talla = '10 mm' WHERE nombre = 'Aretes Esmeralda';
 UPDATE Joyas SET talla = '8 mm – 20 mm' WHERE nombre = 'Aretes Oro Blanco';
 UPDATE Joyas SET talla = '12 mm' WHERE nombre = 'Aretes Perla';
+
+UPDATE Joyas SET talla = '5 Talla US ' WHERE nombre = 'Anillo de compromiso';
+UPDATE Joyas SET talla = '5 Talla US' WHERE nombre = 'Anillo Oro Blanco';
+UPDATE Joyas SET talla = '10 Talla US' WHERE nombre = 'Anillo Oro 14K';
