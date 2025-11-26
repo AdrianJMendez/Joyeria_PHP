@@ -312,7 +312,7 @@
     <div class="modal-content">
       <div class="modal-header bg-orange">
         <h5 class="modal-title" id="modalTitle">Mensaje</h5>
-        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">&times;</button>
       </div>
       <div class="modal-body" id="modalBody"></div>
     </div>
@@ -333,7 +333,7 @@ function mostrarModal(titulo, mensaje) {
 	<script src="js/vendor/bootstrap.min.js"></script>
 
 	<script src="js/sessionManager.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script-->
 
 	<script src="js/script.js"></script>
 	<!-- jquery -->
