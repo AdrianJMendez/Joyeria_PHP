@@ -39,20 +39,22 @@ class SessionManager {
 
         if (this.verificarSesion()) {
             const usuario = this.obtenerUsuario();
+            let initial = usuario.name.split(' ')[0].charAt(0) + usuario.name.split(' ')[1].charAt(0) 
+            
             authNavItem.innerHTML = `
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" 
                        href="javascript:void(0)" role="button" data-bs-toggle="dropdown" 
                        aria-expanded="false" style="cursor: pointer;">
                         <i class="fas fa-user me-2"></i>
-                        <span>${usuario.name.split(' ')[0]}</span>
+                        <span>${initial.toUpperCase()}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end">
                         <a class="dropdown-item" href="perfil.php">
-                            <i class="fas fa-user me-2"></i>Mi Perfil
+                            <i class="fas fa-user me-2"></i> Mi Perfil
                         </a>
                         <a class="dropdown-item" href="pedidos.php">
-                            <i class="fas fa-shopping-bag me-2"></i>Mis Pedidos
+                            <i class="fas fa-shopping-bag me-2"></i> Mis Pedidos
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="javascript:void(0)" 

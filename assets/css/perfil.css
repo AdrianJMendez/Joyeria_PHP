@@ -630,3 +630,56 @@
         width: 100%;
     }
 }
+
+.btn-admin {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-admin:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+    color: white;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+.admin-quick-card {
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.admin-quick-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #8B4513;
+}
+
+.btn-outline-joyas {
+    border: 1px solid #8B4513;
+    color: #8B4513;
+    background: transparent;
+}
+
+.btn-outline-joyas:hover {
+    background: #8B4513;
+    color: white;
+}
