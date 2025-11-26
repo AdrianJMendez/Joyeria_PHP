@@ -394,7 +394,7 @@ session_start();
                                 <span class="estado-pedido ${estadoClass}">${estadoTexto}</span>
                             </div>
                             <div class="col-md-3 text-md-end">
-                                <strong>L ${pedido.total.toFixed(2)}</strong>
+                                <strong>$ ${pedido.total.toFixed(2)}</strong>
                             </div>
                         </div>
                     </div>
@@ -413,7 +413,7 @@ session_start();
                                     <div class="producto-info">
                                         <div class="producto-nombre">${producto.nombre}</div>
                                         <div class="d-flex justify-content-between">
-                                            <span class="producto-precio">L ${producto.precio.toFixed(2)}</span>
+                                            <span class="producto-precio">$ ${producto.precio.toFixed(2)}</span>
                                             <span class="text-muted">Cantidad: ${producto.cantidad}</span>
                                         </div>
                                     </div>
