@@ -91,4 +91,25 @@ try {
         'message' => "Error en el servidor: " . $e->getMessage()
     ]);
 }
+
+if (count($resultados) > 0) {
+    $session = $resultados[0];
+    
+    // ESTABLECER LA SESIÓN PHP
+    $_SESSION['usuario_id'] = $usuario['id_usuario'];
+    $_SESSION['usuario_email'] = $email;
+    $_SESSION['usuario_nombre'] = $session['nombre'];
+    $_SESSION['usuario_rol'] = $session['nombre_rol'];
+    
+    sendResponse(200, [
+        'status' => true,
+        'message' => "Login exitoso",
+        'id' => $usuario['id_usuario'],
+        'user' => $session['email'],       
+        'rol' => $session['nombre_rol'],     
+        'name' => $session['nombre'],     
+        'privilegios' => $session['privilegios'],
+        'token' => 'token123'
+    ]);
+}
 ?>

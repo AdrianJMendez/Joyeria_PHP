@@ -17,6 +17,62 @@ session_start();
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/perfil.css">
+    
+    <style>
+        .btn-admin {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-admin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+            color: white;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .admin-quick-card {
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .admin-quick-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #8B4513;
+        }
+
+        .btn-outline-joyas {
+            border: 1px solid #8B4513;
+            color: #8B4513;
+            background: transparent;
+        }
+
+        .btn-outline-joyas:hover {
+            background: #8B4513;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     
@@ -139,8 +195,7 @@ session_start();
 									</svg>
 								</a>				
 							</div>
-					</div>
-				</div>
+				
 					</div>
 				</div>
 
@@ -220,6 +275,23 @@ session_start();
         }
     }
 
+    // Funciones para el panel de administración
+    function verEstadisticas() {
+        // Redirigir al panel de admin y enfocar en estadísticas
+        window.location.href = 'admin.php#estadisticas';
+    }
+
+    function gestionarUsuarios() {
+        alert('Funcionalidad de gestión de usuarios en desarrollo');
+        // Aquí podrías redirigir a una página de gestión de usuarios
+        // window.location.href = 'gestion_usuarios.php';
+    }
+
+    function verReportes() {
+        alert('Funcionalidad de reportes en desarrollo');
+        // window.location.href = 'reportes.php';
+    }
+
     // Función principal para cargar el perfil según el rol
     function cargarPerfilSegunRol(usuario) {
         const rol = usuario.rol.toLowerCase();
@@ -240,6 +312,7 @@ session_start();
                     { id: 'pedidos', icon: 'fa-shopping-bag', text: 'Mis Pedidos' },
                     { id: 'favoritos', icon: 'fa-heart', text: 'Mis Favoritos' },
                     { id: 'direcciones', icon: 'fa-map-marker-alt', text: 'Direcciones' },
+                    { id: 'admin', icon: 'fa-cog', text: 'Panel de Administración' },
                     { id: 'seguridad', icon: 'fa-lock', text: 'Seguridad' }
                 ]
             },
@@ -315,7 +388,60 @@ session_start();
             </li>
         `).join('');
 
-        // Actualizar contenido principal (aquí puedes expandir según cada rol)
+        // Contenido para administradores
+        let adminContent = '';
+        if (rol === 'administrador') {
+            adminContent = `
+                <div class="tab-pane fade" id="admin">
+                    <div class="profile-card">
+                        <div class="card-header bg-white border-0 py-4">
+                            <h4 class="mb-0"><i class="fas fa-cog me-2"></i>Panel de Administración</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="admin-quick-card text-center p-4 rounded">
+                                        <div class="mb-3">
+                                            <i class="fas fa-shopping-bag fa-2x text-joyas"></i>
+                                        </div>
+                                        <h5>Gestión de Pedidos</h5>
+                                        <p class="text-muted small mb-3">Administra todos los pedidos del sistema</p>
+                                        <a href="admin.php" class="btn btn-admin btn-sm">Gestionar Pedidos</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="admin-quick-card text-center p-4 rounded">
+                                        <div class="mb-3">
+                                            <i class="fas fa-boxes fa-2x text-joyas"></i>
+                                        </div>
+                                        <h5>Control de Stock</h5>
+                                        <p class="text-muted small mb-3">Gestiona el inventario de productos</p>
+                                        <a href="admin.php" class="btn btn-admin btn-sm">Gestionar Stock</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-3 border-top">
+                                <h5 class="mb-3">Acceso Rápido</h5>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <a href="admin.php" class="btn btn-outline-joyas">
+                                        <i class="fas fa-tachometer-alt me-2"></i>Panel Principal
+                                    </a>
+                                    <button class="btn btn-outline-joyas" onclick="verEstadisticas()">
+                                        <i class="fas fa-chart-bar me-2"></i>Ver Estadísticas
+                                    </button>
+                                    <button class="btn btn-outline-joyas" onclick="gestionarUsuarios()">
+                                        <i class="fas fa-users me-2"></i>Gestionar Usuarios
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Actualizar contenido principal
         document.getElementById('profile-content').innerHTML = `
             <div class="tab-pane fade show active" id="info">
                 <div class="profile-card">
@@ -363,6 +489,7 @@ session_start();
                     </div>
                 </div>
             </div>
+            ${adminContent}
         `;
 
         // Tarjetas adicionales según el rol
@@ -371,12 +498,27 @@ session_start();
             additionalCards = `
                 <div class="profile-card">
                     <div class="card-body text-center">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-gem"></i>
+                        <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);">
+                            <i class="fas fa-crown"></i>
                         </div>
-                        <h5 class="mb-3">Miembro Premium</h5>
-                        <p class="text-muted small mb-4">Disfruta de beneficios exclusivos y descuentos especiales</p>
-                        <button class="btn btn-joyas btn-sm">Ver Beneficios</button>
+                        <h5 class="mb-3">Panel de Administración</h5>
+                        <p class="text-muted small mb-4">Gestiona pedidos y controla el inventario del sistema</p>
+                        <a href="admin.php" class="btn btn-admin btn-sm w-100">
+                            <i class="fas fa-cog me-2"></i>Gestionar Sistema
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="profile-card mt-3">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="mb-3">Estadísticas</h5>
+                        <p class="text-muted small mb-4">Monitorea el rendimiento del negocio</p>
+                        <button class="btn btn-outline-success btn-sm w-100" onclick="verEstadisticas()">
+                            <i class="fas fa-chart-bar me-2"></i>Ver Reportes
+                        </button>
                     </div>
                 </div>
             `;
