@@ -227,142 +227,232 @@
     <!-- end breadcrumb section -->
 
     <!-- News Detail Section -->
-    <div class="news-detail-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <?php
-                    // Simulamos el contenido de las noticias
-                    $news_id = isset($_GET['id']) ? intval($_GET['id']) : 1;
+<div class="news-detail-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <?php
+                $news_id = isset($_GET['id']) ? intval($_GET['id']) : 1;
+                
+                // Cargar noticias del JSON
+                $newsFile = 'news-data.json';
+                $noticias_json = [];
+                
+                if (file_exists($newsFile)) {
+                    $jsonData = file_get_contents($newsFile);
+                    $noticias_json = json_decode($jsonData, true) ?? [];
+                }
+                
+                // Noticias estáticas como respaldo
+                $noticias_estaticas = [
+                    1 => [
+                        'id' => 1,
+                        'titulo' => 'Tendencias de Joyería 2024: Lo que viene',
+                        'imagen' => 'img/noticias/Tendencias-2024.png',
+                        'fecha' => '2024-01-15',
+                        'autor' => 'Admin',
+                        'categoria' => 'tendencias',
+                        'contenido' => '
+                            <p>El mundo de la joyería está en constante evolución, y 2024 promete traer consigo una ola de innovación y estilo que marcará un antes y un después en la industria. Los diseñadores más prestigiosos han comenzado a revelar sus colecciones, y podemos observar patrones fascinantes que definirán el año.</p>
+                            
+                            <h3>Los Colores que Dominarán</h3>
+                            <p>El oro rosa continúa su reinado, pero con un giro interesante: ahora se combina con piedras semipreciosas en tonos tierra. Los verdes oliva, los azules profundos y los rosas sutiles están ganando popularidad entre las casas de joyería más exclusivas.</p>
+                            
+                            <h3>Materiales Sostenibles</h3>
+                            <p>La conciencia ecológica ha llegado para quedarse en la joyería. Marcas líderes están implementando:</p>
+                            <ul>
+                                <li>Oro reciclado con certificación</li>
+                                <li>Diamantes de laboratorio</li>
+                                <li>Materiales de origen ético</li>
+                                <li>Embalajes biodegradables</li>
+                            </ul>
+                            
+                            <h3>Diseños Personalizados</h3>
+                            <p>La joyería personalizada sigue en auge, con un enfoque en piezas que cuentan historias personales. Los clientes buscan creaciones únicas que reflejen su identidad y momentos significativos de sus vidas.</p>
+                            
+                            <p>En JoyasCharlys estamos emocionados de incorporar estas tendencias en nuestras nuevas colecciones, siempre manteniendo nuestra esencia de calidad y elegancia que nos caracteriza.</p>
+                        ',
+                        'resumen' => 'Las tendencias de joyería para 2024 incluyen diseños minimalistas y piezas personalizadas.'
+                    ],
+                    2 => [
+                        'id' => 2,
+                        'titulo' => 'Joyería Personalizada: Crea tu estilo único',
+                        'imagen' => 'img/noticias/Joyeria-personalizada.png',
+                        'fecha' => '2024-01-10',
+                        'autor' => 'Admin',
+                        'categoria' => 'novedades',
+                        'contenido' => '
+                            <p>En JoyasCharlys entendemos que cada persona es única, y por eso hemos desarrollado un servicio exclusivo de joyería personalizada que permite a nuestros clientes crear piezas que reflejen su estilo y personalidad.</p>
+                            
+                            <h3>¿Cómo Funciona Nuestro Servicio?</h3>
+                            <p>Nuestro proceso de personalización es sencillo pero detallado:</p>
+                            <ul>
+                                <li><strong>Consulta Inicial:</strong> Nuestros diseñadores se reúnen contigo para entender tu visión</li>
+                                <li><strong>Diseño Conceptual:</strong> Creamos bocetos digitales de tu pieza ideal</li>
+                                <li><strong>Selección de Materiales:</strong> Eliges entre oro, plata, platino y piedras preciosas</li>
+                                <li><strong>Fabricación Artesanal:</strong> Nuestros artesanos dan vida a tu diseño</li>
+                                <li><strong>Entrega y Ajustes:</strong> Te presentamos la pieza final y realizamos ajustes si es necesario</li>
+                            </ul>
+                            
+                            <h3>Ocasiones Especiales</h3>
+                            <p>Nuestras piezas personalizadas son perfectas para:</p>
+                            <ul>
+                                <li>Bodas y aniversarios</li>
+                                <li>Regalos de compromiso</li>
+                                <li>Celebraciones familiares</li>
+                                <li>Logros profesionales</li>
+                                <li>Momentos especiales que merecen ser recordados</li>
+                            </ul>
+                            
+                            <h3>Testimonios de Clientes</h3>
+                            <p>"Creé un collar con las iniciales de mis hijos y es mi posesión más preciada. El equipo de JoyasCharlys captó exactamente lo que quería." - María G.</p>
+                            
+                            <p>¿Tienes una idea en mente? Contáctanos y hagámosla realidad juntos.</p>
+                        ',
+                        'resumen' => 'Aprende sobre las ventajas de la joyería personalizada y cómo crear tu estilo único.'
+                    ]
+                    // Agrega aquí las otras noticias estáticas con sus IDs únicos
+                ];
+                
+                // Combinar todas las noticias
+                $todas_noticias = $noticias_estaticas; // Empezar con las estáticas
+                
+                // Agregar las noticias del JSON (pueden sobrescribir estáticas si tienen mismo ID)
+                foreach ($noticias_json as $noticia) {
+                    $todas_noticias[$noticia['id']] = $noticia;
+                }
+                
+                // Buscar la noticia por ID
+                $noticia_actual = null;
+                if (isset($todas_noticias[$news_id])) {
+                    $noticia_actual = $todas_noticias[$news_id];
+                } else {
+                    // Si no existe, tomar la primera noticia disponible
+                    $noticia_actual = reset($todas_noticias);
+                    $news_id = key($todas_noticias);
+                }
+                
+                // Mapeo de categorías para mostrar
+                $categoria_texto = [
+                    'tendencias' => 'Tendencias',
+                    'consejos' => 'Consejos', 
+                    'novedades' => 'Novedades',
+                    'empresa' => 'JoyasCharlys'
+                ];
+                
+                $categoria_display = isset($categoria_texto[$noticia_actual['categoria']]) 
+                    ? $categoria_texto[$noticia_actual['categoria']] 
+                    : $noticia_actual['categoria'];
+                
+                // Formatear fecha
+                $fecha_display = date('d F, Y', strtotime($noticia_actual['fecha']));
+                ?>
+                
+                <article>
+                    <div class="news-header">
+                        <h1 class="news-title"><?php echo htmlspecialchars($noticia_actual['titulo']); ?></h1>
+                        <div class="news-meta">
+                            <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($noticia_actual['autor']); ?></span>
+                            <span><i class="fas fa-calendar"></i> <?php echo $fecha_display; ?></span>
+                            <span><i class="fas fa-tag"></i> <?php echo $categoria_display; ?></span>
+                        </div>
+                    </div>
                     
-                    $noticias_completas = [
-                        1 => [
-                            'titulo' => 'Tendencias de Joyería 2024: Lo que viene',
-                            'imagen' => 'img/noticias/Tendencias-2024.png',
-                            'fecha' => '15 Enero, 2024',
-                            'autor' => 'Admin',
-                            'categoria' => 'Tendencias',
-                            'contenido' => '
-                                <p>El mundo de la joyería está en constante evolución, y 2024 promete traer consigo una ola de innovación y estilo que marcará un antes y un después en la industria. Los diseñadores más prestigiosos han comenzado a revelar sus colecciones, y podemos observar patrones fascinantes que definirán el año.</p>
-                                
-                                <h3>Los Colores que Dominarán</h3>
-                                <p>El oro rosa continúa su reinado, pero con un giro interesante: ahora se combina con piedras semipreciosas en tonos tierra. Los verdes oliva, los azules profundos y los rosas sutiles están ganando popularidad entre las casas de joyería más exclusivas.</p>
-                                
-                                <h3>Materiales Sostenibles</h3>
-                                <p>La conciencia ecológica ha llegado para quedarse en la joyería. Marcas líderes están implementando:</p>
-                                <ul>
-                                    <li>Oro reciclado con certificación</li>
-                                    <li>Diamantes de laboratorio</li>
-                                    <li>Materiales de origen ético</li>
-                                    <li>Embalajes biodegradables</li>
-                                </ul>
-                                
-                                <h3>Diseños Personalizados</h3>
-                                <p>La joyería personalizada sigue en auge, con un enfoque en piezas que cuentan historias personales. Los clientes buscan creaciones únicas que reflejen su identidad y momentos significativos de sus vidas.</p>
-                                
-                                <p>En JoyasCharlys estamos emocionados de incorporar estas tendencias en nuestras nuevas colecciones, siempre manteniendo nuestra esencia de calidad y elegancia que nos caracteriza.</p>
-                            '
-                        ],
-                        // ... (el resto de tus noticias permanecen igual)
-                        2 => [
-                            'titulo' => 'Joyería Personalizada: Crea tu estilo único',
-                            'imagen' => 'img/noticias/Joyeria-personalizada.png',
-                            'fecha' => '10 Enero, 2024',
-                            'autor' => 'Admin',
-                            'categoria' => 'Novedades',
-                            'contenido' => '
-                                <p>En JoyasCharlys entendemos que cada persona es única, y por eso hemos desarrollado un servicio exclusivo de joyería personalizada que permite a nuestros clientes crear piezas que reflejen su estilo y personalidad.</p>
-                                
-                                <h3>¿Cómo Funciona Nuestro Servicio?</h3>
-                                <p>Nuestro proceso de personalización es sencillo pero detallado:</p>
-                                <ul>
-                                    <li><strong>Consulta Inicial:</strong> Nuestros diseñadores se reúnen contigo para entender tu visión</li>
-                                    <li><strong>Diseño Conceptual:</strong> Creamos bocetos digitales de tu pieza ideal</li>
-                                    <li><strong>Selección de Materiales:</strong> Eliges entre oro, plata, platino y piedras preciosas</li>
-                                    <li><strong>Fabricación Artesanal:</strong> Nuestros artesanos dan vida a tu diseño</li>
-                                    <li><strong>Entrega y Ajustes:</strong> Te presentamos la pieza final y realizamos ajustes si es necesario</li>
-                                </ul>
-                                
-                                <h3>Ocasiones Especiales</h3>
-                                <p>Nuestras piezas personalizadas son perfectas para:</p>
-                                <ul>
-                                    <li>Bodas y aniversarios</li>
-                                    <li>Regalos de compromiso</li>
-                                    <li>Celebraciones familiares</li>
-                                    <li>Logros profesionales</li>
-                                    <li>Momentos especiales que merecen ser recordados</li>
-                                </ul>
-                                
-                                <h3>Testimonios de Clientes</h3>
-                                <p>"Creé un collar con las iniciales de mis hijos y es mi posesión más preciada. El equipo de JoyasCharlys captó exactamente lo que quería." - María G.</p>
-                                
-                                <p>¿Tienes una idea en mente? Contáctanos y hagámosla realidad juntos.</p>
-                            '
-                        ]
+                    <div class="text-center mb-4">
+                    <?php
+                    // Lista de imágenes que sabemos que existen
+                    $imagenes_disponibles = [
+                        'img/noticias/Tendencias-2024.png',
+                        'img/noticias/Joyeria-personalizada.png',
+                        'img/noticias/Cuidado-de-joyas.png', 
+                        'img/noticias/Oro-rosa.png',
+                        'img/noticias/Diamantes-perfectos.png',
+                        'img/noticias/Joyeria-sostenible.png',
+                        'img/noticias/Plata-925.png',
+                        'img/noticias/Nueva-coleccion.png',
+                        'img/noticias/Joyas-bodas.png'
                     ];
                     
-                    // Si la noticia no existe, mostramos la primera
-                    if (!isset($noticias_completas[$news_id])) {
-                        $news_id = 1;
-                    }
+                    // Verificar si la imagen de la noticia existe
+                    $imagen_a_mostrar = $noticia_actual['imagen'];
                     
-                    $noticia = $noticias_completas[$news_id];
+                    if (!file_exists($imagen_a_mostrar)) {
+                        // Si no existe, usar la primera imagen disponible
+                        foreach ($imagenes_disponibles as $imagen) {
+                            if (file_exists($imagen)) {
+                                $imagen_a_mostrar = $imagen;
+                                break;
+                            }
+                        }
+                    }
                     ?>
                     
-                    <article>
-                        <div class="news-header">
-                            <h1 class="news-title"><?php echo $noticia['titulo']; ?></h1>
-                            <div class="news-meta">
-                                <span><i class="fas fa-user"></i> <?php echo $noticia['autor']; ?></span>
-                                <span><i class="fas fa-calendar"></i> <?php echo $noticia['fecha']; ?></span>
-                                <span><i class="fas fa-tag"></i> <?php echo $noticia['categoria']; ?></span>
-                            </div>
-                        </div>
-                        
-                        <img src="<?php echo $noticia['imagen']; ?>" alt="<?php echo $noticia['titulo']; ?>" class="news-featured-img">
-                        
-                        <div class="news-content">
-                            <?php echo $noticia['contenido']; ?>
-                        </div>
-                        
-                        <a href="News.php" class="back-to-news">
-                            <i class="fas fa-arrow-left"></i> Volver a Noticias
-                        </a>
-                    </article>
+                    <img src="<?php echo $imagen_a_mostrar; ?>" 
+                        alt="<?php echo htmlspecialchars($noticia_actual['titulo']); ?>" 
+                        class="news-featured-img">
+                </div>
                     
-                    <!-- Noticias Relacionadas -->
-                    <div class="related-news">
-                        <h3 class="related-title">Noticias Relacionadas</h3>
-                        <div class="row">
-                            <?php
-                            // Mostramos 3 noticias relacionadas (excluyendo la actual)
-                            $related_count = 0;
-                            foreach($noticias_completas as $id => $related_news) {
-                                if ($id != $news_id && $related_count < 3) {
-                                    echo '
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="single-latest-news">
-                                            <div class="latest-news-bg" style="background-image: url(\'' . $related_news['imagen'] . '\')"></div>
-                                            <div class="news-text-box">
-                                                <h4><a href="single-news.php?id=' . $id . '">' . $related_news['titulo'] . '</a></h4>
-                                                <p class="blog-meta">
-                                                    <span class="date"><i class="fas fa-calendar"></i> ' . $related_news['fecha'] . '</span>
-                                                </p>
-                                                <a href="single-news.php?id=' . $id . '" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
-                                            </div>
+                    <div class="news-content">
+                        <?php 
+                        // Si el contenido tiene HTML, mostrarlo como HTML, si no, usar nl2br
+                        if (strip_tags($noticia_actual['contenido']) !== $noticia_actual['contenido']) {
+                            echo $noticia_actual['contenido'];
+                        } else {
+                            echo nl2br(htmlspecialchars($noticia_actual['contenido']));
+                        }
+                        ?>
+                    </div>
+                    
+                    <a href="News.php" class="back-to-news">
+                        <i class="fas fa-arrow-left"></i> Volver a Noticias
+                    </a>
+                </article>
+                
+                <!-- Noticias Relacionadas -->
+                <div class="related-news">
+                    <h3 class="related-title">Noticias Relacionadas</h3>
+                    <div class="row">
+                        <?php
+                        // Mostramos 3 noticias relacionadas (excluyendo la actual)
+                        $related_count = 0;
+                        foreach($todas_noticias as $id => $related_news) {
+                            if ($id != $news_id && $related_count < 3) {
+                                $related_categoria = isset($categoria_texto[$related_news['categoria']]) 
+                                    ? $categoria_texto[$related_news['categoria']] 
+                                    : $related_news['categoria'];
+                                
+                                $related_fecha = date('d F, Y', strtotime($related_news['fecha']));
+                                $related_resumen = $related_news['resumen'] ?? substr($related_news['titulo'], 0, 80) . '...';
+                                
+                                echo '
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-latest-news">
+                                        <div class="latest-news-bg" style="background-image: url(\'' . $related_news['imagen'] . '\')"></div>
+                                        <div class="news-text-box">
+                                            <h4><a href="single-news.php?id=' . $id . '">' . htmlspecialchars($related_news['titulo']) . '</a></h4>
+                                            <p class="blog-meta">
+                                                <span class="author"><i class="fas fa-user"></i> ' . htmlspecialchars($related_news['autor']) . '</span>
+                                                <span class="date"><i class="fas fa-calendar"></i> ' . $related_fecha . '</span>
+                                            </p>
+                                            <p class="excerpt">' . htmlspecialchars($related_resumen) . '</p>
+                                            <a href="single-news.php?id=' . $id . '" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
                                         </div>
-                                    </div>';
-                                    $related_count++;
-                                }
+                                    </div>
+                                </div>';
+                                $related_count++;
                             }
-                            ?>
-                        </div>
+                        }
+                        
+                        if ($related_count === 0) {
+                            echo '<div class="col-12 text-center"><p>No hay noticias relacionadas disponibles.</p></div>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End News Detail Section -->
+</div>
 
     <!-- Footer (igual que tenías) -->
     <footer class="footer-area section_gap" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">

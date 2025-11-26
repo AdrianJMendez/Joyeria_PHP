@@ -1,3 +1,26 @@
+<?php
+session_start();
+
+// Función para formatear el excerpt
+function formatearExcerpt($texto, $longitud = 120) {
+    // Limpiar el texto de HTML tags
+    $texto_limpio = strip_tags($texto);
+    
+    // Recortar a la longitud deseada
+    if (strlen($texto_limpio) > $longitud) {
+        $texto_limpio = substr($texto_limpio, 0, $longitud) . '...';
+    }
+    
+    // Asegurar saltos de línea
+    $texto_limpio = nl2br($texto_limpio);
+    
+    return $texto_limpio;
+}
+
+// Verificar si el usuario está logueado y es administrador
+$mostrarBoton = isset($_SESSION['rol']) && $_SESSION['rol'] === 'Administrador';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -103,13 +126,22 @@
 			letter-spacing: 0.5px;
 		}
 		.news-text-box {
-			padding: 25px;
+			min-height: 280px;
+			display: flex;
+			flex-direction: column;
+			flex-shrink: 0;
+			flex-grow: 1;
+			flex-shrink: 0;
+    		margin-top: auto;
 		}
 		.news-text-box h3 a {
 			color: #333;
 			text-decoration: none;
 			font-weight: 700;
 			line-height: 1.4;
+			min-height: 70px;
+    		display: flex;
+    		align-items: center;
 		}
 		.news-text-box h3 a:hover {
 			color: #ff6b6b;
@@ -118,6 +150,7 @@
 			color: #666;
 			font-size: 14px;
 			margin-bottom: 15px;
+			flex-shrink: 0;
 		}
 		.blog-meta span {
 			margin-right: 15px;
@@ -126,6 +159,16 @@
 			color: #555;
 			line-height: 1.6;
 			margin-bottom: 20px;
+			flex-grow: 1;
+			word-wrap: break-word !important;
+			overflow-wrap: break-word !important;
+			white-space: normal !important;
+			line-height: 1.5 !important;
+			height: 60px;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
 		}
 		.read-more-btn {
 			color: #ff6b6b;
@@ -134,6 +177,8 @@
 			display: inline-flex;
 			align-items: center;
 			transition: all 0.3s ease;
+			flex-shrink: 0;
+    		margin-top: auto;
 		}
 		.read-more-btn:hover {
 			color: #ff5252;
@@ -190,6 +235,8 @@
 		.news-item.hidden-by-page {
 			display: none !important;
 		}
+
+		
 	</style>
 </head>
 <body>
@@ -292,6 +339,22 @@
 	</div>
 	<!-- end breadcrumb section -->
 
+	<!-- Mensaje de éxito -->
+	<?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<i class="fas fa-check-circle"></i> ¡Noticia creada exitosamente!
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+
 	<!-- latest news -->
 	<div class="latest-news mt-150 mb-150">
 		<div class="container">
@@ -307,139 +370,211 @@
 				</div>
 			</div>
 
-			<div class="row" id="news-container">
-				<?php
-				// Simulamos las noticias por página
-				$current_page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
-				$noticias_por_pagina = 3;
-				
-				// Todas las noticias (9 noticias totales)
-				$todas_noticias = [
-					// Página 1
-					[
-						'id' => 1, 'titulo' => 'Tendencias de Joyería 2024: Lo que viene', 
-						'categoria' => 'tendencias', 'imagen' => 'img/noticias/Tendencias-2024.png',
-						'fecha' => '15 Enero, 2024', 'autor' => 'Admin'
-					],
-					[
-						'id' => 2, 'titulo' => 'Joyería Personalizada: Crea tu estilo único', 
-						'categoria' => 'novedades', 'imagen' => 'img/noticias/Joyeria-personalizada.png',
-						'fecha' => '10 Enero, 2024', 'autor' => 'Admin'
-					],
-					[
-						'id' => 3, 'titulo' => 'Guía para el cuidado de tus joyas', 
-						'categoria' => 'consejos', 'imagen' => 'img/noticias/Cuidado-de-joyas.png',
-						'fecha' => '5 Enero, 2024', 'autor' => 'Admin'
-					],
-					// Página 2
-					[
-						'id' => 4, 'titulo' => 'El oro rosa regresa con fuerza', 
-						'categoria' => 'tendencias', 'imagen' => 'img/noticias/Oro-rosa.png',
-						'fecha' => '28 Diciembre, 2023', 'autor' => 'Admin'
-					],
-					[
-						'id' => 5, 'titulo' => 'Cómo elegir diamantes perfectos', 
-						'categoria' => 'consejos', 'imagen' => 'img/noticias/Diamantes-perfectos.png',
-						'fecha' => '20 Diciembre, 2023', 'autor' => 'Especialista'
-					],
-					[
-						'id' => 6, 'titulo' => 'Nuestra apuesta por la joyería sostenible', 
-						'categoria' => 'empresa', 'imagen' => 'img/noticias/Joyeria-sostenible.png',
-						'fecha' => '15 Diciembre, 2023', 'autor' => 'Director'
-					],
-					// Página 3
-					[
-						'id' => 7, 'titulo' => 'Plata 925: La elección perfecta para joyería diaria', 
-						'categoria' => 'consejos', 'imagen' => 'img/noticias/Plata-925.png',
-						'fecha' => '10 Diciembre, 2023', 'autor' => 'Especialista'
-					],
-					[
-						'id' => 8, 'titulo' => 'Nueva colección Primavera-Verano 2024', 
-						'categoria' => 'empresa', 'imagen' => 'img/noticias/Nueva-coleccion.png',
-						'fecha' => '5 Diciembre, 2023', 'autor' => 'Admin'
-					],
-					[
-						'id' => 9, 'titulo' => 'Joyas para bodas: Lo que debes saber', 
-						'categoria' => 'consejos', 'imagen' => 'img/noticias/Joyas-bodas.png',
-						'fecha' => '30 Noviembre, 2023', 'autor' => 'Admin'
-					]
-				];
-				
-				// Calculamos qué noticias mostrar
-				$total_noticias = count($todas_noticias);
-				$total_paginas = ceil($total_noticias / $noticias_por_pagina);
-				$inicio = ($current_page - 1) * $noticias_por_pagina;
-				$noticias_pagina = array_slice($todas_noticias, $inicio, $noticias_por_pagina);
-				
-				// Generamos TODAS las noticias pero controlamos visibilidad
-				foreach($todas_noticias as $index => $noticia) {
-					$categoria_texto = [
-						'tendencias' => 'Tendencias',
-						'consejos' => 'Consejos', 
-						'novedades' => 'Novedades',
-						'empresa' => 'JoyasCharlys'
-					][$noticia['categoria']];
-					
-					// Determinamos si la noticia está en la página actual
-					$is_current_page = in_array($noticia, $noticias_pagina);
-					$hidden_class = $is_current_page ? '' : 'hidden-by-page';
-					
-					echo '
-					<div class="col-lg-4 col-md-6 news-item ' . $hidden_class . '" data-category="'.$noticia['categoria'].'" data-page="'.ceil(($index + 1) / $noticias_por_pagina).'">
-						<div class="single-latest-news">
-							<div class="latest-news-bg" style="background-image: url(\''.$noticia['imagen'].'\')"></div>
-							<span class="news-tag">'.$categoria_texto.'</span>
-							<div class="news-text-box">
-								<h3><a href="single-news.php?id='.$noticia['id'].'">'.$noticia['titulo'].'</a></h3>
-								<p class="blog-meta">
-									<span class="author"><i class="fas fa-user"></i> '.$noticia['autor'].'</span>
-									<span class="date"><i class="fas fa-calendar"></i> '.$noticia['fecha'].'</span>
-								</p>
-								<p class="excerpt">'.substr($noticia['titulo'], 0, 80).'... Descubre más sobre este interesante tema en nuestra nota completa.</p>
-								<a href="single-news.php?id='.$noticia['id'].'" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>';
-				}
-				?>
-			</div>
-
-			<!-- Paginación funcional -->
-			<div class="row">
+			<!-- Botón Crear Noticia (se mostrará/ocultará con JavaScript) -->
+			<div class="row mb-4" id="crear-noticia-container" style="display: none;">
 				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap" id="pagination">
-						<ul>
-							<?php
-							// Botón Anterior
-							if($current_page > 1) {
-								echo '<li><a href="News.php?page='.($current_page - 1).'"><i class="fas fa-chevron-left"></i></a></li>';
-							} else {
-								echo '<li><a href="#" class="disabled"><i class="fas fa-chevron-left"></i></a></li>';
-							}
-							
-							// Números de página
-							for($i = 1; $i <= $total_paginas; $i++) {
-								if($i == $current_page) {
-									echo '<li><a href="News.php?page='.$i.'" class="active">'.$i.'</a></li>';
-								} else {
-									echo '<li><a href="News.php?page='.$i.'">'.$i.'</a></li>';
-								}
-							}
-							
-							// Botón Siguiente
-							if($current_page < $total_paginas) {
-								echo '<li><a href="News.php?page='.($current_page + 1).'"><i class="fas fa-chevron-right"></i></a></li>';
-							} else {
-								echo '<li><a href="#" class="disabled"><i class="fas fa-chevron-right"></i></a></li>';
-							}
-							?>
-						</ul>
-					</div>
+					<a href="crear-noticia.php" class="btn btn-success btn-lg">
+						<i class="fas fa-plus-circle"></i> Crear Nueva Noticia
+					</a>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- end latest news -->
+
+			<div class="row" id="news-container">
+    <?php
+    // Configuración de noticias estáticas
+    $todas_noticias = [
+        // Página 1
+        [
+            'id' => 1, 
+            'titulo' => 'Tendencias de Joyería 2024: Lo que viene', 
+            'categoria' => 'tendencias', 
+            'imagen' => 'img/noticias/Tendencias-2024.png',
+            'fecha' => '2024-01-15', 
+            'autor' => 'Admin',
+            'contenido' => 'Descubre las últimas tendencias en joyería para el 2024. Este año veremos un regreso a los diseños clásicos con un toque moderno.', 
+            'resumen' => 'Las tendencias de joyería para 2024 incluyen diseños minimalistas y piezas personalizadas.'
+        ],
+        [
+            'id' => 2, 
+            'titulo' => 'Joyería Personalizada: Crea tu estilo único', 
+            'categoria' => 'novedades', 
+            'imagen' => 'img/noticias/Joyeria-personalizada.png',
+            'fecha' => '2024-01-10', 
+            'autor' => 'Admin',
+            'contenido' => 'La joyería personalizada permite crear piezas únicas que reflejan tu personalidad y estilo. En JoyasCharlys ofrecemos servicio de diseño personalizado.',
+            'resumen' => 'Aprende sobre las ventajas de la joyería personalizada y cómo crear tu estilo único.'
+        ],
+        [
+            'id' => 3, 
+            'titulo' => 'Guía para el cuidado de tus joyas', 
+            'categoria' => 'consejos', 
+            'imagen' => 'img/noticias/Cuidado-de-joyas.png',
+            'fecha' => '2024-01-05', 
+            'autor' => 'Admin',
+            'contenido' => 'Aprende cómo cuidar tus joyas para que duren toda la vida. Tips prácticos para mantenimiento y limpieza.',
+            'resumen' => 'Consejos prácticos para el mantenimiento y cuidado de tus joyas.'
+        ],
+        // Página 2
+        [
+            'id' => 4, 
+            'titulo' => 'El oro rosa regresa con fuerza', 
+            'categoria' => 'tendencias', 
+            'imagen' => 'img/noticias/Oro-rosa.png',
+            'fecha' => '2023-12-28', 
+            'autor' => 'Admin',
+            'contenido' => 'El oro rosa está regresando con fuerza en las tendencias de joyería. Descubre cómo incorporarlo en tu colección.',
+            'resumen' => 'Descubre por qué el oro rosa está resurgiendo en la joyería contemporánea.'
+        ],
+        [
+            'id' => 5, 
+            'titulo' => 'Cómo elegir diamantes perfectos', 
+            'categoria' => 'consejos', 
+            'imagen' => 'img/noticias/Diamantes-perfectos.png',
+            'fecha' => '2023-12-20', 
+            'autor' => 'Especialista',
+            'contenido' => 'Aprende a elegir diamantes perfectos considerando las 4 C: corte, color, claridad y quilates.',
+            'resumen' => 'Guía completa para seleccionar diamantes de calidad.'
+        ],
+        [
+            'id' => 6, 
+            'titulo' => 'Nuestra apuesta por la joyería sostenible', 
+            'categoria' => 'empresa', 
+            'imagen' => 'img/noticias/Joyeria-sostenible.png',
+            'fecha' => '2023-12-15', 
+            'autor' => 'Director',
+            'contenido' => 'En JoyasCharlys nos comprometemos con la joyería sostenible y prácticas responsables.',
+            'resumen' => 'Nuestro compromiso con prácticas sostenibles en joyería.'
+        ],
+        // Página 3
+        [
+            'id' => 7, 
+            'titulo' => 'Plata 925: La elección perfecta para joyería diaria', 
+            'categoria' => 'consejos', 
+            'imagen' => 'img/noticias/Plata-925.png',
+            'fecha' => '2023-12-10', 
+            'autor' => 'Especialista',
+            'contenido' => 'La plata 925 es ideal para joyería de uso diario por su durabilidad y belleza.',
+            'resumen' => 'Por qué la plata 925 es perfecta para joyas de uso cotidiano.'
+        ],
+        [
+            'id' => 8, 
+            'titulo' => 'Nueva colección Primavera-Verano 2024', 
+            'categoria' => 'empresa', 
+            'imagen' => 'img/noticias/Nueva-coleccion.png',
+            'fecha' => '2023-12-05', 
+            'autor' => 'Admin',
+            'contenido' => 'Presentamos nuestra nueva colección Primavera-Verano 2024 con diseños exclusivos.',
+            'resumen' => 'Descubre nuestra exclusiva colección para la temporada.'
+        ],
+        [
+            'id' => 9, 
+            'titulo' => 'Joyas para bodas: Lo que debes saber', 
+            'categoria' => 'consejos', 
+            'imagen' => 'img/noticias/Joyas-bodas.png',
+            'fecha' => '2023-11-30', 
+            'autor' => 'Admin',
+            'contenido' => 'Todo lo que necesitas saber sobre joyas para bodas: desde la elección hasta el cuidado.',
+            'resumen' => 'Consejos para elegir las joyas perfectas para tu boda.'
+        ]
+    ];
+
+    // Leer noticias adicionales del archivo JSON si existe
+    $newsFile = 'news-data.json';
+    if (file_exists($newsFile)) {
+        $jsonData = file_get_contents($newsFile);
+        $noticias_json = json_decode($jsonData, true) ?? [];
+        
+        // Combinar noticias estáticas con las del JSON
+        if (!empty($noticias_json)) {
+            $todas_noticias = array_merge($noticias_json, $todas_noticias);
+        }
+    }
+    
+    // Ordenar noticias por fecha (más recientes primero)
+    usort($todas_noticias, function($a, $b) {
+        return strtotime($b['fecha']) - strtotime($a['fecha']);
+    });
+    
+    // Configuración de paginación
+    $current_page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+    $noticias_por_pagina = 3;
+    $total_noticias = count($todas_noticias);
+    $total_paginas = ceil($total_noticias / $noticias_por_pagina);
+    $inicio = ($current_page - 1) * $noticias_por_pagina;
+    $noticias_pagina = array_slice($todas_noticias, $inicio, $noticias_por_pagina);
+    
+    // Generar las noticias
+    foreach($todas_noticias as $index => $noticia) {
+        $categoria_texto = [
+            'tendencias' => 'Tendencias',
+            'consejos' => 'Consejos', 
+            'novedades' => 'Novedades',
+            'empresa' => 'JoyasCharlys'
+        ][$noticia['categoria']];
+        
+        // Formatear fecha para mostrar
+        $fecha_formateada = date('d F, Y', strtotime($noticia['fecha']));
+        
+        // Determinar si la noticia está en la página actual
+        $is_current_page = in_array($noticia, $noticias_pagina);
+        $hidden_class = $is_current_page ? '' : 'hidden-by-page';
+        
+        echo '
+		<div class="col-lg-4 col-md-6 news-item ' . $hidden_class . '" data-category="'.$noticia['categoria'].'" data-page="'.ceil(($index + 1) / $noticias_por_pagina).'">
+			<div class="single-latest-news">
+				<div class="latest-news-bg" style="background-image: url(\''.$noticia['imagen'].'\')"></div>
+				<span class="news-tag">'.$categoria_texto.'</span>
+				<div class="news-text-box">
+					<h3><a href="single-news.php?id='.$noticia['id'].'">'.$noticia['titulo'].'</a></h3>
+					<p class="blog-meta">
+						<span class="author"><i class="fas fa-user"></i> '.$noticia['autor'].'</span>
+						<span class="date"><i class="fas fa-calendar"></i> '.$fecha_formateada.'</span>
+					</p>
+					<p class="excerpt">'.($noticia['resumen'] ?? formatearExcerpt($noticia['contenido'], 120)).'</p>
+					<a href="single-news.php?id='.$noticia['id'].'" class="read-more-btn">leer más <i class="fas fa-angle-right"></i></a>
+				</div>
+			</div>
+		</div>';
+    }
+    ?>
+</div>
+
+			<!-- Paginación funcional -->
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="pagination-wrap" id="pagination">
+                        <ul>
+                            <?php
+                            // Botón Anterior
+                            if($current_page > 1) {
+                                echo '<li><a href="News.php?page='.($current_page - 1).'"><i class="fas fa-chevron-left"></i></a></li>';
+                            } else {
+                                echo '<li><a href="#" class="disabled"><i class="fas fa-chevron-left"></i></a></li>';
+                            }
+                            
+                            // Números de página
+                            for($i = 1; $i <= $total_paginas; $i++) {
+                                if($i == $current_page) {
+                                    echo '<li><a href="News.php?page='.$i.'" class="active">'.$i.'</a></li>';
+                                } else {
+                                    echo '<li><a href="News.php?page='.$i.'">'.$i.'</a></li>';
+                                }
+                            }
+                            
+                            // Botón Siguiente
+                            if($current_page < $total_paginas) {
+                                echo '<li><a href="News.php?page='.($current_page + 1).'"><i class="fas fa-chevron-right"></i></a></li>';
+                            } else {
+                                echo '<li><a href="#" class="disabled"><i class="fas fa-chevron-right"></i></a></li>';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end latest news -->
 
 	<!-- logo carousel -->
 	<div class="logo-carousel-section">
@@ -663,6 +798,18 @@
 				activeFilter.click();
 			}
 		});
+
+		
+		// Verificar si el usuario es administrador y mostrar botón
+		document.addEventListener('DOMContentLoaded', function() {
+			const usuario = SessionManager.obtenerUsuario();
+			const crearNoticiaContainer = document.getElementById('crear-noticia-container');
+			
+			if (usuario && usuario.rol === 'Administrador' && crearNoticiaContainer) {
+				crearNoticiaContainer.style.display = 'block';
+			}
+		});
+
 	</script>
 	<!--Script necesarios para login-->
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>

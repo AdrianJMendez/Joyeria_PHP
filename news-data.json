@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1001,
+        "titulo": "Segunda Prueba",
+        "categoria": "tendencias",
+        "imagen": "img\/noticias\/Cuidado-de-joyas.png",
+        "fecha": "2025-11-26",
+        "autor": "Jonathan Aguilar",
+        "contenido": "Segunda prueba de noticia siuuuuuuuuuuuuuuuuuuuuuu.",
+        "resumen": "Segunda prueba de noticia siuuuuuuuuuuuuuuuuuuuuuu...."
+    }
+]
