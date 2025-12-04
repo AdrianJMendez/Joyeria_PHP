@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template">
+
+	<title>Check Out</title>
+
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- Font Awesome actualizado para TikTok -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	<style>
+	
+	.card-visual { width: 340px; height:200px; border-radius:14px; padding:18px; color:#fff; position:relative; box-shadow:0 12px 30px rgba(0,0,0,.25); background: linear-gradient(135deg,#1f2a44 0%, #253b6a 100%); font-family: 'Poppins', sans-serif; }
+	.card-chip { width:40px; height:28px; background:linear-gradient(180deg,#d6c48a,#b8953e); border-radius:4px; box-shadow:inset 0 -2px 0 rgba(0,0,0,.15); }
+	.card-logo { position:absolute; right:16px; top:16px; }
+	.card-number { letter-spacing:3px; font-size:18px; margin-top:24px; }
+	.card-name { text-transform:uppercase; font-size:12px; margin-top:18px; }
+	.card-exp { font-size:12px; }
+
+	.form-card { display:flex; gap:20px; align-items:flex-start; }
+	.payment-form { flex:1; }
+	.visual-wrap { flex:0 0 340px; }
+
+	/* Inputs estilo moderno */
+	.form-control { border-radius:8px; padding:12px; }
+	.small-muted { font-size:12px; color:#666; }
+
+	.logo-inline img{ width:44px; margin-right:8px; opacity:.4 }
+	.logo-inline img.active{ opacity:1 }
+
+	.boxed-btn{ display:inline-block; padding:12px 22px; background:#f08b3f; color:#fff; border-radius:8px; border:none; cursor:pointer; }
+
+	/* Responsive */
+	@media(max-width:992px){ .form-card{flex-direction:column} .visual-wrap{order:-1} }
+	</style>
+</head>
+<body>
+
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<a class="navbar-brand logo_h" href="index.php"><img src="img/fav.png" alt=""></a>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Pago seguro y</p>
+						<h1>Confiable</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingOne">
+						      <h5 class="mb-0">
+						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
+						          Información para envio.
+						        </button>
+						      </h5>
+						    </div>
+
+						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="billing-address-form">
+						        	<form id="shippingForm">
+										<p><input class="form-control" type="text" placeholder="Nombre:"></p>
+										<p><input class="form-control" type="email" placeholder="Correo:"></p>
+										<p><input class="form-control" type="text" placeholder="Dirección"></p>
+										<p><input class="form-control" type="tel" placeholder="Telefono"></p>
+										<p><textarea class="form-control" name="bill" id="bill" cols="30" rows="3" placeholder="Observaciones."></textarea></p>
+								</form>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingThree">
+						      <h5 class="mb-0">
+						        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree">
+						          Tarjeta de Débito/Crédito
+						        </button>
+						      </h5>
+						    </div>
+						    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="form-card">
+									<div class="payment-form">
+										<form id="paymentForm">
+											<div class="form-group">
+												<label>Nombre del titular</label>
+												<input type="text" class="form-control" id="cardName" required>
+											</div>
+
+											<div class="form-group">
+												<label>Número de tarjeta</label>
+												<input type="text" class="form-control" id="cardNumber" maxlength="19" placeholder="#### #### #### ####" required>
+												<div class="d-flex align-items-center logo-inline small-muted" style="margin-top:6px;">
+													<img id="logoVisa" src="img/visa.png" alt="visa">
+													<img id="logoMaster" src="img/mastercard.png" alt="mastercard">
+													<span id="cardTypeText" style="margin-left:8px"></span>
+												</div>
+											</div>
+
+											<div class="form-row">
+												<div class="col">
+													<label>MM/YY</label>
+													<input type="text" class="form-control" id="cardExp" maxlength="5" placeholder="MM/YY" required>
+												</div>
+												<div class="col">
+													<label>CVC</label>
+													<input type="text" class="form-control" id="cardCVC" maxlength="4" placeholder="CVC" required>
+												</div>
+											</div>
+										</form>
+									</div>
+
+										<div class="visual-wrap">
+											<div class="card-visual" id="cardVisual">
+												<div class="d-flex justify-content-between">
+													<div class="card-chip"></div>
+													<img id="logoVisual" class="card-logo" src="img/visa.png" width="70">
+												</div>
+												<div class="card-number" id="visualNumber">#### #### #### ####</div>
+												<div class="d-flex justify-content-between">
+													<div>
+														<div class="card-name" id="visualName">NOMBRE TITULAR</div>
+														<div class="card-exp" id="visualExp">MM/YY</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="order-details-wrap">
+						<table class="order-details">
+							<thead>
+								<tr>
+									<th>Detalles de tu orden</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody class="order-details-body"></tbody>
+							<tbody class="checkout-details"></tbody>
+						</table>
+						<button id="btnOrder" class="boxed-btn">Crear Orden</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal de pago exitoso -->
+	<div class="modal fade" id="modalPagoExitoso" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content text-center p-4">
+				<i class="fa fa-check-circle" style="font-size: 70px; color: green;"></i>
+				<h3 class="mt-3">Pago con Éxito</h3>
+				<p>Tu transacción ha sido completada.</p>
+				<button id="btnImprimirPDF" class="btn btn-primary mt-3">Imprimir Factura PDF</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- start footer Area -->
+	<footer class="footer-area section_gap" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+		<div class="container">
+			<div class="row">
+				<!-- Información de la empresa -->
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="single-footer-widget">
+						<div class="footer-logo">
+							<img src="img/fav.png" alt="Joyas Charly's" style="height: 50px; margin-bottom: 15px;">
+						</div>
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Joyería Charly's</h6>
+						<p style="color: #cccccc; line-height: 1.8;">
+							"Descubre la elegancia y el lujo con nuestra exclusiva colección de joyería. Cada pieza está diseñada para resaltar tu belleza y estilo, ofreciendo calidad y sofisticación en cada detalle."
+						</p>
+												<div class="footer-social" style="margin-top: 20px;">
+    <a href="#" style="color: #cccccc; margin-right: 15px; text-decoration: none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/joyas.charlys/" style="color: #cccccc; margin-right: 15px; text-decoration: none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+    <a href="#" style="color: #cccccc; margin-right: 15px; text-decoration: none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.187-3.55-8.444"/>
+        </svg>
+    </a>
+      <a href="#" style="color: #cccccc; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+        </svg>
+    </a>
+</div>
+	
+					</div>
+				</div>
+
+				<!-- Enlaces rápidos -->
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Enlaces Rápidos</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="index.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Inicio</a></li>
+							<li><a href="Shop.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Productos</a></li>
+							<li><a href="about.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Sobre Nosotros</a></li>
+							<li><a href="News.php" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Noticias</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Servicios -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Nuestros Servicios</h6>
+						<ul class="footer-list" style="list-style: none; padding: 0;">
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Joyería Personalizada</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Engaste de Piedras</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Limpieza Profesional</a></li>
+							<li><a href="#" style="color: #cccccc; text-decoration: none; line-height: 2.5;">Valuación de Joyas</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contacto -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 style="color: #ffd700; margin-bottom: 20px;">Contacto</h6>
+						<div class="contact-info" style="color: #cccccc;">
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-map-marker-alt" style="color: #ffd700; margin-right: 10px;"></i> Bo. El Centro, Ave Máximo Jerez <br> Casa 820 Tegucigalpa, Honduras</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-phone" style="color: #ffd700; margin-right: 10px;"></i> +504 9971-7820 <br>+504 9833-2595</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-envelope" style="color: #ffd700; margin-right: 10px;"></i> joyascharlys@gmail.com</p>
+							<p style="margin-bottom: 10px; color: #cccccc"><i class="fas fa-clock" style="color: #ffd700; margin-right: 10px;"></i> Lun - Vie: 9:00 - 18:00 <br>SÁB: 10:00 AM a 6:00 PM <br>DOM: 11:00 AM a 4:00 PM</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #444;">
+				<div class="col-lg-6 col-md-6">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Joyería Charly's - Todos los derechos reservados
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-6 text-right">
+					<p class="footer-text m-0" style="color: #cccccc;">
+						Diseñado con <i class="fas fa-heart" style="color: #ff6b6b;"></i> para nuestros clientes
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+	<!-- SCRIPTS -->
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+	<script>
+	// UTIL: formatea número de tarjeta con espacios
+	function formatCardNumber(value){
+		return value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();
+	}
+
+	// UTIL: Luhn check
+	function luhnCheck(num){
+		let arr = (num + '').split('').reverse().map(x => parseInt(x));
+		let sum = 0;
+		for(let i=0;i<arr.length;i++){
+			let val = arr[i];
+			if(i % 2 === 1){ val *= 2; if(val>9) val -= 9; }
+			sum += val;
+		}
+		return sum % 10 === 0;
+	}
+
+	// Detectar tipo por BIN
+	function detectCardType(number){
+		const clean = number.replace(/\D/g,'');
+		if(/^4/.test(clean)) return 'Visa';
+		if(/^(5[1-5])/.test(clean) || /^(222[1-9]|22[3-9]\d|2[3-6]\d{2}|27[01]\d|2720)/.test(clean)) return 'Mastercard';
+		return 'Desconocida';
+	}
+
+	// Actualizar visual
+	document.getElementById('cardNumber').addEventListener('input', function(e){
+		this.value = formatCardNumber(this.value);
+		const clean = this.value.replace(/\s/g,'');
+		const tipo = detectCardType(clean);
+		const logoVisa = document.getElementById('logoVisa');
+		const logoMaster = document.getElementById('logoMaster');
+		const logoVisual = document.getElementById('logoVisual');
+		const cardTypeText = document.getElementById('cardTypeText');
+		if(tipo === 'Visa'){
+			logoVisa.classList.add('active'); logoMaster.classList.remove('active'); logoVisual.src='img/visa.png'; cardTypeText.textContent='Visa';
+		}else if(tipo === 'Mastercard'){
+			logoMaster.classList.add('active'); logoVisa.classList.remove('active'); logoVisual.src='img/mastercard.png'; cardTypeText.textContent='Mastercard';
+		}else{ logoVisa.classList.remove('active'); logoMaster.classList.remove('active'); logoVisual.src='img/credit-card.png'; cardTypeText.textContent=''; }
+		document.getElementById('visualNumber').textContent = this.value || '#### #### #### ####';
+	});
+
+	document.getElementById('cardName').addEventListener('input', function(){
+		document.getElementById('visualName').textContent = this.value.toUpperCase() || 'NOMBRE TITULAR';
+	});
+
+	document.getElementById('cardExp').addEventListener('input', function(){
+		let v = this.value.replace(/\D/g,''); 
+
+		if(v.length >= 3){
+			this.value = v.slice(0,2) + '/' + v.slice(2,4);
+		} else {
+			this.value = v;
+		}
+
+		document.getElementById('visualExp').textContent = this.value || 'MM/YY';
+	});
+
+
+	// Cargar carrito
+	function cargarCarritoEnCheckout(){
+		const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+		const cuerpoTabla = document.querySelector('.order-details-body');
+		const resumenTabla = document.querySelector('.checkout-details');
+		cuerpoTabla.innerHTML = `<tr><td>Producto</td><td>Precio</td></tr>`;
+		if(carrito.length===0){
+			cuerpoTabla.innerHTML += `<tr><td colspan=\"2\">Tu carrito está vacío</td></tr>`;
+			resumenTabla.innerHTML = `<tr><td>Subtotal</td><td>$0.00</td></tr><tr><td>Envio</td><td>$0.00</td></tr><tr><td>Total</td><td>$0.00</td></tr>`;
+			return;
+		}
+		let subtotal = 0;
+		carrito.forEach(producto=>{
+			const totalProducto = producto.precio * producto.cantidad;
+			subtotal += totalProducto;
+			cuerpoTabla.innerHTML += `<tr><td>${producto.nombre} × ${producto.cantidad}</td><td>$${totalProducto.toFixed(2)}</td></tr>`;
+		});
+		const envio = 50;
+		const total = subtotal + envio;
+		resumenTabla.innerHTML = `<tr><td>Subtotal</td><td>$${subtotal.toFixed(2)}</td></tr><tr><td>Envio</td><td>$${envio.toFixed(2)}</td></tr><tr><td>Total</td><td>$${total.toFixed(2)}</td></tr>`;
+	}
+
+	document.addEventListener('DOMContentLoaded', cargarCarritoEnCheckout);
+
+	// Manejo del botón crear orden
+document.getElementById('btnOrder').addEventListener('click', function(){
+    const nombre = document.querySelector('input[placeholder="Nombre:"]').value.trim();
+    const correo = document.querySelector('input[placeholder="Correo:"]').value.trim();
+    const direccion = document.querySelector('input[placeholder="Dirección"]').value.trim();
+    const telefono = document.querySelector('input[placeholder="Telefono"]').value.trim();
+
+    const cardName = document.getElementById('cardName').value.trim();
+    const cardNumberRaw = document.getElementById('cardNumber').value.replace(/\s/g,'');
+    const cardExp = document.getElementById('cardExp').value.trim();
+    const cardCVC = document.getElementById('cardCVC').value.trim();
+
+    if(!nombre || !correo || !direccion || !telefono){ 
+        alert('Por favor completa todos los datos de envío.'); 
+        return; 
+    }
+    if(!cardName || cardNumberRaw.length < 10 || !cardExp || !(cardCVC.length===3 || cardCVC.length===4)){ 
+        alert('Por favor completa los datos de la tarjeta correctamente.'); 
+        return; 
+    }
+
+    const tipo = detectCardType(cardNumberRaw);
+
+    // Obtener usuario desde localStorage
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (!usuario || !usuario.id) {
+        alert('Debes iniciar sesión para realizar una orden.');
+        window.location.href = 'login.php';
+        return;
+    }
+
+    // Obtener carrito y validar estructura
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    if (carrito.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+    }
+
+    console.log('Estructura del carrito:', carrito);
+
+    // Validar y preparar productos
+    const productosParaEnviar = [];
+    let subtotal = 0;
+
+    for (const producto of carrito) {
+        
+        const id_joya = producto.id_joya;
+        const cantidad = producto.cantidad;
+        const precio = producto.precio;
+        const nombreProducto = producto.nombre;
+
+        // Validaciones más específicas
+        if (id_joya === undefined || id_joya === null || id_joya === '') {
+            console.error('Producto sin ID válido:', producto);
+            alert(`Error: El producto "${nombreProducto}" no tiene ID válido.`);
+            return;
+        }
+
+        if (cantidad === undefined || cantidad === null || cantidad < 1) {
+            console.error('Producto sin cantidad válida:', producto);
+            alert(`Error: El producto "${nombreProducto}" no tiene cantidad válida.`);
+            return;
+        }
+
+        // Asegurarnos de que los tipos sean correctos
+        productosParaEnviar.push({
+            id_joya: parseInt(id_joya), // Convertir a número entero
+            cantidad: parseInt(cantidad), // Convertir a número entero
+            precio: parseFloat(precio), // Convertir a número decimal
+            nombre: nombreProducto
+        });
+
+        subtotal += parseFloat(precio) * parseInt(cantidad);
+    }
+
+    const envio = 50;
+    const total = subtotal + envio;
+
+    // Preparar datos para la orden
+    const ordenData = {
+        id_usuario: parseInt(usuario.id), // Asegurar que sea número
+        productos: productosParaEnviar,
+        total: total,
+        estado: 'confirmado'
+    };
+
+    
+
+    // Mostrar loading en el botón
+    const boton = this;
+    const textoOriginal = boton.innerHTML;
+    boton.innerHTML = 'Creando Orden...';
+    boton.disabled = true;
+
+    // Enviar la orden al servidor
+    fetch('Controller/guardarOrdenController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(ordenData)
+    })
+    .then(response => {
+        return response.text().then(text => {
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                throw new Error('El servidor no devolvió JSON válido. Respuesta: ' + text);
+            }
+        });
+    })
+    .then(data => {
+        console.log('Respuesta:', data);
+        
+        if (data.success) {
+            // Guardar datos COMPLETOS de pago en localStorage para el PDF
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const pagoData = {
+                nombre, correo, direccion, telefono,
+                cardLast4: cardNumberRaw.slice(-4),
+                cardType: tipo,
+                id_orden: data.id_orden,
+                id_factura: data.id_factura,
+                productos: carrito,
+                subtotal: subtotal, 
+                envio: envio,
+                total: total 
+            };
+            localStorage.setItem('pagoData', JSON.stringify(pagoData));
+
+            // Limpiar carrito
+            localStorage.removeItem('carrito');
+
+            // Mostrar modal de éxito
+            $('#modalPagoExitoso').modal('show');
+        } else {
+            throw new Error(data.message || 'Error desconocido');
+        }
+    })
+    .catch(error => {
+        console.error('Error completo:', error);
+        alert('Error al crear la orden: ' + error.message);
+    })
+    .finally(() => {
+        // Restaurar botón
+        boton.innerHTML = textoOriginal;
+        boton.disabled = false;
+    });
+});
+
+	// ========== FUNCIÓN PARA IMPRIMIR FACTURA ==========
+	document.getElementById('btnImprimirPDF').addEventListener('click', function(){
+		const pagoData = JSON.parse(localStorage.getItem('pagoData')) || {};
+		const { jsPDF } = window.jspdf;
+
+		const doc = new jsPDF();
+
+		// ======== ESTILOS ========
+		const tituloColor = "#333333";
+		const textoColor = "#555555";
+		const lineaColor = "#DDDDDD";
+
+		doc.setFont("helvetica", "normal");
+
+		// Logo
+		doc.addImage('img/instagram/profile.png', 'PNG', 150, 10, 40, 40);
+
+		// ====== TÍTULO ======
+		doc.setFontSize(22);
+		doc.setTextColor(tituloColor);
+		doc.text("Factura de Compra - Joyas Charly's", 14, 25);
+
+		doc.setFontSize(12);
+		doc.setTextColor(textoColor);
+		doc.text(`Pedido #${pagoData.id_orden || 'N/A'}`, 14, 32);
+
+		// Línea suave
+		doc.setDrawColor(lineaColor);
+		doc.line(14, 36, 196, 36);
+
+		// ======= DATOS DEL CLIENTE =======
+		doc.setFontSize(14);
+		doc.setTextColor("#000000");
+		doc.text("Datos del cliente", 14, 48);
+
+		doc.setFontSize(11);
+		doc.setTextColor(textoColor);
+
+		doc.text(`Nombre: ${pagoData.nombre || ''}`, 14, 58);
+		doc.text(`Correo: ${pagoData.correo || ''}`, 14, 66);
+		doc.text(`Teléfono: ${pagoData.telefono || ''}`, 14, 74);
+		doc.text(`Dirección: ${pagoData.direccion || ''}`, 14, 82);
+
+		doc.text(`Tarjeta: **** **** **** ${pagoData.cardLast4 || '----'}`, 14, 90);
+		doc.text(`Tipo de tarjeta: ${pagoData.cardType || 'Desconocida'}`, 14, 98);
+
+		const fecha = new Date();
+		doc.text(`Fecha: ${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString()}`, 14, 106);
+
+		// Línea divisoria
+		doc.line(14, 112, 196, 112);
+
+		// ======= TABLA DE PRODUCTOS =======
+		let y = 122;
+
+		doc.setFontSize(14);
+		doc.setTextColor("#000000");
+		doc.text("Detalle de la compra", 14, y);
+
+		y += 10;
+
+		doc.setFontSize(11);
+		doc.setTextColor(textoColor);
+
+		doc.setDrawColor(lineaColor);
+		doc.line(14, y, 196, y);
+
+		y += 8;
+
+		// Totales
+		const subtotal = pagoData.subtotal || 0;
+		const envio = pagoData.envio || 0;
+		const total = pagoData.total || 0;
+
+		
+		const productos = pagoData.productos || [];
+		productos.forEach(p => {
+			const totalProd = p.precio * p.cantidad;
+
+			doc.text(`${p.nombre} (x${p.cantidad})`, 14, y);
+			doc.text(`$${totalProd.toFixed(2)}`, 180, y, { align: "right" });
+
+			y += 8;
+
+			if (y > 260) {
+				doc.addPage();
+				y = 20;
+			}
+		});
+
+		// Línea antes de totales
+		doc.line(14, y, 196, y);
+
+		// ======= TOTALES =======
+		y += 10;
+		doc.setFontSize(12);
+		doc.setTextColor("#000000");
+
+		doc.text("Subtotal:", 140, y);
+		doc.text(`$${subtotal.toFixed(2)}`, 196, y, { align: "right" });
+
+		y += 8;
+		doc.text("Envío:", 140, y);
+		doc.text(`$${envio.toFixed(2)}`, 196, y, { align: "right" });
+
+		y += 8;
+		doc.setFontSize(14);
+		doc.text("TOTAL:", 140, y);
+		doc.text(`$${total.toFixed(2)}`, 196, y, { align: "right" });
+
+		// Mensaje final
+		y += 20;
+		doc.setFontSize(12);
+		doc.setTextColor(textoColor);
+		doc.text("¡Gracias por tu compra en Joyas Charly's!", 14, y);
+		y += 8;
+		doc.text("Para cualquier consulta, contáctanos al +504 9971-7820", 14, y);
+
+		// Guardar
+		doc.save(`Factura_JoyasCharly_${pagoData.id_orden || 'JoyasCharly'}.pdf`);
+	});
+
+	</script>
+
+</body>
+</html>

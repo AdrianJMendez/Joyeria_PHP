@@ -1,9 +1,9 @@
 -- Insertar Usuarios
 INSERT INTO Usuarios (nombre, email, contraseña, activo) VALUES 
-('Cesar Cruz', 'cesar.cruz@email.com', 'hashed_password_cesar', 1),
-('Adrian Mendez', 'adrian.mendez@email.com', 'hashed_password_adrian', 1),
-('Sofia Urrutia', 'sofia.urrutia@email.com', 'hashed_password_sofia', 1),
-('John Fiallos', 'john.fiallos@email.com', 'hashed_password_john', 1);
+('Cesar Cruz', 'cesar.cruz@email.com', 'cesar123', 1),
+('Adrian Mendez', 'adrian.mendez@email.com', 'adrian123', 1),
+('Sofia Urrutia', 'sofia.urrutia@email.com', 'sofia123', 1),
+('John Fiallos', 'john.fiallos@email.com', 'john123', 1);
 
 -- Insertar Roles
 INSERT INTO Rol(nombre_rol) VALUES 
@@ -115,3 +115,34 @@ INSERT INTO Pagos (id_factura, id_tarjeta, fecha_pago, monto_pagado) VALUES
 (2, 2, '2024-09-02', 750.00),
 (3, 3, '2024-09-03', 120.00);
 
+-- ANILLOS
+UPDATE Joyas SET imagen_url = 'img/products/anillos/Anillo de compromiso img1.png' WHERE nombre = 'Anillo de compromiso';
+UPDATE Joyas SET imagen_url = 'img/products/anillos/Anillo oro blanco.png' WHERE nombre = 'Anillo Oro Blanco';
+UPDATE Joyas SET imagen_url = 'img/products/anillos/Anillo oro 14k img 1.png' WHERE nombre = 'Anillo Oro 14K';
+
+-- ARETES
+UPDATE Joyas SET imagen_url = 'img/products/Aretes/Aretes Esmeralda.png' WHERE nombre = 'Aretes Esmeralda';
+UPDATE Joyas SET imagen_url = 'img/products/Aretes/Aretes oro blanco.png' WHERE nombre = 'Aretes Oro Blanco';
+UPDATE Joyas SET imagen_url = 'img/products/Aretes/Aretes Perla.png' WHERE nombre = 'Aretes Perla';
+
+-- BRAZALETES
+UPDATE Joyas SET imagen_url = 'img/products/brazaletes/Diamond Circle on Curb Chain Bracelet img 2.png' WHERE nombre = 'Diamond Circle on Curb Chain Bracelet';
+UPDATE Joyas SET imagen_url = 'img/products/brazaletes/Oval Snake Chain with Lobster Lock img 1.png' WHERE nombre = 'Oval Snake Chain with Lobster Lock';
+UPDATE Joyas SET imagen_url = 'img/products/brazaletes/Skema Borsari Gioielli img 2.png' WHERE nombre = 'Skema Borsari Gioielli';
+
+-- COLLARES
+UPDATE Joyas SET imagen_url = 'img/products/collares/Mini Open Marquise Adjustable Necklace img 2.png' WHERE nombre = 'Mini Open Marquise Adjustable Necklace';
+UPDATE Joyas SET imagen_url = 'img/products/collares/Rose Station Necklace img 1.png' WHERE nombre = 'Rose Station Necklace';
+UPDATE Joyas SET imagen_url = 'img/products/collares/Tilted Butterfly Necklace img 1.png' WHERE nombre = 'Tilted Butterfly Necklace';
+
+UPDATE Joyas
+SET stock = FLOOR(1 + (RAND() * 10));
+
+---Actualizacion de tallas para aretes
+UPDATE Joyas SET talla = '10 mm' WHERE nombre = 'Aretes Esmeralda';
+UPDATE Joyas SET talla = '8 mm – 20 mm' WHERE nombre = 'Aretes Oro Blanco';
+UPDATE Joyas SET talla = '12 mm' WHERE nombre = 'Aretes Perla';
+
+UPDATE Joyas SET talla = '5 Talla US ' WHERE nombre = 'Anillo de compromiso';
+UPDATE Joyas SET talla = '5 Talla US' WHERE nombre = 'Anillo Oro Blanco';
+UPDATE Joyas SET talla = '10 Talla US' WHERE nombre = 'Anillo Oro 14K';

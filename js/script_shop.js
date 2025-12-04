@@ -13,10 +13,10 @@ function cargarProductos() {
             <td>
                 <div class="media">
                     <div class="d-flex">
-                        <img src="${producto.imagen_url}" alt="${producto.marca} ${producto.modelo}" style="width: 80px; height: 80px; object-fit: cover;">
+                        <img src="${producto.imagen_url}" alt="${producto.nombre}" style="width: 80px; height: 80px; object-fit: cover;">
                     </div>
                     <div class="media-body">
-                        <p>${producto.marca} ${producto.modelo}</p>
+                        <p>${producto.nombre} ${producto.material}</p>
                     </div>
                 </div>
             </td>
@@ -66,6 +66,20 @@ function eliminarOrden() {
     // Redirigir a la página de inicio
     window.location.href = 'index.php';
 }
+
+
+function guardarOrden() {
+   
+        if (!SessionManager.verificarSesion()) {
+            window.location.href = 'login.php';
+            return;
+        }
+
+    
+        window.location.href = 'checkout.php';
+}
+
+
 
 function submitOrder() {
     // Obtener los valores de los inputs
@@ -161,3 +175,5 @@ function createOrderDetails(id_orden) {
 
     alert('Detalles de la orden creados con éxito.');
 }
+
+
