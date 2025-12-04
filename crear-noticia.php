@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Crear nueva noticia - JoyasCharlys">
 
+    <script src="js/config.js"></script>
     <!-- title -->
     <title>Crear Noticia - JoyasCharlys</title>
 

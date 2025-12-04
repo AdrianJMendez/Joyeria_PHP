@@ -1,19 +1,11 @@
 // Función para obtener todas las joyas
-function obtenerTodasLasJoyas() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost/Joyeria/Controller/joyas.php', false); // Cambia la ruta según tu estructura
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            const joyas = JSON.parse(xhr.responseText);
-            mostrarJoyas(joyas);
-        } else {
-            console.error('Error al obtener las joyas');
-        }
-    };
-    xhr.onerror = function() {
-        console.error('Error de red');
-    };
-    xhr.send();
+async function obtenerTodasLasJoyas() {
+    try {
+        const joyas = await apiGet(CONFIG.JOYAS.GET_ALL);
+        mostrarJoyas(joyas);
+    } catch (error) {
+        console.error('Error al obtener las joyas:', error);
+    }
 }
 
 // Función para mostrar las joyas en la galería
@@ -92,7 +84,7 @@ document.addEventListener('click', function (e) {
         };
 
         // Enviar datos al PHP para verificar el stock
-        fetch('verificar_stock.php', {
+        fetch(CONFIG.STOCK.VERIFY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams({

@@ -159,6 +159,9 @@ session_start();
         .badge.bg-danger { background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%) !important; }
         .badge.bg-secondary { background: linear-gradient(135deg, #6c757d 0%, #495057 100%) !important; }
     </style>
+
+    <script src="js/config.js"></script>
+    
 </head>
 <body>
     

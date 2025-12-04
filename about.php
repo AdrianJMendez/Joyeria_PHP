@@ -8,6 +8,7 @@
 
 	<!-- title -->
 	<title>Sobre Nosotros</title>
+	<script src="js/config.js"></script>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -376,7 +377,7 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="single-team-item">
 						<div class="team-img">
-							<img src="" alt="Adrian Mendez" class="img-fluid">
+							<img src="img/team/Adrian.jpeg" alt="Adrian Mendez" class="img-fluid">
 						</div>
 						<h4>Adrian Mendez <span>Vendedor</span></h4>
 						<ul class="social-link-team">

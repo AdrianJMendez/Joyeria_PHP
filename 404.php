@@ -8,6 +8,7 @@
 
 	<!-- title -->
 	<title>¡Página no encontrada!</title>
+	<script src="js/config.js"></script>
 
 
 	<!-- favicon -->

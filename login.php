@@ -16,6 +16,8 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<title>Joyeria</title>
+
+	<script src="js/config.js"></script>
 	<!--
 		CSS
 		============================================= -->
@@ -135,6 +137,88 @@
 
                   <div class="pt-1 mb-4">
                     <button id = "btnSesion" class="btn btn-login btn-lg btn-block text-white w-100" type="button">Iniciar sesión</button>
+                  </div>
+
+                  <!-- Accordion de Cuentas de Prueba -->
+                  <div class="accordion accordion-flush mt-5 pt-4 border-top" id="accordionTestAccounts" style="border-top: 1px solid #e0e0e0;">
+                    <div class="accordion-item border-0">
+                      <h2 class="accordion-header" id="headingTestAccounts">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTestAccounts" aria-expanded="false" aria-controls="collapseTestAccounts" style="background-color: #f8f9fa; color: #8B4513; font-weight: 600;">
+                          <i class="fas fa-vial me-2"></i> Cuentas de Prueba (Desarrollo)
+                        </button>
+                      </h2>
+                      <div id="collapseTestAccounts" class="accordion-collapse collapse" aria-labelledby="headingTestAccounts" data-bs-parent="#accordionTestAccounts">
+                        <div class="accordion-body p-4" style="background-color: #fff8f0;">
+                          <div class="alert alert-info mb-3" style="background-color: #e3f2fd; border-color: #90caf9; color: #1565c0;">
+                            <i class="fas fa-info-circle me-2"></i> <strong>Nota:</strong> Estas son cuentas de prueba para desarrollo. Haz clic en cualquiera para auto-llenar los datos.
+                          </div>
+
+                          <!-- Administrador -->
+                          <div class="test-account-item mb-3 p-3" style="background-color: #fff; border: 1px solid #ffe4c4; border-radius: 0.5rem; cursor: pointer;" onclick="autoFillLogin('cesar.cruz@email.com', 'cesar123')">
+                            <div class="d-flex align-items-center">
+                              <div class="badge bg-warning text-dark me-3" style="font-size: 0.9rem; padding: 0.5rem 0.75rem;">
+                                <i class="fas fa-crown me-1"></i> Admin
+                              </div>
+                              <div class="flex-grow-1">
+                                <h6 class="mb-1" style="color: #8B4513; font-weight: 600;">Cesar Cruz</h6>
+                                <small class="text-muted">cesar.cruz@email.com</small>
+                              </div>
+                              <small class="text-muted">
+                                <i class="fas fa-copy"></i>
+                              </small>
+                            </div>
+                          </div>
+
+                          <!-- Vendedor -->
+                          <div class="test-account-item mb-3 p-3" style="background-color: #fff; border: 1px solid #ffe4c4; border-radius: 0.5rem; cursor: pointer;" onclick="autoFillLogin('adrian.mendez@email.com', 'adrian123')">
+                            <div class="d-flex align-items-center">
+                              <div class="badge bg-success me-3" style="font-size: 0.9rem; padding: 0.5rem 0.75rem;">
+                                <i class="fas fa-store me-1"></i> Vendedor
+                              </div>
+                              <div class="flex-grow-1">
+                                <h6 class="mb-1" style="color: #8B4513; font-weight: 600;">Adrian Mendez</h6>
+                                <small class="text-muted">adrian.mendez@email.com</small>
+                              </div>
+                              <small class="text-muted">
+                                <i class="fas fa-copy"></i>
+                              </small>
+                            </div>
+                          </div>
+
+                          <!-- Cliente -->
+                          <div class="test-account-item mb-3 p-3" style="background-color: #fff; border: 1px solid #ffe4c4; border-radius: 0.5rem; cursor: pointer;" onclick="autoFillLogin('sofia.urrutia@email.com', 'sofia123')">
+                            <div class="d-flex align-items-center">
+                              <div class="badge bg-primary me-3" style="font-size: 0.9rem; padding: 0.5rem 0.75rem;">
+                                <i class="fas fa-user me-1"></i> Cliente
+                              </div>
+                              <div class="flex-grow-1">
+                                <h6 class="mb-1" style="color: #8B4513; font-weight: 600;">Sofia Urrutia</h6>
+                                <small class="text-muted">sofia.urrutia@email.com</small>
+                              </div>
+                              <small class="text-muted">
+                                <i class="fas fa-copy"></i>
+                              </small>
+                            </div>
+                          </div>
+
+                          <!-- Gerente -->
+                          <div class="test-account-item mb-0 p-3" style="background-color: #fff; border: 1px solid #ffe4c4; border-radius: 0.5rem; cursor: pointer;" onclick="autoFillLogin('john.fiallos@email.com', 'john123')">
+                            <div class="d-flex align-items-center">
+                              <div class="badge bg-danger me-3" style="font-size: 0.9rem; padding: 0.5rem 0.75rem;">
+                                <i class="fas fa-briefcase me-1"></i> Gerente
+                              </div>
+                              <div class="flex-grow-1">
+                                <h6 class="mb-1" style="color: #8B4513; font-weight: 600;">John Fiallos</h6>
+                                <small class="text-muted">john.fiallos@email.com</small>
+                              </div>
+                              <small class="text-muted">
+                                <i class="fas fa-copy"></i>
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="login-links">
@@ -382,6 +466,45 @@
 			toast.show();
 		}
 	});
+
+	// Función para auto-llenar el formulario de login con cuentas de prueba
+	function autoFillLogin(email, password) {
+		document.getElementById('emailSesion').value = email;
+		document.getElementById('pasSesion').value = password;
+		
+		// Mostrar feedback visual
+		const emailInput = document.getElementById('emailSesion');
+		emailInput.classList.add('is-valid');
+		emailInput.style.borderColor = '#28a745';
+		
+		// Scroll suave al formulario
+		document.querySelector('.login-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+		
+		// Mostrar notificación
+		const notification = document.createElement('div');
+		notification.className = 'alert alert-success alert-dismissible fade show position-fixed';
+		notification.style.top = '20px';
+		notification.style.right = '20px';
+		notification.style.zIndex = '9999';
+		notification.style.minWidth = '300px';
+		notification.innerHTML = `
+			<i class="fas fa-check-circle me-2"></i>
+			<strong>¡Listo!</strong> Datos precargados. Haz clic en "Iniciar sesión"
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		`;
+		document.body.appendChild(notification);
+		
+		// Auto-cerrar la notificación después de 4 segundos
+		setTimeout(() => {
+			const alert = bootstrap.Alert.getOrCreateInstance(notification);
+			alert.close();
+		}, 4000);
+		
+		// Auto-focus en el botón de login
+		setTimeout(() => {
+			document.getElementById('btnSesion').focus();
+		}, 500);
+	}
 	</script>
 </body>
 </html>

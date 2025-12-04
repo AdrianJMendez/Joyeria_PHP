@@ -1,5 +1,5 @@
 function obtenerTarjeta(id_usuario) {
-    fetch(`http://localhost/Relojeria/Controller/tarjetas.php?id_usuario=${id_usuario}`)
+    fetch(CONFIG.TARJETAS.GET_ALL + `?id_usuario=${id_usuario}`)
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
@@ -56,7 +56,7 @@ function crearFactura() {
     };
 
     // Hacer la petición a la API para crear la factura
-    fetch('http://localhost/Relojeria/Controller/facturas.php', {
+    fetch(CONFIG.FACTURAS.CREATE, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ function crearPago() {
     };
 
     // Hacer la petición a la API para crear el pago
-    fetch('http://localhost/Relojeria/Controller/pagos.php', {
+    fetch(CONFIG.PAGOS.CREATE, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -125,12 +125,12 @@ function crearPago() {
     .then(data => {
         console.log('Pago creado con éxito:', data);
         alert('Pago creado con éxito.');
-        window.location.href = `index.php`;
+        window.location.href = CONFIG.PAGES.SHOP;
     })
     .catch((error) => {
         console.error('Error al crear el pago:', error);
         alert('Hubo un error al crear el pago.');
-        window.location.href = `index.php`;
+        window.location.href = CONFIG.PAGES.SHOP;
     });
 }
 
@@ -147,8 +147,9 @@ function limpiarLocalStorage() {
 function aceptarPago() {
     crearPago();
     limpiarLocalStorage();
-    window.location.href = `index.php`;
+    window.location.href = CONFIG.PAGES.SHOP;
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener los datos de localStorage

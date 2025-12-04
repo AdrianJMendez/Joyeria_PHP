@@ -56,6 +56,9 @@
 				justify-content: center !important;
 			}
 		</style>
+
+		<script src="js/config.js"></script>
+
 </head>
 
 <body>

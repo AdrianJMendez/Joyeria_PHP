@@ -16,6 +16,8 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<title>Joyas Charly's</title>
+
+	<script src="js/config.js"></script>
 	<!--
 		CSS
 		============================================= -->

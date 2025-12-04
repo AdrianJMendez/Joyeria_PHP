@@ -4,6 +4,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 include '../Database/conexion.php';
+include 'AuthHelper.php';
 
 function sendResponse($statusCode, $data) {
     http_response_code($statusCode);
@@ -19,8 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 }
 
 try {
-    $conexion = new Conexion();
-    
+    // Validar que los parámetros requeridos estén presentes
     if (!isset($_POST['email']) || !isset($_POST['password'])) {
         sendResponse(400, [
             'status' => false,
@@ -28,88 +28,71 @@ try {
         ]);
     }
     
-    $email = $_POST['email'];
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
     
-    // PRIMERO: Verificar si el usuario existe y está activo
-    $query = $conexion->prepare("SELECT id_usuario, nombre, contraseña, activo FROM usuarios WHERE email = ?");
-    $query->execute([$email]);
-    $usuario = $query->fetch(PDO::FETCH_ASSOC);
-    
-    if (!$usuario) {
-        sendResponse(401, [
+    // Validar que no estén vacíos
+    if (empty($email) || empty($password)) {
+        sendResponse(400, [
             'status' => false,
-            'message' => "Credenciales incorrectas"
+            'message' => 'Email y contraseña no pueden estar vacíos'
         ]);
     }
+    
+    // Crear conexión y helper de autenticación
+    $conexion = new Conexion();
+    $authHelper = new AuthHelper($conexion);
+    
+    // Validar usuario completo (autenticación + rol + privilegios)
+    $datosUsuario = $authHelper->validarUsuarioCompleto($email, $password);
+    
 
-    if ($usuario['contraseña'] !== $password) {
-        sendResponse(401, [
-            'status' => false,
-            'message' => "Credenciales incorrectas"
-        ]);
-    }
-    
-    // VERIFICAR SI EL USUARIO ESTÁ ACTIVO
-    if (!$usuario['activo']) {
-        sendResponse(403, [
-            'status' => false,
-            'message' => "Usuario inactivo"
-        ]);
-    }
-    
-    // LLAMAR AL PROCEDIMIENTO ALMACENADO
-    $query = $conexion->prepare('CALL sp_verificar_usuario_privilegios(?, ?)');
-    $query->execute([$email, $usuario['contraseña']]); // Usar la contraseña de la BD
-    
-    $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
-    
-    if (count($resultados) > 0) {
-        $session = $resultados[0];
-        
-        sendResponse(200, [
-            'status' => true,
-            'message' => "Login exitoso",
-            'id' => $usuario['id_usuario'],
-            'user' => $session['email'],       
-            'rol' => $session['nombre_rol'],     
-            'name' => $session['nombre'],     
-            'privilegios' => $session['privilegios'],
-            'token' => 'token123'
-            
-        ]);
-    } else {
-        sendResponse(401, [
-            'status' => false,
-            'message' => "No se encontraron privilegios para el usuario"
-        ]);
-    }
-    
-} catch(Exception $e) {
-    sendResponse(500, [
-        'status' => false,
-        'message' => "Error en el servidor: " . $e->getMessage()
-    ]);
-}
-
-if (count($resultados) > 0) {
-    $session = $resultados[0];
-    
-    // ESTABLECER LA SESIÓN PHP
-    $_SESSION['usuario_id'] = $usuario['id_usuario'];
-    $_SESSION['usuario_email'] = $email;
-    $_SESSION['usuario_nombre'] = $session['nombre'];
-    $_SESSION['usuario_rol'] = $session['nombre_rol'];
+    session_start();
+    $_SESSION['usuario_id'] = $datosUsuario['id_usuario'];
+    $_SESSION['usuario_email'] = $datosUsuario['email'];
+    $_SESSION['usuario_nombre'] = $datosUsuario['nombre'];
+    $_SESSION['usuario_rol'] = $datosUsuario['rol'];
+    $_SESSION['usuario_id_rol'] = $datosUsuario['id_rol'];
+    $_SESSION['usuario_privilegios'] = $datosUsuario['privilegios'];
     
     sendResponse(200, [
         'status' => true,
         'message' => "Login exitoso",
-        'id' => $usuario['id_usuario'],
-        'user' => $session['email'],       
-        'rol' => $session['nombre_rol'],     
-        'name' => $session['nombre'],     
-        'privilegios' => $session['privilegios'],
-        'token' => 'token123'
+        'data' => [
+            'id' => $datosUsuario['id_usuario'],
+            'nombre' => $datosUsuario['nombre'],
+            'email' => $datosUsuario['email'],
+            'rol' => $datosUsuario['rol'],
+            'id_rol' => $datosUsuario['id_rol'],
+            'privilegios' => $datosUsuario['privilegios'],
+            'activo' => $datosUsuario['activo'],
+            'token' => 'token123'  
+        ]
     ]);
+    
+} catch(Exception $e) {
+    $mensajeError = $e->getMessage();
+    
+    if (strpos($mensajeError, 'Credenciales incorrectas') !== false) {
+        sendResponse(401, [
+            'status' => false,
+            'message' => $mensajeError
+        ]);
+    } elseif (strpos($mensajeError, 'Usuario inactivo') !== false) {
+        sendResponse(403, [
+            'status' => false,
+            'message' => $mensajeError
+        ]);
+    } elseif (strpos($mensajeError, 'No se encontró') !== false) {
+        sendResponse(401, [
+            'status' => false,
+            'message' => $mensajeError
+        ]);
+    } else {
+        sendResponse(500, [
+            'status' => false,
+            'message' => "Error en el servidor: " . $mensajeError
+        ]);
+    }
 }
 ?>

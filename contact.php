@@ -8,6 +8,7 @@
 
 	<title>Contacto - Joyas Charly's</title>
 
+	<script src="js/config.js"></script>
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 <!-- Google Fonts -->

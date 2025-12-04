@@ -32,6 +32,8 @@ $mostrarBoton = isset($_SESSION['rol']) && $_SESSION['rol'] === 'Administrador';
 	<!-- title -->
 	<title>Noticias de Joyería - JoyasCharlys</title>
 
+	<script src="js/config.js"></script>
+
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 	<!-- google font -->

@@ -29,9 +29,9 @@ INSERT INTO Privilegios(nombre_privilegio) VALUES
 -- Asignar Roles a Usuarios
 INSERT INTO Usuarios_rol(id_usuario, id_rol) VALUES 
 (1, 1),  -- Cesar Cruz como Administrador
-(2, 3),  -- Adrian Mendez como Vendedor
+(4, 3),  -- Adrian Mendez como Vendedor
 (3, 2),  -- Sofia Urrutia como Cliente
-(4, 4);  -- John Fiallos como Gerente
+(4, 3);  -- John Fiallos como Gerente
 
 -- Asignar Privilegios a Roles
 INSERT INTO Privilegios_rol(id_rol, id_privilegio) VALUES 

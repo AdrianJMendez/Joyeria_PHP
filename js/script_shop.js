@@ -64,19 +64,19 @@ function eliminarOrden() {
     localStorage.removeItem('total');
 
     // Redirigir a la página de inicio
-    window.location.href = 'index.php';
+    window.location.href = CONFIG.PAGES.SHOP;
 }
 
 
 function guardarOrden() {
    
         if (!SessionManager.verificarSesion()) {
-            window.location.href = 'login.php';
+            window.location.href = CONFIG.PAGES.LOGIN;
             return;
         }
 
     
-        window.location.href = 'checkout.php';
+        window.location.href = CONFIG.PAGES.CHECKOUT;
 }
 
 
@@ -110,7 +110,7 @@ function submitOrder() {
     console.log('Orden guardada en localStorage:', JSON.parse(localStorage.getItem('ultima_orden')));
 
     // Hacer la petición a la API
-    fetch('http://localhost/Relojeria/Controller/ordenes.php', {
+    fetch(CONFIG.ORDENES.CREATE, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ function createOrderDetails(id_orden) {
         };
 
         // Hacer la petición a la API para cada detalle de la orden
-        fetch('http://localhost/Relojeria/Controller/ordenDetalle.php', {
+        fetch(CONFIG.ORDENES.GET_DETAILS, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

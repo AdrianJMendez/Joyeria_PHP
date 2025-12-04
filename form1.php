@@ -16,6 +16,7 @@
 	<!-- Site Title -->
 	<title>Joyeria</title>
 
+	<script src="js/config.js"></script>
 	<!--
 		CSS
 		============================================= -->

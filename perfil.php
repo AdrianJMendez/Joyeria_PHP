@@ -7,6 +7,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - Joyas Charly's</title>
+
+    <script src="js/config.js"></script>
     
     <!-- CSS -->
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">

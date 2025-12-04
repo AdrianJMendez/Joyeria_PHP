@@ -29,7 +29,7 @@ class SessionManager {
             localStorage.removeItem('usuario');
             localStorage.removeItem('token');
             
-            window.location.href = 'login.php';
+            window.location.href = CONFIG.PAGES.LOGIN;
         }
     }
 
@@ -50,10 +50,10 @@ class SessionManager {
                         <span>${initial.toUpperCase()}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="perfil.php">
+                        <a class="dropdown-item" href="${CONFIG.PAGES.PERFIL}">
                             <i class="fas fa-user me-2"></i> Mi Perfil
                         </a>
-                        <a class="dropdown-item" href="pedidos.php">
+                        <a class="dropdown-item" href="${CONFIG.PAGES.PEDIDOS}">
                             <i class="fas fa-shopping-bag me-2"></i> Mis Pedidos
                         </a>
                         <div class="dropdown-divider"></div>
@@ -69,7 +69,7 @@ class SessionManager {
             this.inicializarDropdown();
         } else {
             authNavItem.innerHTML = `
-                <a class="nav-link" href="login.php">
+                <a class="nav-link" href="${CONFIG.PAGES.LOGIN}">
                     <i class="fas fa-sign-in-alt me-2"></i>Iniciar sesión
                 </a>
             `;

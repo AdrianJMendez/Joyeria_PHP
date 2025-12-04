@@ -8,6 +8,7 @@
     
     <title>Noticia - JoyasCharlys</title>
     
+    <script src="js/config.js"></script>
     <!-- Todos tus estilos existentes -->
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"> <!-- Corregida ruta -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
